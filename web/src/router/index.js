@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
 import About from '@/components/About'
 import Join from '@/components/Join'
 import Why from '@/components/Why'
@@ -12,8 +11,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Why_',
+      component: Why
     },
       {
         path: '/About',

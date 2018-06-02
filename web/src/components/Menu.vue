@@ -15,7 +15,7 @@
     <el-menu-item index="spec">Specification</el-menu-item>
   </el-submenu>
   <el-menu-item index="join">Join Us</el-menu-item>
-  <el-menu-item index="5">Prototype</el-menu-item>
+  <el-menu-item index="prototype">Prototype</el-menu-item>
 </el-menu>
 </template>
 <script>
@@ -42,6 +42,9 @@ export default {
         }
         if(keyPath[1] === 'spec'){
           window.open('https://github.com/FellowChain/Documentation/tree/master/Analysis', '_blank')
+        }
+        if(key === 'prototype'){
+          window.open('https://prototype.fellowchain.network', '_blank')
         }
         console.log(key, keyPath)
       }
