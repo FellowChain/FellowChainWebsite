@@ -3,7 +3,7 @@
   <b>Join Us!</b>
 <a href="https://t.me/FellowChain"><img src="../assets/telegram.png"  width="18em" height="18em" target="_blank" ></a>
 <a href="https://www.facebook.com/groups/felllowchain/"><img src="../assets/facebook.png"  width="18em" height="18em" target="_blank" ></a>
-<a href="https://github.com/fellowchain"><img src="../assets/facebook.png"  width="18em" height="18em" target="_blank" ></a>
+<a href="https://github.com/fellowchain"><img src="../assets/github.png"  width="18em" height="18em" target="_blank" ></a>
 </span>
 </template>
 <script>
