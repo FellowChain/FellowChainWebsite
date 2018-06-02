@@ -6,6 +6,7 @@
     <ul>
         <li>We strongly believe that programable blockchain is World changing technology</li>
         <li>We want to embrace effectiveness of decentralized projects</li>
+        <li>We see great desire in people to learn blockchain development, this project is great opportunity for that</li>
         <li>We strongly believe that in many (although not all) areas, small flexible organisations <br/>
         are more effective in providing high quality solutions than governments and big corporations</li>
         <li>We clearly see that there is a need for wider blockchain adoption <br/>

@@ -13,6 +13,7 @@ it's transparency and fraud resistance</p>
 </p>
 <p>
   If You like the idea, You can partiicipate on github, or join us on facebook or telegram (see footer below).
+  See "Join Us", to find out, how You can participate.
 </p>
   </div>
 </template>
