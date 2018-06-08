@@ -15,6 +15,15 @@
     <el-menu-item index="spec">Specification</el-menu-item>
   </el-submenu>
   <el-menu-item index="join">Join Us</el-menu-item>
+
+  <el-submenu  index="gov" >
+    <template slot="title">Governance</template>
+    <el-menu-item index="gov">Governance</el-menu-item>
+    <el-menu-item index="vote">Vote on Requests</el-menu-item>
+    <el-menu-item index="votePlatform">Vote on Platform</el-menu-item>
+    <el-menu-item index="funding">Request Funding</el-menu-item>
+    <el-menu-item index="buy">Buy Tokens</el-menu-item>
+  </el-submenu>
   <el-menu-item index="prototype">Prototype</el-menu-item>
 </el-menu>
 </template>
@@ -36,6 +45,21 @@ export default {
         }
         if (key === 'join') {
               this.$router.push('/Join')
+        }
+        if (keyPath[1] === 'gov') {
+              this.$router.push('/Gov')
+        }
+        if(keyPath[1] === 'funding'){
+              this.$router.push('/Funding')
+        }
+        if(keyPath[1] === 'votePlatform'){
+              this.$router.push('/VotePlatform')
+        }
+        if(keyPath[1] === 'vote'){
+              this.$router.push('/Vote')
+        }
+        if(keyPath[1] === 'buy'){
+              this.$router.push('/Buy')
         }
         if(keyPath[1] === 'github'){
           window.open('https://github.com/fellowchain', '_blank')

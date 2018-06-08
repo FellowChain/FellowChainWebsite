@@ -6,9 +6,10 @@
     DAO (Decentralized Autonomus Organisation), allowing person without technical knowledge to create own
   community based insurance cooperative. It aims to implement all necessary logic on blockchain to minimalise bureaucratic
 overhead needed to run such organisation. Use of blockchain will also minimalise trust needed to run such organisation and maximise
-it's transparency and fraud resistance</p>
+it's transparency and fraud resistance</p> 
 <p>
-  FellowChain Project aims to be as blockchain agnostic as possible. Starting its support from Ethereum Rinkeby and POA Network Sokol Network.
+  FellowChain Project aims to be as blockchain agnostic as possible. Starting its support from Ethereum Ropsten,POA Sokol Network
+  during development and POA Core or LOOM in early adoption stage.
   When project will achieve betatests maturity we will introduce 2nd layer solution based on Ethereum technology.
 </p>
 <p>
