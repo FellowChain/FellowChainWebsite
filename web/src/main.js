@@ -12,12 +12,16 @@ import router from './router'
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+
 import VueResource from 'vue-resource'
 Vue.use(VueResource);
+
+import {store} from './store/store'
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  store:store,
   router,
   components: { App },
   template: '<App/>'

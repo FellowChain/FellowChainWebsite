@@ -2,7 +2,7 @@
 <template>
   <div class="why">
     <h1>Why </h1>
-    <h5>FellowChain is being build and why it is opensource solution</h5>
+    <h5> FellowChain is being build and why it is opensource solution</h5>
     <ul>
         <li>We strongly believe that programable blockchain is World changing technology</li>
         <li>We want to embrace effectiveness of decentralized projects</li>
@@ -19,7 +19,8 @@
 
 <script>
 export default {
-  name: 'About',
+  name: 'Why',
+  props: ['web3info'],
   data () {
     return {}
   }
