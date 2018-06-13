@@ -3,15 +3,13 @@
   <div class="Governance">
 
         <p>
-         This will allow You to vote on platform future
+         This will allow You to register contract execution for voting
         </p>
-<proposalsList></proposalsList>
 <newProposal></newProposal>
   </div>
 </template>
 
 <script>
-import proposalsList from '@/components/gov/platform/PlatformProposalsList'
 import newProposal from '@/components/gov/platform/NewPlatformProposal'
 export default {
   name: 'Governance',
@@ -23,7 +21,7 @@ export default {
   },
   methods: {
   },
-  components:{proposalsList,newProposal}
+  components:{newProposal}
 }
 </script>
 

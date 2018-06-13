@@ -5,13 +5,13 @@
     <p>
      This will allow You to vote on funds requests.
     </p>
-<donationsList></donationsList>
+<proposalsList></proposalsList>
 
   </div>
 </template>
 
 <script>
-import donationsList from '@/components/gov/donation/GovernanceDonationList'
+import proposalsList from '@/components/gov/platform/PlatformProposalsList'
 export default {
   name: 'Governance',
   data () {
@@ -22,7 +22,7 @@ export default {
   },
   methods: {
   },
-  components:{donationsList}
+  components:{proposalsList}
 }
 </script>
 

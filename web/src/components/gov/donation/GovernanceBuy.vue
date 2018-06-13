@@ -3,7 +3,7 @@
   <div class="Governance">
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
       <el-form-item label="Beneficiary address" prop="address">
-        <el-input v-model="form.address"  auto-complete="off"></el-input>
+        <el-input v-model="form.address"  auto-complete="off"  :disabled="true"></el-input>
       </el-form-item>
       <el-form-item label="Sum (in POA) for which You want to buy"  prop="sum"  auto-complete="off">
         <el-input type="sum" v-model="form.sum"></el-input>
@@ -20,7 +20,9 @@
 export default {
   name: 'DonateForm',
   data () {
-
+    if(this.$store.basicData!=undefined){
+      addr = this.$store.basicData.userAccount;
+    };
     var validateNumber = function(numStart,numEnds){
       return function(rule, value, callback){
         if(parseInt(value)>=numStart && parseInt(value)<=numEnds){
@@ -35,11 +37,11 @@ export default {
       form :
       {
         address:'',
-        link:''
+        sum:''
       },
       rules:{
         address:[
-          { required: true, message: 'Please place address here', trigger: 'blur' },
+          { required: true, message: 'You need to have Metamask provider enabled and be on POA network', trigger: 'blur' },
           { min: 42, max: 42, message: 'valid ethereum address is 42 characters starting 0x', trigger: 'blur' }
         ],
         sum:[
@@ -49,11 +51,32 @@ export default {
       }
     }
   },
+  computed: {
+    usrAddr () {
+      if(this.$store.getters.basicData!=undefined)
+        return this.$store.getters.basicData.userAccount;
+      else{
+        return '';
+      }
+      // Or return basket.getters.fruitsCount
+      // (depends on your design decisions).
+    }
+  },
+  watch: {
+    usrAddr (newVal, oldVal) {
+      // Our fancy notification (2).
+      console.log('Value change from' + oldVal +' to '+newVal);
+      this.$data.form.address = newVal;
+    }
+  },
   methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit! '+JSON.stringify(this.$data.form));
+            var sum = new web3.BigNumber(this.$data.form.sum);
+            var mul = (new web3.BigNumber(10)).pow(18);
+            sum = sum*mul;
+            this.$store.dispatch('buyTokens',sum);
           } else {
             return false;
           }

@@ -20,7 +20,7 @@
     <template slot="title">Governance</template>
     <el-menu-item index="gov">Governance</el-menu-item>
     <el-menu-item index="vote">Vote on Requests</el-menu-item>
-    <el-menu-item index="votePlatform">Vote on Platform</el-menu-item>
+    <el-menu-item index="votePlatform">Govern Platform</el-menu-item>
     <el-menu-item index="funding">Request Funding</el-menu-item>
     <el-menu-item index="buy">Buy Tokens</el-menu-item>
   </el-submenu>
