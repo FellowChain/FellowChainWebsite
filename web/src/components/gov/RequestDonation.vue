@@ -4,7 +4,6 @@
 
     <p>
       To request money (POA or FCT) from Development Fund Smart Contract use form below.It is highly adviced to start discussion about your reward <a href="https://github.com/FellowChain/Administration" >here</a> first.
-      <br/> Be aware that, to prevent spamming, there is 1 POA bond attached with every request. This bond might not be return in case of request rejection.
     </p>
     <donate></donate>
 
@@ -19,9 +18,9 @@ export default {
   data () {
 
     return {
-
     }
   },
+
   methods: {
   },
   components:{donate}

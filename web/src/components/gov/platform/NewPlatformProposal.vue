@@ -43,6 +43,10 @@ export default {
   name: 'DonateForm',
   data () {
 
+      var addr = '';
+      if(this.$store.getters.basicData!=undefined){
+        addr = this.$store.getters.basicData.userAccount;
+      }
     var validateNumber = function(numStart,numEnds){
       return function(rule, value, callback){
         if(parseInt(value)>=numStart && parseInt(value)<=numEnds){
@@ -56,7 +60,7 @@ export default {
     return {
       form :
       {
-        address:'',
+        address:addr,
         link:''
       },
       rules:{
@@ -85,6 +89,25 @@ export default {
       }
     }
   },
+
+      watch: {
+        usrAddr (newVal, oldVal) {
+          // Our fancy notification (2).
+          console.log('Value change from' + oldVal +' to '+newVal);
+          this.$data.form.address = newVal;
+        }
+      },
+      computed: {
+        usrAddr () {
+          if(this.$store.getters.basicData!=undefined)
+            return this.$store.getters.basicData.userAccount;
+          else{
+            return '';
+          }
+          // Or return basket.getters.fruitsCount
+          // (depends on your design decisions).
+        }
+      },
   methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {

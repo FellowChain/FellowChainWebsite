@@ -1,7 +1,7 @@
 
 <template>
   <div class="about">
-    <h1>About {{web3info.currentAddress}} {{web3info.networkId}}  {{web3info.latestBlock}}</h1>
+    <h1>About </h1>
     <p>FellowChain Project is open source (available on github) community based project which aims to build
     DAO (Decentralized Autonomus Organisation), allowing person without technical knowledge to create own
   community based insurance cooperative. It aims to implement all necessary logic on blockchain to minimalise bureaucratic
@@ -16,23 +16,15 @@ it's transparency and fraud resistance</p>
   If You like the idea, You can partiicipate on github, or join us on facebook or telegram (see footer below).
   See "Join Us", to find out, how You can participate.
 </p>
-<p>
-  <span v-for="t in test">{{t}}</span>
-</p>
+
   </div>
 </template>
 
 <script>
 export default {
   name: 'About',
-  props: ['web3info'],
   data () {
-    return {}
-  },
-  computed:{
-    test:function(){
-      return this.$store.state.test;
-    }
+    return {a:1}
   }
 }
 </script>

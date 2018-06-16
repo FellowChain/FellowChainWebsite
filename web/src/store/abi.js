@@ -907,6 +907,25 @@ const abi={
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "person",
+          "type": "address"
+        }
+      ],
+      "name": "isWithdrawPossible",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [],
       "name": "withdraw",
@@ -917,12 +936,7 @@ const abi={
     },
     {
       "constant": false,
-      "inputs": [
-        {
-          "name": "_benef",
-          "type": "address"
-        }
-      ],
+      "inputs": [],
       "name": "lockAllForVoting",
       "outputs": [],
       "payable": false,
@@ -932,10 +946,6 @@ const abi={
     {
       "constant": false,
       "inputs": [
-        {
-          "name": "_benef",
-          "type": "address"
-        },
         {
           "name": "value",
           "type": "uint256"

@@ -3,7 +3,7 @@
   <div class="Governance">
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
       <el-form-item label="Beneficiary address" prop="address">
-        <el-input v-model="form.address"  auto-complete="off"></el-input>
+        <el-input v-model="form.address"  auto-complete="off"  :disabled="true"></el-input>
       </el-form-item>
       <el-form-item label="Link to github issue discussing the work" prop="link">
         <el-input v-model="form.link" placeholder="https://github.com/FellowChain/Administration/issues/......"  auto-complete="off"></el-input>
@@ -42,6 +42,10 @@ export default {
   name: 'DonateForm',
   data () {
 
+      var addr = '';
+      if(this.$store.getters.basicData!=undefined){
+        addr = this.$store.getters.basicData.userAccount;
+      }
     var validateNumber = function(numStart,numEnds){
       return function(rule, value, callback){
         if(parseInt(value)>=numStart && parseInt(value)<=numEnds){
@@ -55,7 +59,7 @@ export default {
     return {
       form :
       {
-        address:'',
+        address:addr,
         link:''
       },
       rules:{
@@ -84,11 +88,67 @@ export default {
       }
     }
   },
+
+    watch: {
+      usrAddr (newVal, oldVal) {
+        // Our fancy notification (2).
+        console.log('Value change from' + oldVal +' to '+newVal);
+        this.$data.form.address = newVal;
+      }
+    },
+    computed: {
+      usrAddr () {
+        if(this.$store.getters.basicData!=undefined)
+          return this.$store.getters.basicData.userAccount;
+        else{
+          return '';
+        }
+        // Or return basket.getters.fruitsCount
+        // (depends on your design decisions).
+      },
+      devFundMethod(){
+        if(this.$data.form.currency==='POA'){
+          return "payForWorkInEth";
+        }
+        else{
+          return "payForWorkInToken";
+        }
+      },
+      sumToPay(){
+        if(this.$data.form.currency==='POA'){
+          var amount =new web3.BigNumber(this.$data.form.sum);
+          var multiplayer = (new web3.BigNumber("10")).pow(18);
+          amount=(amount.mul(multiplayer)).toString();
+          return amount;
+        }else{
+
+            var amount =new web3.BigNumber(this.$data.form.sum);
+            var multiplayer = (new web3.BigNumber("10")).pow(8); /*todo: change into decimels*/
+            amount=(amount.mul(multiplayer)).toString();
+            return amount;
+        }
+      }
+
+    },
   methods: {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit! '+JSON.stringify(this.$data.form));
+            this.$data.form.time = Date.now();
+            var hash = web3.sha3( JSON.stringify(this.$data.form));
+            var payload = {
+              address:'DevFund',
+              abiName:'DevFund',
+              methodName:this.devFundMethod,
+              args:[this.usrAddr,this.sumToPay,hash]
+            };
+            alert(JSON.stringify(payload));
+            /*
+            this.state.firebase.dispatch('saveContent',{
+              key:hash,
+              value: JSON.stringify(this.$data.form)
+            });
+            this.state.dispatch('runProxyMethod',payload)*/
           } else {
             return false;
           }

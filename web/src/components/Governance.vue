@@ -10,8 +10,8 @@
      <BR/><B>All POA aquired during token sale goes to Development Fund Smart Contract.</B> </p>
     <p> Initial distribution of Tokens is as follows</p>
     <ul>
-      <li>10 000 tokens (0,1%) is in hands of platform creator</li>
-      <li>9 990 000 (99,9%) is in hands of Development Fund smart contract </li>
+      <li>100 000 tokens (1%) is in hands of platform creator</li>
+      <li>9 900 000 (99,0%) is in hands of Development Fund smart contract </li>
 
     </ul>
     <p>

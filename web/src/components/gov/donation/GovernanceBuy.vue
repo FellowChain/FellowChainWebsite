@@ -1,9 +1,16 @@
 
 <template>
   <div class="Governance">
+
+      <p>
+        You currently have {{usrTotalBalance}} FCT, including {{usrLockedBalance}} locked for voting.
+      </p>
+      <p>
+        There is additional {{availableToBuy}} FCT available to buy.
+      </p>
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
       <el-form-item label="Beneficiary address" prop="address">
-        <el-input v-model="form.address"  auto-complete="off"  :disabled="true"></el-input>
+        <el-input v-model="form.address"   auto-complete="off"  :disabled="true"></el-input>
       </el-form-item>
       <el-form-item label="Sum (in POA) for which You want to buy"  prop="sum"  auto-complete="off">
         <el-input type="sum" v-model="form.sum"></el-input>
@@ -20,9 +27,11 @@
 export default {
   name: 'DonateForm',
   data () {
-    if(this.$store.basicData!=undefined){
-      addr = this.$store.basicData.userAccount;
-    };
+    var addr = '';
+    if(this.$store.getters.basicData!=undefined){
+      addr = this.$store.getters.basicData.userAccount;
+    }
+
     var validateNumber = function(numStart,numEnds){
       return function(rule, value, callback){
         if(parseInt(value)>=numStart && parseInt(value)<=numEnds){
@@ -36,7 +45,7 @@ export default {
     return {
       form :
       {
-        address:'',
+        address:addr,
         sum:''
       },
       rules:{
@@ -60,6 +69,32 @@ export default {
       }
       // Or return basket.getters.fruitsCount
       // (depends on your design decisions).
+    },
+    usrLockedBalance() {
+      var stats = this.$store.getters.tokenInfo;
+        if(stats!=undefined)
+          return stats.usersVotingPower;
+        else{
+          return '';
+        }
+    },
+    usrTotalBalance() {
+
+        var stats = this.$store.getters.tokenInfo;
+          if(stats!=undefined)
+            return stats.tokenUsersAmount;
+          else{
+            return '';
+          }
+    },
+    availableToBuy(){
+
+        var stats = this.$store.getters.tokenInfo;
+          if(stats!=undefined)
+            return stats.totalToBuy;
+          else{
+            return '';
+          }
     }
   },
   watch: {

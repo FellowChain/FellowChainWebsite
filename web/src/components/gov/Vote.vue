@@ -2,15 +2,18 @@
 <template>
   <div class="Governance">
 
-    <p>
-     This will allow You to vote on funds requests.
-    </p>
+        <p>
+         This page is responsible for voting on organisation decisions
+        </p>
+<votesManagement></votesManagement>
+
 <proposalsList></proposalsList>
 
   </div>
 </template>
 
 <script>
+import votesManagement from '@/components/gov/platform/VotingEnabled'
 import proposalsList from '@/components/gov/platform/PlatformProposalsList'
 export default {
   name: 'Governance',
@@ -22,7 +25,7 @@ export default {
   },
   methods: {
   },
-  components:{proposalsList}
+  components:{proposalsList,votesManagement}
 }
 </script>
 
