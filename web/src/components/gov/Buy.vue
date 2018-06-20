@@ -3,7 +3,9 @@
   <div class="Governance">
 
     <p>
-     This will allow You to buy tokens
+     This page allow you to buy FCT. This tokens will give you power to vote on further platform development and in case
+     platfogm gain any productional value, this tokens will be used to pay for services of a platform.
+
     </p>
 <buy></buy>
 

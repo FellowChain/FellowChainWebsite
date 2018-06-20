@@ -1,52 +1,52 @@
 
 <template>
   <div class="Governance">
-    This will be changed to form requesting platform proposals
+    Choose modification to platform You want to put under voting
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
-      <el-form-item label="Beneficiary address" prop="address">
-        <el-input v-model="form.address"  auto-complete="off"></el-input>
-      </el-form-item>
+
       <el-form-item label="Link to github issue discussing the work" prop="link">
         <el-input v-model="form.link" placeholder="https://github.com/FellowChain/Administration/issues/......"  auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="Sum You want to claim for your contribution"  prop="sum"  auto-complete="off">
-        <el-input type="sum" v-model="form.sum"></el-input>
-      </el-form-item>
-      <el-form-item label="Currency"  auto-complete="off"  prop="currency" >
-         <el-radio-group v-model="form.currency">
-           <el-radio label="POA"></el-radio>
-           <el-radio label="FCT"></el-radio>
-         </el-radio-group>
-      </el-form-item>
-      <el-form-item label="Activity type"  auto-complete="off"   prop="type">
-        <el-select v-model="form.type" placeholder="please select type of activity">
-          <el-option label="Marketing" value="1"></el-option>
-          <el-option label="Documentation" value="2"></el-option>
-          <el-option label="Implementation" value="3"></el-option>
-          <el-option label="Analysis" value="4"></el-option>
-          <el-option label="Community Management" value="5"></el-option>
-          <el-option label="Costs Return" value="6"></el-option>
-        </el-select>
-      </el-form-item>
+
       <el-form-item label="Activity description" auto-complete="off"  prop="desc">
          <el-input type="textarea" v-model="form.desc"></el-input>
       </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="submitForm('fundRequestForm')">Submit</el-button>
+
+
+      <el-form-item label="Contract"  auto-complete="off"   prop="contract">
+        <el-select v-model="form.contract" placeholder="select contract You want to invoke">
+          <el-option v-for="v in contractsList" :key="v.label" :label="v.label" :value="v.address"></el-option>
+        </el-select>
       </el-form-item>
+
+      <el-form-item label="Method" auto-complete="off" >
+        <el-select v-model="form.selMethod" >
+          <el-option v-for="v in methodsList"  :label="v.fullName" :key="v.fullName" :value="v.fullName" ></el-option>
+        </el-select>
+      </el-form-item>
+
+      <el-form-item
+    v-for="att in parametersList"
+    :label="att.name"
+    :key="att.name"
+    :prop="att.name"
+    >
+    <el-input v-model="form.attVal[att.id]"></el-input>
+  </el-form-item>
+  <el-form-item>
+    <el-button type="primary" @click="submitForm('fundRequestForm')">Submit</el-button>
+  </el-form-item>
     </el-form>
   </div>
 </template>
 
 <script>
+import abi from './../../../store/abi'
 export default {
   name: 'DonateForm',
   data () {
 
       var addr = '';
-      if(this.$store.getters.basicData!=undefined){
-        addr = this.$store.getters.basicData.userAccount;
-      }
     var validateNumber = function(numStart,numEnds){
       return function(rule, value, callback){
         if(parseInt(value)>=numStart && parseInt(value)<=numEnds){
@@ -60,10 +60,23 @@ export default {
     return {
       form :
       {
-        address:addr,
-        link:''
+        attVal:{}
       },
       rules:{
+
+                link:[
+                  { required: true, message: 'Provide link to discussion', trigger: 'blur' },
+                ],
+                desc:[
+                  { required: true, message: 'Describe reason of proposal', trigger: 'blur' },
+                ],
+        contract:[
+          { required: true, message: 'Choose contract', trigger: 'blur' },
+        ],
+        method:[
+          { required: true, message: 'Choose method', trigger: 'blur' },
+        ]
+        /*
         address:[
           { required: true, message: 'Please place address here', trigger: 'blur' },
           { min: 42, max: 42, message: 'valid ethereum address is 42 characters starting 0x', trigger: 'blur' }
@@ -85,7 +98,7 @@ export default {
           { required: true, message: 'Please fill in the description', trigger: 'blur' },
           { min: 10, max: 500, message: 'description should be 10-500 characters long', trigger: 'blur' }
         ],
-
+*/
       }
     }
   },
@@ -98,6 +111,56 @@ export default {
         }
       },
       computed: {
+        methodsList(){
+          if(this.$data.form.contract!==undefined){
+            var functions =[];
+            var abiMethods = abi[this.$data.form.contract];
+            for(var i=0;i<abiMethods.length;i++){
+              if(abiMethods[i].constant===false
+                && abiMethods[i].type ==="function"){
+                functions.push({
+                  name : abiMethods[i].name,
+                  fullName :  abiMethods[i].name + "("+Array.from(abiMethods[i].inputs,x => x.type).join(',')+")",
+                  attr: Array.from(abiMethods[i].inputs,x => {
+
+                  return {type:x.type,name:x.name} ;})
+                });
+              }
+            }
+            return functions;
+          }
+          else {
+            return [];
+          }
+        },
+        parametersList(){
+          if(this.$data.form.selMethod == undefined ){
+            return [];
+          }
+          else {
+            var arr = this.methodsList.filter(x => x.fullName === this.$data.form.selMethod )
+            .map(x=>x.attr);
+            return  [].concat(...arr).map((x,idx)=> { return {name:x.name,id:idx};});
+          }
+        },
+        contractsList(){
+          return [{
+            label:'Development Fund',
+            address:"DevFund"
+          },{
+            label:'Name Registry',
+            address:"NameRegistry"
+          },{
+            label:'Fellow Chain Token',
+            address:"Token"
+          },{
+            label:'Voting Locker Contract',
+            address:"Locker"
+          },{
+            label:'Voting Management Contract',
+            address:"Voting"
+          }];
+        },
         usrAddr () {
           if(this.$store.getters.basicData!=undefined)
             return this.$store.getters.basicData.userAccount;

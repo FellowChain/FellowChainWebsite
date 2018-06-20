@@ -96,13 +96,34 @@ export default {
   },
   methods: {
     setAllowence:function(){
-      this.$store.dispatch('setVoteAllowence');
+      var that = this;
+      that.$emit('lock-ui');
+      this.$store.dispatch('setVoteAllowence').then(function(){
+          that.$emit('unlock-ui');
+      }).catch(function(err){
+          that.$emit('unlock-ui');
+          console.error(err);
+      });
     },
     lockForVoting:function(){
-      this.$store.dispatch('lockAllForVoting',0);
+      var that = this;
+      that.$emit('lock-ui');
+      this.$store.dispatch('lockAllForVoting',0).then(function(){
+          that.$emit('unlock-ui');
+      }).catch(function(err){
+          that.$emit('unlock-ui');
+          console.error(err);
+      });
     },
     unlockFromVoting:function(){
-      this.$store.dispatch('withdraw');
+      var that = this;
+      that.$emit('lock-ui');
+      this.$store.dispatch('withdraw').then(function(){
+          that.$emit('unlock-ui');
+      }).catch(function(err){
+          that.$emit('unlock-ui');
+          console.error(err);
+      });
     }
   },
   components:{}

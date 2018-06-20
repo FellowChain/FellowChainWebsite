@@ -150,7 +150,7 @@ import abi from './../abi'
       allowenceOf:allowenceOf,
       getPrice:getPrice,
       canWithdraw:canWithdraw,
-      NameRegistry:"0xaa56e210aed90e4bce528e20f48a6b3f6a96018d"
+      NameRegistry:"0xba31c54fbc216e9b482ae52e3748351e6cd79dbb"
     },
     inProcess:false,
     prevBlock:2,
@@ -163,24 +163,7 @@ import abi from './../abi'
     totalToBuy:new web3.BigNumber("0"),
     price:new web3.BigNumber("0"),
     devAllowence:new web3.BigNumber("0"),
-    lockEndTime:new web3.BigNumber("0"),
-    pendingGovernanceVoting:[{
-      votedAddress:"0x56947ac048452f75a64e2411ca140336cf939f7d",
-      votedMethod:"transfer(address,uint256)",
-      msgData:"0xa9059cbb0000000000000000000000002f2b7e3c46174d6934564f31d49dac025b9028b0000000000000000000000000000000000000000000000000000000009731971f",
-      votesFor:5438,
-      votesAgainst:1234,
-      votingEnds:1528625532
-    },
-    {
-      amount:234.00,
-      currency:'POA',
-      to:'0x56947ac048452f75a64e2411ca140336cf939f7d',
-      msgHash:'5cc65c8468d19bdf0698582dd34c4d1f2d320d4cbdcfe590b3c110dec9f7dfee',
-      votesFor:5438,
-      votesAgainst:1234,
-      votingEnds:1528625532
-    }]
+    lockEndTime:new web3.BigNumber("0")
   }
 
   export default web3i;

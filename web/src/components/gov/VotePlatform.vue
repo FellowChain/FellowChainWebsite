@@ -2,9 +2,6 @@
 <template>
   <div class="Governance">
 
-        <p>
-         This will allow You to register contract execution for voting
-        </p>
 <newProposal></newProposal>
   </div>
 </template>

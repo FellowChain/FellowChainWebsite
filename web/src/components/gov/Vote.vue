@@ -1,11 +1,11 @@
 
 <template>
-  <div class="Governance">
+  <div class="Governance"   v-loading.fullscreen.lock="loading">
 
         <p>
          This page is responsible for voting on organisation decisions
         </p>
-<votesManagement></votesManagement>
+<votesManagement  v-on:lock-ui="lockUI"  v-on:unlock-ui="unlockUI"></votesManagement>
 
 <proposalsList></proposalsList>
 
@@ -20,10 +20,16 @@ export default {
   data () {
 
     return {
-
+      loading:false
     }
   },
   methods: {
+    lockUI(){
+      this.$data.loading=true;
+    },
+    unlockUI(){
+      this.$data.loading=false;
+    }
   },
   components:{proposalsList,votesManagement}
 }

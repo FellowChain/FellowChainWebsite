@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance">
+  <div class="Governance"  v-loading.fullscreen.lock="loading">
 
       <p>
         You currently have {{usrTotalBalance}} FCT, including {{usrLockedBalance}} locked for voting.
@@ -43,6 +43,7 @@ export default {
       }
     }
     return {
+      loading:false,
       form :
       {
         address:addr,
@@ -106,12 +107,19 @@ export default {
   },
   methods: {
       submitForm(formName) {
+        var that = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            var sum = new web3.BigNumber(this.$data.form.sum);
+            var sum = new web3.BigNumber(that.$data.form.sum);
             var mul = (new web3.BigNumber(10)).pow(18);
             sum = sum*mul;
-            this.$store.dispatch('buyTokens',sum);
+            that.$data.loading = true;
+            that.$store.dispatch('buyTokens',sum).then(function(){
+
+              that.$data.loading = false;
+            }).catch(function(){
+              that.$data.loading = false;
+            });
           } else {
             return false;
           }

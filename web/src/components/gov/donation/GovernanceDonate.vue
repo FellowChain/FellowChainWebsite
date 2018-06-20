@@ -13,18 +13,18 @@
       </el-form-item>
       <el-form-item label="Currency"  auto-complete="off"  prop="currency" >
          <el-radio-group v-model="form.currency">
-           <el-radio label="POA"></el-radio>
-           <el-radio label="FCT"></el-radio>
+           <el-radio label="POA" value="POA"></el-radio>
+           <el-radio label="FCT" value="FCT"></el-radio>
          </el-radio-group>
       </el-form-item>
       <el-form-item label="Activity type"  auto-complete="off"   prop="type">
         <el-select v-model="form.type" placeholder="please select type of activity">
-          <el-option label="Marketing" value="1"></el-option>
-          <el-option label="Documentation" value="2"></el-option>
-          <el-option label="Implementation" value="3"></el-option>
-          <el-option label="Analysis" value="4"></el-option>
-          <el-option label="Community Management" value="5"></el-option>
-          <el-option label="Costs Return" value="6"></el-option>
+          <el-option label="Marketing" value="Marketing"></el-option>
+          <el-option label="Documentation" value="Documentation"></el-option>
+          <el-option label="Implementation" value="Implementation"></el-option>
+          <el-option label="Analysis" value="Analysis"></el-option>
+          <el-option label="Community Management" value="Community Management"></el-option>
+          <el-option label="Costs Return" value="Costs Return"></el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="Activity description" auto-complete="off"  prop="desc">
@@ -114,6 +114,14 @@ export default {
           return "payForWorkInToken";
         }
       },
+      devFundMethodFullName(){
+        if(this.$data.form.currency==='POA'){
+          return "payForWorkInEth(address,uint256)";
+        }
+        else{
+          return "payForWorkInToken(address,uint256)";
+        }
+      },
       sumToPay(){
         if(this.$data.form.currency==='POA'){
           var amount =new web3.BigNumber(this.$data.form.sum);
@@ -132,6 +140,7 @@ export default {
     },
   methods: {
       submitForm(formName) {
+        var that = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
             this.$data.form.time = Date.now();
@@ -139,16 +148,24 @@ export default {
             var payload = {
               address:'DevFund',
               abiName:'DevFund',
-              methodName:this.devFundMethod,
-              args:[this.usrAddr,this.sumToPay,hash]
+              hash:hash,
+              methodName:that.devFundMethod,
+              methodFullName:that.devFundMethodFullName,
+              args:[that.usrAddr,that.sumToPay]
             };
-            alert(JSON.stringify(payload));
-            /*
-            this.state.firebase.dispatch('saveContent',{
+
+            that.$emit('lock-ui');
+            Promise.all([this.$store.dispatch('firebase/saveContent',{
               key:hash,
-              value: JSON.stringify(this.$data.form)
+              value: this.$data.form
+            }),
+            this.$store.dispatch('runProxyMethod',payload)]).then(function(){
+                that.$emit('unlock-ui');
+                that.$router.push('/Vote');
+            }).catch(function(err){
+              console.error(err);
+                that.$emit('unlock-ui');
             });
-            this.state.dispatch('runProxyMethod',payload)*/
           } else {
             return false;
           }

@@ -1,11 +1,11 @@
 
 <template>
-  <div class="Governance">
+  <div class="Governance"   v-loading.fullscreen.lock="loading">
 
     <p>
       To request money (POA or FCT) from Development Fund Smart Contract use form below.It is highly adviced to start discussion about your reward <a href="https://github.com/FellowChain/Administration" >here</a> first.
     </p>
-    <donate></donate>
+    <donate  v-on:lock-ui="lockUI"  v-on:unlock-ui="unlockUI"></donate>
 
 
   </div>
@@ -18,10 +18,17 @@ export default {
   data () {
 
     return {
+      loading:false
     }
   },
 
   methods: {
+    lockUI(){
+      this.$data.loading=true;
+    },
+    unlockUI(){
+      this.$data.loading=false;
+    }
   },
   components:{donate}
 }

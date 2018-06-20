@@ -1,5 +1,6 @@
 
 import abi from './../abi'
+import voteWorker from './../voting/web3vote'
 var ethActions = {
   updateBlockNumber:function(context){
     var blockNumber = 0;
@@ -73,16 +74,20 @@ var ethActions = {
       });
   },
   buyTokens:function(context,amountOfEth){
-    web3.eth.sendTransaction({
-        to:context.state.contracts.DevFund,
-        value:amountOfEth.toString()
-      },function(err,val){
-        if(err!=null && err!=undefined){
+    return new Promise((res,rej)=>{
 
-        }else{
-          context.commit('addPendingTransaction',val);
-        }
-      });
+      web3.eth.sendTransaction({
+          to:context.state.contracts.DevFund,
+          value:amountOfEth.toString()
+        },function(err,val){
+          if(err!=null && err!=undefined){
+            rej(err);
+          }else{
+            context.commit('addPendingTransaction',val);
+            res(true);
+          }
+        });
+    })
   },
   lockAllForVoting:function(context,amountOfTokens){
     //if 0 that meand all
@@ -116,6 +121,82 @@ var ethActions = {
           }
         });
       });
+
+  },
+  runProxyMethod:function(context,data){
+    var waitForTransactionEnd = function(hash){
+      return new Promise((res,rej)=>{
+        var checkTrans = function(){
+        console.log("checking "+hash);
+        web3.eth.getTransactionReceipt(hash,function(err,val){
+          if(val!=undefined){
+            console.log("found "+hash);
+            res(val);
+          }
+          else {
+            if(err!=undefined){
+              console.log("error "+hash);
+              rej(err);
+            }else{
+              console.log("wait longer for "+hash);
+              setTimeout(checkTrans,1000);
+            }
+          }
+        });
+      }
+      checkTrans();
+    })
+    }
+    var addMnemonic = function(votingInstance,fullName,hash,idx){
+
+      return new  Promise((res,rej)=>{
+        votingInstance.addMnemonic(fullName,hash,idx,function(err,val){
+          if(err!=null && err!=undefined){
+            rej(err);
+          }
+          else {
+            res(val);
+          }
+        });
+    });
+  }
+    /*
+{
+  "address":"DevFund",  //name of property from state.contracts containing address to call
+  "abiName":"DevFund",  //name of property from abi module containing abi of called address
+  "methodName":"payForWorkInToken", //method we want to call
+  "args":["0xe2915bb06ca06a97df3dbb8289b319912192609b",
+    "120000000",
+    "0x0ddcfb354c1d1a102d7419527e79f33f93412d0d03a48e6c6b877ef7e47a73f3"] //all parameters excluding callback
+ }
+    */
+    return new Promise((res,rej)=>{
+
+
+      data.args.push(function(e,v){
+        /*callback of method*/
+        context.rootState.voting.assignWatcher(v,function(event){
+          addMnemonic(votingInstance,data.methodFullName,data.hash,event.callIdx.toNumber()).then(function(){
+            res(true);
+          }).catch(function(err){
+            rej(err);
+          })
+        })
+
+      });
+      var adr = context.state.contracts[data.address];
+      var cAbi = abi[data.abiName];
+      var calledC = web3.eth.contract(cAbi);
+      var voteAbi = abi.Voting;
+      var votingC = web3.eth.contract(voteAbi);
+      var votingInstance  = votingC.at(context.state.contracts.Voting);
+      votingInstance.getProxy(adr,function(e,v){
+        var proxyAddr = v;
+        var instanceToCall = calledC.at(proxyAddr);
+        var funcToCall = instanceToCall[data.methodName];
+        return funcToCall.apply(instanceToCall,data.args);
+      });
+    });
 
   },
   exit:function(context){
