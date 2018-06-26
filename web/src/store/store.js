@@ -18,7 +18,7 @@ import firebase from './firebase/firebase'
     //updateNetworkData
     if(store.getters.basicData.inProcess==false){
       store.dispatch('updateNetworkData');
-      if(store.getters.basicData.isEnabled){
+      if(store.getters.basicData.isEnabled){ 
         if(store.getters.contractsInfo.isNotReady){
           store.dispatch('scanNameRegistry',web3i.contracts.NameRegistry);
         }

@@ -6,24 +6,24 @@ var ethMutations = {
     state.latestBlock = num;
   },
   setNetwork:function(state,netId){
-    state.networkId = netId ;
+    state.networkId = parseInt(netId) ;
     state.isEnabled = false ;
-    if(netId === 99){
+    if(state.networkId  === 77){
       state.explorerUrl = "https://sokol-explorer.poa.network/account/";
       state.contracts.NameRegistry = "";
       state.isEnabled = true ;
     }
-    if(netId === 77){
+    if(state.networkId  === 99){
       state.explorerUrl = "https://poaexplorer.com/address/";
       state.contracts.NameRegistry = "0x6e59dce4cf352bb1112c9dbf76c66a8e1edf141a";
       state.isEnabled = true ;
     }
-    if(netId === 3){//ropsten
+    if(state.networkId  === 3){//ropsten
       state.explorerUrl = "https://ropsten.etherscan.io/address/";
       state.contracts.NameRegistry = "0xfc4c43cc2a1182360397a3a7569c25e537e56466";
       state.isEnabled = true ;
     }
-    if(netId === 4){//rinkeby
+    if(state.networkId  === 4){//rinkeby
       state.explorerUrl = "https://rinkeby.etherscan.io/address/";
       state.contracts.NameRegistry = "0x23ec2e773a0d1f08c6bf73cdaed52e8d135944a1";
       state.isEnabled = true ;
