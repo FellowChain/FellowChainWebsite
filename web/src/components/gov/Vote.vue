@@ -7,7 +7,7 @@
         </p>
 <votesManagement  v-on:lock-ui="lockUI"  v-on:unlock-ui="unlockUI"></votesManagement>
 
-<proposalsList></proposalsList>
+<proposalsList v-on:lock-ui="lockUI"  v-on:unlock-ui="unlockUI"></proposalsList>
 
   </div>
 </template>

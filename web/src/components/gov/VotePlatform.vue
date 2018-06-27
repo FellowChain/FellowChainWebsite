@@ -1,8 +1,8 @@
 
 <template>
-  <div class="Governance">
+  <div class="Governance"  v-loading.fullscreen.lock="loading">
 
-<newProposal></newProposal>
+<newProposal  v-on:lock-ui="lockUI"  v-on:unlock-ui="unlockUI"></newProposal>
   </div>
 </template>
 
@@ -13,10 +13,16 @@ export default {
   data () {
 
     return {
-
+      loading:false
     }
   },
   methods: {
+    lockUI(){
+      this.$data.loading=true;
+    },
+    unlockUI(){
+      this.$data.loading=false;
+    }
   },
   components:{newProposal}
 }

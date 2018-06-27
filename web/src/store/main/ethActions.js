@@ -176,8 +176,14 @@ var ethActions = {
       data.args.push(function(e,v){
         /*callback of method*/
         context.rootState.voting.assignWatcher(v,function(event){
-          addMnemonic(votingInstance,data.methodFullName,data.hash,event.callIdx.toNumber()).then(function(){
-            res(true);
+          addMnemonic(votingInstance,data.methodFullName,
+            data.hash,
+            event.callIdx.toNumber()).then(function(tx){
+              console.log(tx);
+              waitForTransactionEnd(tx).then(function(){
+                res(true);
+              });
+
           }).catch(function(err){
             rej(err);
           })

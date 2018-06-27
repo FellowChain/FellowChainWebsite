@@ -20,12 +20,12 @@ var ethMutations = {
     }
     if(state.networkId  === 3){//ropsten
       state.explorerUrl = "https://ropsten.etherscan.io/address/";
-      state.contracts.NameRegistry = "0x2edc9acef3e34431bdbf65b918df8ff7122848dd";
+      state.contracts.NameRegistry = "0xe74b435173995927d2086f9763831d227a03ac10";
       state.isEnabled = true ;
     }
     if(state.networkId  === 4){//rinkeby
       state.explorerUrl = "https://rinkeby.etherscan.io/address/";
-      state.contracts.NameRegistry = "0xde94ba9c83fb6c23a3fd06394f1ec1cf837b5827";
+      state.contracts.NameRegistry = "0x93b5255ecd6422a2d15da111aee997cca9beebee";
       state.isEnabled = true ;
     }
   },

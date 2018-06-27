@@ -293,6 +293,8 @@ var contract = web3.eth.contract([
         });
       }).bind(el);
       el.voteFor = (function(callback){
+        console.log("Vote for "+this.callIdx.toNumber());
+          console.log("Vote for addr "+mainVotingC.address);
         mainVotingC.vote(this.callIdx.toNumber(),true,function(e,v){
 
           if(callback!=undefined){
@@ -302,6 +304,8 @@ var contract = web3.eth.contract([
         });
       }).bind(el);
       el.voteAgainst = (function(callback){
+        console.log("Vote against "+this.callIdx.toNumber());
+          console.log("Vote against addr "+mainVotingC.address);
         mainVotingC.vote(this.callIdx.toNumber(),false,function(e,v){
 
           if(callback!=undefined){

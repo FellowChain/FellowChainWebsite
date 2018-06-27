@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance">
+  <div class="Governance"  v-loading.fullscreen.lock="loading">
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
       <el-form-item label="Beneficiary address" prop="address">
         <el-input v-model="form.address"  auto-complete="off"  :disabled="true"></el-input>

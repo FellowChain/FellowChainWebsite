@@ -76,7 +76,7 @@ export default {
         if(stats!=undefined){
           var date = new Date(parseInt(stats.lockEndTime+"000"));
           if(stats.lockEndTime!=="0"){
-              return ' '+date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate();
+              return ' '+date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate()+" "+date.getHours()+":"+date.getMinutes();
           }
           else {
               return ' - ';

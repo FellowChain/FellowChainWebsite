@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance">
+  <div class="Governance" >
 
     <p>
       List of pending governmental decisions
@@ -98,7 +98,12 @@ export default {
   },
   methods: {
     processCall(clbk){
-      clbk();
+      var that = this;
+      that.$emit('lock-ui');
+
+      clbk(function(){
+        that.$emit('unlock-ui');
+      });
     },
     readRow(row, allExpanded){
       var that = this ;

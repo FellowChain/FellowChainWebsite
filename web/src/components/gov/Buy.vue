@@ -23,6 +23,12 @@ export default {
     }
   },
   methods: {
+    lockUI(){
+      this.$data.loading=true;
+    },
+    unlockUI(){
+      this.$data.loading=false;
+    }
   },
   components:{buy}
 }

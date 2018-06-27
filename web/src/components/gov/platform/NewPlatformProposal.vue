@@ -173,9 +173,43 @@ export default {
       },
   methods: {
       submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
+        var removeBrackets = function(str){
+          return str.substr(0,str.indexOf("("));
+        }
+        var that = this;
+        that.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit! '+JSON.stringify(this.$data.form));
+
+              that.$data.form.time = Date.now();
+              var hash = web3.sha3( JSON.stringify(this.$data.form));
+              var argsToAdd = []
+              for(var i=0;that.$data.form.attVal[i]!=undefined;i++){
+                argsToAdd.push(that.$data.form.attVal[i]);
+              }
+              that.$data.form.attVal[i];
+              var payload = {
+                address:that.$data.form.contract,
+                abiName:that.$data.form.contract,
+                hash:hash,
+                methodName:removeBrackets(that.$data.form.selMethod),
+                methodFullName:that.$data.form.selMethod,
+                args:argsToAdd
+              };
+
+              that.$emit('lock-ui');
+              Promise.all([that.$store.dispatch('firebase/saveContent',{
+                key:hash,
+                value: that.$data.form
+              }),
+              that.$store.dispatch('runProxyMethod',payload)]).then(function(){
+                  that.$emit('unlock-ui');
+                  that.$router.push('/Vote');
+              }).catch(function(err){
+                console.error(err);
+                  that.$emit('unlock-ui');
+              });
+
+
           } else {
             return false;
           }
