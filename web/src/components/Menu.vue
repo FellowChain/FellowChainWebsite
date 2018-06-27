@@ -39,36 +39,38 @@ export default {
       handleSelect(key, keyPath) {
         if (key === 'about') {
           this.$router.push('/About')
-        }
+        }else
         if (key === 'why') {
             this.$router.push('/Why')
-        }
+        }else
         if (key === 'join') {
               this.$router.push('/Join')
-        }
+        }else
         if (keyPath[1] === 'gov') {
               this.$router.push('/Gov')
-        }
+        }else
         if(keyPath[1] === 'funding'){
               this.$router.push('/Funding')
-        }
+        }else
         if(keyPath[1] === 'votePlatform'){
               this.$router.push('/VotePlatform')
-        }
+        }else
         if(keyPath[1] === 'vote'){
               this.$router.push('/Vote')
-        }
+        }else
         if(keyPath[1] === 'buy'){
               this.$router.push('/Buy')
-        }
+        }else
         if(keyPath[1] === 'github'){
           window.open('https://github.com/fellowchain', '_blank')
-        }
+        }else
         if(keyPath[1] === 'spec'){
           window.open('https://github.com/FellowChain/Documentation/tree/master/Analysis', '_blank')
-        }
+        }else
         if(key === 'prototype'){
           window.open('https://prototype.fellowchain.network', '_blank')
+        }else{
+              this.$router.push('/About')
         }
         console.log(key, keyPath)
       }

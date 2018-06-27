@@ -149,8 +149,7 @@ import abi from './../abi'
       lockEndTime:lockEndTime,
       allowenceOf:allowenceOf,
       getPrice:getPrice,
-      canWithdraw:canWithdraw,
-      NameRegistry:"0xba31c54fbc216e9b482ae52e3748351e6cd79dbb"
+      canWithdraw:canWithdraw
     },
     inProcess:false,
     prevBlock:2,

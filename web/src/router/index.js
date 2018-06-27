@@ -53,7 +53,12 @@ export default new Router({
           path: '/Gov',
           name: 'Gov',
           component: Gov
-        }
+        },
+          {
+            path: '/',
+            name: '',
+            component: About
+          }
 
   ]
 })
