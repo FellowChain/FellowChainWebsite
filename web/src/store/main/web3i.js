@@ -156,13 +156,13 @@ import abi from './../abi'
     latestBlock:2,
     explorerUrl:"https://sokol-explorer.poa.network/account/",
     currentAddress:"0x94da43c587c515ad30ea86a208603a7586d2c25f",
-    tokensBalance:new web3.BigNumber("0"),
-    exitPrice:new web3.BigNumber("0"),
-    votingPower:new web3.BigNumber("0"),
-    totalToBuy:new web3.BigNumber("0"),
-    price:new web3.BigNumber("0"),
-    devAllowence:new web3.BigNumber("0"),
-    lockEndTime:new web3.BigNumber("0")
+    tokensBalance:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+    exitPrice:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+    votingPower:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+    totalToBuy:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+    price:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+    devAllowence:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+    lockEndTime:((typeof web3 ==="undefined")?0:new web3.BigNumber("0"))
   }
 
   export default web3i;

@@ -15,25 +15,27 @@ import firebase from './firebase/firebase'
     votings:[]
   };
   setInterval(function(){
+    if(typeof web3 !== "undefined"){
     //updateNetworkData
-    if(store.getters.basicData.inProcess==false){
-      store.dispatch('updateNetworkData');
-      if(store.getters.basicData.isEnabled){ 
-        if(store.getters.contractsInfo.isNotReady){
-          store.dispatch('scanNameRegistry',web3i.contracts.NameRegistry);
-        }
-        else{
-          if(vWrkr===undefined){
-            vWrkr = voteWorker(votingStore,web3i.contracts.Voting,0);
+      if(store.getters.basicData.inProcess==false){
+        store.dispatch('updateNetworkData');
+        if(store.getters.basicData.isEnabled){
+          if(store.getters.contractsInfo.isNotReady){
+            store.dispatch('scanNameRegistry',web3i.contracts.NameRegistry);
           }
-          if(web3i.latestBlock !== web3i.prevBlock){
+          else{
+            if(vWrkr===undefined){
+              vWrkr = voteWorker(votingStore,web3i.contracts.Voting,0);
+            }
+            if(web3i.latestBlock !== web3i.prevBlock){
 
-            store.dispatch('readNewData',{prevNum:web3i.prevBlock,currNum:web3i.latestBlock});
-            web3i.prevBlock = web3i.latestBlock;
+              store.dispatch('readNewData',{prevNum:web3i.prevBlock,currNum:web3i.latestBlock});
+              web3i.prevBlock = web3i.latestBlock;
+            }
           }
+          //updateBlockNumber
+          store.dispatch('updateBlockNumber');
         }
-        //updateBlockNumber
-        store.dispatch('updateBlockNumber');
       }
     }
   },1000);

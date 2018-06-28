@@ -17,6 +17,8 @@ it's transparency and fraud resistance</p>
   See "Join Us", to find out, how You can participate.
 </p>
 
+<b>Requires Metamask and Rinkeby network to run</b>
+
   </div>
 </template>
 

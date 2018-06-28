@@ -20,6 +20,10 @@ var ethActions = {
          context.state.inProcess = false;
       });
     }
+    else{
+
+         context.commit('setNetwork',"0");
+    }
   },
   readNewData:function(context,details){
       var prevNum = details.prevNum;

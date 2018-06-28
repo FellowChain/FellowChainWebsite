@@ -15,7 +15,7 @@ var ethMutations = {
     }
     if(state.networkId  === 99){
       state.explorerUrl = "https://poaexplorer.com/address/";
-      state.contracts.NameRegistry = "0x6e59dce4cf352bb1112c9dbf76c66a8e1edf141a";
+      state.contracts.NameRegistry = "0x822b1a8323d1cdecd898f109bddb6b5452b45814";
       state.isEnabled = true ;
     }
     if(state.networkId  === 3){//ropsten
