@@ -15,19 +15,13 @@ admin.initializeApp({
 
 exports.getVerificationKey =  functions.https.onRequest((reqst, resp) => {
   var key = reqst.query.address;
-  var networkName = reqst.query.networkName;
-  var networkUrl = "";
-  if(typeof networkName === 'undefined'){
-    networkUrl = 'https://rinkeby.infura.io/ht4yyh0j0UUoTa2p9nF2';
-  }
-  else{
-    networkUrl = web3secrets[networkName];
-  }
+  var networkUrl = "https://rinkeby.infura.io/ht4yyh0j0UUoTa2p9nF2";
+
   console.log("data.query = "+JSON.stringify(reqst.query));
   console.log("networkUrl = "+networkUrl+ ""+new Date());
 
   //const provider = new HDWalletProvider(web3secrets.SECRET_MNEMONIC, web3secrets[networkName]);
-  web3 = new Web3(new Web3.providers.HttpProvider(networkUrl))
+  var web3 = new Web3(new Web3.providers.HttpProvider(networkUrl));
   var generateKey = function(key){
     console.log("Generating key..."+key);
     return new Promise((res,rej)=>{
@@ -61,29 +55,25 @@ exports.getVerificationKey =  functions.https.onRequest((reqst, resp) => {
        var now_ = new Date();
        if(time>now_){//id still valid
          console.log("Get from cache... "+x.authKey+" "+new Date());
-         resp.send(x.authKey);
+         resp.send(JSON.stringify({value:x.authKey,status:true}));
        }
        else{
          generateKey(key).then(function(y){
            console.log("Get from generateKey... "+y+" "+new Date());
-           resp.send(y);
+           resp.send(JSON.stringify({value:y,status:true}));
          });
        }
      }
      else {
        generateKey(key).then(function(y){
          console.log("Get from generateKey2... "+y+" "+new Date());
-         resp.send(y);
+         resp.send(JSON.stringify({value:y,status:true}));
        });
      }
    }).catch(function(err){
      console.error(err);
-     resp.send(err);
+     resp.send(JSON.stringify({value:err,status:false}));
    });
-});
-exports.verifySignature function.https.onRequest((req, res) => {
-      var address = req.query.address;
-      var signature = req.query.signature;
 });
 exports.addMessage = functions.https.onRequest((req, res) => {
   // Grab the text parameter.
@@ -104,7 +94,42 @@ exports.addMessage = functions.https.onRequest((req, res) => {
     .doc(key)
     .set({value:JSON.parse(data),str:data})
     .then((snapshot) => {
+    res.send(JSON.stringify({value:"",status:true}));
     // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
-    res.send(true);
+  }).catch(function(err){
+    res.send(JSON.stringify({value:err,status:false}));
   });
+});
+
+exports.verifySignature = functions.https.onRequest((req, res) => {
+      var isSignatureValid = function(hash,sign,expAddress){
+        return true;
+      }
+      var address = req.query.address;
+      var signature = req.query.signature;
+      var networkUrl = "https://rinkeby.infura.io/ht4yyh0j0UUoTa2p9nF2";
+      var web3 = new Web3(new Web3.providers.HttpProvider(networkUrl));
+      const additionalClaims = {
+        address : address,
+        isMetamask: true
+      }
+
+      admin.firestore()
+       .collection("loggedUsers")
+       .doc(key).get()
+       .then(function(x){
+         x= x.data();
+         var stringToVerify = web3.sha3("Sign me in, SessionID:"+x.authKey);
+         if(isSignatureValid(stringToVerify,signature,address)){
+           admin.auth().createCustomToken(address,additionalClaims).then(function(token){
+             res.send(JSON.stringify({value:token,status:true}));
+           })
+           .catch(function(err){
+             res.send(JSON.stringify({value:err,status:false}));
+           });
+         }
+         else {
+           res.send(JSON.stringify({value:"",status:false}));
+         }
+       });
 });
