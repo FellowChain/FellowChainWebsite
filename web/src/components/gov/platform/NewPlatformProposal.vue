@@ -199,7 +199,8 @@ export default {
               that.$emit('lock-ui');
               Promise.all([that.$store.dispatch('firebase/saveContent',{
                 key:hash,
-                value: that.$data.form
+                value: that.$data.form,
+                httpLib: this.$http
               }),
               that.$store.dispatch('runProxyMethod',payload)]).then(function(){
                   that.$emit('unlock-ui');

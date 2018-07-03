@@ -57,6 +57,7 @@ export default {
       }
     }
     return {
+      loading:false,
       form :
       {
         address:addr,
@@ -157,7 +158,8 @@ export default {
             that.$emit('lock-ui');
             Promise.all([this.$store.dispatch('firebase/saveContent',{
               key:hash,
-              value: this.$data.form
+              value: this.$data.form,
+              httpLib: this.$http
             }),
             this.$store.dispatch('runProxyMethod',payload)]).then(function(){
                 that.$emit('unlock-ui');

@@ -1,5 +1,7 @@
+//
 
 var firebaseMod = {
+
   namespaced: true,
     state:{
       cache:{
@@ -7,7 +9,8 @@ var firebaseMod = {
       },
       db:firebase.firestore()
     },
-    getters:{},
+    getters:{
+    },
     mutations:{},
     actions: {
       getData:function(context, obj) {
@@ -23,12 +26,16 @@ var firebaseMod = {
         });
       },
       saveContent:function(context,obj){
+        var httpLib = obj.httpLib;
           return new Promise((res,rej)=>{
-            context.state.db.collection("docs").doc(obj.key).set({value:obj.value,str:JSON.stringify(obj.value)}).then(function(){
-              res(true);
-            }).catch(function(err){
-              rej (err);
-            });
+            httpLib.post('/api/addMessage',{
+              key : obj.key,
+              content: JSON.stringify(obj.value)
+            }).then(response => {
+                  res(true);
+                 }, response => {
+                   rej(response);
+                  });
           });
         }
     }

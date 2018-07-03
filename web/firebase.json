@@ -6,7 +6,17 @@
       "**/.*",
       "**/node_modules/**"
     ],
+    "headers": [ {
+        "source" : "**",
+        "headers" : [ {
+          "key" : "Access-Control-Allow-Origin",
+          "value" : "*"
+        } ]
+    } ],
     "rewrites": [
+      {
+      "source": "/api/addMessage", "function": "addMessage"
+      },
       {
         "source": "**",
         "destination": "/index.html"
