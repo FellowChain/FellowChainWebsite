@@ -7,6 +7,8 @@ var ethGetters = {
       blockNumber : state.latestBlock,
       explorerUrl : state.explorerUrl,
       userAccount : state.currentAddress,
+      signedMessage :state.signedMessage,
+      isAuthorised:((state.isAuthorised===undefined)?false:state.isAuthorised)
     }
   },
   tokenInfo: state =>{

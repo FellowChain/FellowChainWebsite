@@ -116,7 +116,7 @@ exports.verifySignature = functions.https.onRequest((req, res) => {
 
       admin.firestore()
        .collection("loggedUsers")
-       .doc(key).get()
+       .doc(address).get()
        .then(function(x){
          x= x.data();
          var stringToVerify = web3.sha3("Sign me in, SessionID:"+x.authKey);

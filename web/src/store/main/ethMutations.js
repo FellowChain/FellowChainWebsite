@@ -2,8 +2,14 @@ var ethMutations = {
   setAccount:function(state,acc){
     state.currentAddress = acc;
   },
+  setAuth:function(state){
+      state.isAuthorised = true;
+    },
   setBlockNumber:function(state,num){
     state.latestBlock = num;
+  },
+  setSignature:function(state,signature){
+    state.signedMessage = num;
   },
   setNetwork:function(state,netId){
     state.networkId = parseInt(netId) ;

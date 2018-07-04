@@ -7,19 +7,35 @@ var firebaseMod = {
       cache:{
 
       },
+      firebaseToken:"",
       db:firebase.firestore()
     },
     getters:{
+      userAuthData:function(state){
+        return
+        {
+          token:state.firebaseToken
+        };
+      }
     },
-    mutations:{},
+    mutations:{
+
+      setTokenValue:function(state,val){
+        state.firebaseToken = val;
+      },
+    },
     actions: {
+      setToken:function(context,obj){
+        context.commit('setTokenValue',obj.token);
+        context.commit('setAuth');
+      },
       getData:function(context, obj) {
         return new Promise((res,rej)=>{
           context.state.db.collection("docs").doc(obj.key).get().then(function(x){
             if(x.exists){
               obj.storage[obj.property] = Object.assign(obj.storage[obj.property] ,x.data().value);
             }
-              res(true);
+            res(true);
           }).catch(function(ex){
             rej(ex);
           });
