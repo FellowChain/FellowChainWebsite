@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app"  v-loading.fullscreen.lock="isLoading">
 
 <el-container>
   <el-header>
@@ -22,6 +22,12 @@ import noMetamask from '@/components/NoMetamask'
 import notAuthorised from '@/components/NotAuthorised'
 export default {
   name: 'App',
+
+      computed: {
+        isLoading () {
+          return this.$store.getters['loading/isLocked'];
+        }
+      }
   components: {siteMenu,siteFooter,noMetamask,notAuthorised}
 }
 

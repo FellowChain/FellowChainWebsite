@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance"  v-loading.fullscreen.lock="loading">
+  <div class="Governance">
 
       <p>
         You currently have {{usrTotalBalance}} FCT, including {{usrLockedBalance}} locked for voting.

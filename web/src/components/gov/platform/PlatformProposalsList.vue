@@ -99,10 +99,12 @@ export default {
   methods: {
     processCall(clbk){
       var that = this;
-      that.$emit('lock-ui');
+      this.$store.dispatch('loading/lock');
+      //that.$emit('lock-ui');
 
       clbk(function(){
-        that.$emit('unlock-ui');
+        this.$store.dispatch('loading/unlock');
+        //that.$emit('unlock-ui');
       });
     },
     readRow(row, allExpanded){
