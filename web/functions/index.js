@@ -104,30 +104,23 @@ exports.addMessage = functions.https.onRequest((req, res) => {
 
 exports.verifySignature = functions.https.onRequest((req, res) => {
       var isSignatureValid = function(str,sign,expAddress){
+        return new Promise((resp,rej)=>{
 
-      var pad = function(num, size) {
-                var s = num + "";
-                while (s.length < size) s = "0" + s;
-                return s;
-            }
-      var toHex = function(str) {
-                var hex = '';
-                for (var i = 0; i < str.length; i++) {
-                    hex += pad(str.charCodeAt(i).toString(16), 2);
-                }
-                return hex.toLowerCase();
-            }
-      var strHex = toHex(str);
-      var address =  EthCrypto.recover(
-            sign,
-            EthCrypto.hash.keccak256(strHex));
-        console.log("Message ="+str+" Expected = "+expAddress.toLowerCase()+" Actual = "+address.toLowerCase());
-        return expAddress.toLowerCase()===address.toLowerCase();
+          var msgWithPrefix= "\x19Ethereum Signed Message:\n"+str.length+str;
+          var address =  EthCrypto.recover(
+                     sign,
+                     EthCrypto.hash.keccak256(msgWithPrefix));
+          console.log("address = "+address);
+          if(address.toLowerCase()==expAddress.toLowerCase()){
+            resp(true);
+          }
+          else{
+            rej(address);
+          }
+        });
       }
       var address = req.query.address;
       var signature = req.query.signature;
-      var networkUrl = "https://rinkeby.infura.io/ht4yyh0j0UUoTa2p9nF2";
-      var web3 = new Web3(new Web3.providers.HttpProvider(networkUrl));
       const additionalClaims = {
         address : address,
         isMetamask: true
@@ -138,18 +131,21 @@ exports.verifySignature = functions.https.onRequest((req, res) => {
        .doc(address).get()
        .then(function(x){
          x= x.data();
-         console.log("Value = "+JSON.stringify(x));
-         var stringToVerify = web3.sha3("Sign me in, SessionID:"+x.authKey);
-         if(isSignatureValid(stringToVerify,signature,address)){
-           admin.auth().createCustomToken(address,additionalClaims).then(function(token){
-             res.send(JSON.stringify({value:token,status:true}));
+         var stringToVerify ="Sign me in, SessionID:"+x.authKey;
+         isSignatureValid(stringToVerify,signature,address)
+            .then(function(){
+             return admin.auth().createCustomToken(address,additionalClaims).then(function(token){
+               res.send(JSON.stringify({value:token,status:true}));
+             });
            })
            .catch(function(err){
+             console.log("internal error "+JSON.stringify(arguments));
              res.send(JSON.stringify({value:err,status:false}));
            });
-         }
-         else {
-           res.send(JSON.stringify({value:"",status:false}));
-         }
-       });
-});
+         })
+         .catch(function(err){
+           console.log("External error "+JSON.stringify(arguments));
+
+           res.send(JSON.stringify({value:err,status:false}));
+         });
+    });
