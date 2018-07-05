@@ -3,8 +3,9 @@
 
 <el-container>
   <el-header>
-      <siteMenu v-if="this.$store.getters.basicData.isEnabled"></siteMenu>
-      <noMetamask v-if="this.$store.getters.basicData.isEnabled===false"></noMetamask>
+    <noMetamask v-if="this.$store.getters.basicData.isEnabled===false"></noMetamask>
+    <notAuthorised v-if="this.$store.getters.basicData.isEnabled===true && this.$store.getters.basicData.isAuthorised===false"></notAuthorised>
+    <siteMenu></siteMenu>
   </el-header>
   <el-main><router-view/></el-main>
   <el-footer><siteFooter/></el-footer>
@@ -18,9 +19,10 @@
 import siteMenu from '@/components/Menu'
 import siteFooter from '@/components/Footer'
 import noMetamask from '@/components/NoMetamask'
+import notAuthorised from '@/components/NotAuthorised'
 export default {
   name: 'App',
-  components: {siteMenu,siteFooter,noMetamask}
+  components: {siteMenu,siteFooter,noMetamask,notAuthorised}
 }
 
 </script>
@@ -36,5 +38,8 @@ export default {
 }
 .el-main{
   min-height: 25rem;
+}
+.el-header{
+  height: auto !important;
 }
 </style>
