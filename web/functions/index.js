@@ -104,11 +104,25 @@ exports.addMessage = functions.https.onRequest((req, res) => {
 
 exports.verifySignature = functions.https.onRequest((req, res) => {
       var isSignatureValid = function(str,sign,expAddress){
+
+      var pad = function(num, size) {
+                var s = num + "";
+                while (s.length < size) s = "0" + s;
+                return s;
+            }
+      var toHex = function(str) {
+                var hex = '';
+                for (var i = 0; i < str.length; i++) {
+                    hex += pad(str.charCodeAt(i).toString(16), 2);
+                }
+                return hex.toLowerCase();
+            }
+      var strHex = toHex(str);
       var address =  EthCrypto.recover(
             sign,
-            EthCrypto.hash.keccak256(str));
-        console.log("Message ="+str+" Expected = "+expAddress.toUpperCase()+" Actual = "+address.toUpperCase());
-        return expAddress.toUpperCase()===address.toUpperCase();
+            EthCrypto.hash.keccak256(strHex));
+        console.log("Message ="+str+" Expected = "+expAddress.toLowerCase()+" Actual = "+address.toLowerCase());
+        return expAddress.toLowerCase()===address.toLowerCase();
       }
       var address = req.query.address;
       var signature = req.query.signature;

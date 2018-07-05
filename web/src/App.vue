@@ -39,4 +39,7 @@ export default {
 .el-main{
   min-height: 25rem;
 }
+.el-header{
+  height: auto !important;
+}
 </style>

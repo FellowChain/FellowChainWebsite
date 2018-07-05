@@ -21,7 +21,7 @@ var ethActions = {
         for (var i = 0; i < str.length; i++) {
             hex += pad(str.charCodeAt(i).toString(16), 2);
         }
-        return hex;
+        return hex.toLowerCase();
     }
     var msg = obj.msg;
     web3.currentProvider.sendAsync({
