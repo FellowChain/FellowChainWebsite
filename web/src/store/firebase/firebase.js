@@ -11,11 +11,18 @@ var firebaseMod = {
       db:firebase.firestore()
     },
     getters:{
-      userAuthData:function(state){
-        return
-        {
+      isAnonymous: state=>{
+        var hasAuth = ((firebase.auth().currentUser)!==undefined  && (firebase.auth().currentUser)!==null );
+        if(hasAuth){
+          hasAuth = firebase.auth().currentUser.isAnonymous === false;
+        }
+        return hasAuth === false;
+      },
+      userAuthData: state =>{
+        var x = {
           token:state.firebaseToken
-        };
+        }
+        return x;
       }
     },
     mutations:{
@@ -25,9 +32,12 @@ var firebaseMod = {
       },
     },
     actions: {
+      setAuthData:function(context,obj){
+        context.dispatch('setAuthDetails', obj,{root:true});
+      },
       setToken:function(context,obj){
         context.commit('setTokenValue',obj.token);
-        context.commit('setAuth');
+        context.dispatch('setAuth', null,{root:true});
       },
       getData:function(context, obj) {
         return new Promise((res,rej)=>{

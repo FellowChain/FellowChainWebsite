@@ -9,6 +9,7 @@
     "logs": "firebase functions:log"
   },
   "dependencies": {
+    "eth-crypto": "^1.2.2",
     "firebase-admin": "~5.12.1",
     "firebase-functions": "^1.0.3",
     "truffle-hdwallet-provider": "0.0.5",

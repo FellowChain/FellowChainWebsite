@@ -1,6 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 const Web3 = require('web3');
+const EthCrypto = require('eth-crypto');
 //const HDWalletProvider = require("truffle-hdwallet-provider");
 var serviceAccount = require("./serviceAccountKey.json");
 var web3secrets = require("./secrets.json");
@@ -102,8 +103,12 @@ exports.addMessage = functions.https.onRequest((req, res) => {
 });
 
 exports.verifySignature = functions.https.onRequest((req, res) => {
-      var isSignatureValid = function(hash,sign,expAddress){
-        return true;
+      var isSignatureValid = function(str,sign,expAddress){
+      var address =  EthCrypto.recover(
+            sign,
+            EthCrypto.hash.keccak256(str));
+        console.log("Message ="+str+" Expected = "+expAddress.toUpperCase()+" Actual = "+address.toUpperCase());
+        return expAddress.toUpperCase()===address.toUpperCase();
       }
       var address = req.query.address;
       var signature = req.query.signature;
@@ -119,6 +124,7 @@ exports.verifySignature = functions.https.onRequest((req, res) => {
        .doc(address).get()
        .then(function(x){
          x= x.data();
+         console.log("Value = "+JSON.stringify(x));
          var stringToVerify = web3.sha3("Sign me in, SessionID:"+x.authKey);
          if(isSignatureValid(stringToVerify,signature,address)){
            admin.auth().createCustomToken(address,additionalClaims).then(function(token){

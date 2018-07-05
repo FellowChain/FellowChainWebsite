@@ -24,13 +24,19 @@ export default {
       firebaseToken(){
         var uAuthData = this.$store.getters["firebase/userAuthData"];
         return ((uAuthData===undefined)?"":uAuthData.token);
+      },
+      firebaseAuth(){
+        return this.$store.getters["firebase/isAnonymous"];
+        return hasAuth;
       }
     },
     watch:{
-      firebaseToken(oldV,newV){
+      firebaseToken(newV,oldV){
+        var that = this;
         if(newV!==undefined && newV!==null && newV.toString().length>0){
           firebase.auth().signInWithCustomToken(newV).then(function(usrCredentials){
-              console.log(JSON.stringify(usrCredentials));
+              var claimData = JSON.parse(atob(newV.split('.')[1])).claims;
+              that.$store.dispatch('firebase/setAuthData',claimData);
           }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -42,13 +48,14 @@ export default {
           });
         }
       },
-      signedMessage(oldV,newV){
+      signedMessage(newV,oldV){
+        var that = this;
         var myAddress = this.$store.getters.basicData.userAccount;
         if(newV!==undefined && newV!==null && newV.toString().length>0){
-          this.$http.get("/api/verifySignature?address="+myAddress+"&signature="+newV.toString(),function(resp){
-            if(resp.status===true){
+          this.$http.get("/api/verifySignature?address="+myAddress+"&signature="+newV.toString()).then(function(resp){
+            if(resp.body.status===true){
               that.$store.dispatch('firebase/setToken',{
-                token:resp.value
+                token:resp.body.value
               });
             }else{
               /*
@@ -63,10 +70,10 @@ export default {
       logIn(){
         var that = this;
         var myAddress = this.$store.getters.basicData.userAccount;
-        this.$http.get("/api/getVerificationKey?address="+myAddress,function(apiKey){
+        this.$http.get("/api/getVerificationKey?address="+myAddress).then(function(apiKey){
           var textToSign = "Sign me in, SessionID:";
-          if(apiKey.status===true){
-            textToSign=textToSign + apiKey.value;
+          if(apiKey.body.status===true){
+            textToSign=textToSign + apiKey.body.value;
             that.$store.dispatch('getSignature',{
               msg:textToSign
             })
@@ -78,6 +85,17 @@ export default {
           }
         });
       }
+    },
+    created(){
+      var that = this;
+      firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            if(that.$store.getters['firebase/isAnonymous']===false){
+                that.$store.dispatch('setAuth');
+            }
+          } else {
+          }
+        });
     }
   }
 </script>

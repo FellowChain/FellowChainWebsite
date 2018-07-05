@@ -3,6 +3,7 @@
   <span>
 
 <div>
+  Sign in to Metamask.
   <a href="https://metamask.io/"><img src="../assets/metamask.png"  width="auto" height="54em" target="_blank" ></a>
 
 </div>

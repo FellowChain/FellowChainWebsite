@@ -15,10 +15,13 @@
     } ],
     "rewrites": [
       {
-      "source": "/api/addMessage", "function": "addMessage",
-      "source": "/api/verifySignature", "function": "verifySignature",
+      "source": "/api/addMessage", "function": "addMessage"
+      },
+      {
+        "source": "/api/verifySignature", "function": "verifySignature"
+      },
+      {
       "source": "/api/getVerificationKey", "function": "getVerificationKey"
-
       },
       {
         "source": "**",

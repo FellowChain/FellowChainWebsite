@@ -2,25 +2,32 @@
 import abi from './../abi'
 import voteWorker from './../voting/web3vote'
 var ethActions = {
+
+  setAuth:function(context){
+        context.commit('setAuthValue');
+      },
+  setAuthDetails:function(context,data){
+            context.commit('setAuthValue',data);
+          },
   getSignature:function(context,obj){
 
-    var toHex = function(str) {
-        var hex = '';
-        for (var i = 0; i < str.length; i++) {
-            hex += this.pad(str.charCodeAt(i).toString(16), 2);
-        }
-        return hex;
-    }
     var pad = function(num, size) {
         var s = num + "";
         while (s.length < size) s = "0" + s;
         return s;
     }
+    var toHex = function(str) {
+        var hex = '';
+        for (var i = 0; i < str.length; i++) {
+            hex += pad(str.charCodeAt(i).toString(16), 2);
+        }
+        return hex;
+    }
     var msg = obj.msg;
     web3.currentProvider.sendAsync({
                     method: 'personal_sign',
                     params: ["0x" + toHex(msg), web3.eth.accounts[0]],
-                    from: from,
+                    from:  web3.eth.accounts[0],
                 }, function (err, result) {
                     if (err) {
                       console.log(err);
@@ -29,7 +36,7 @@ var ethActions = {
                       */
                     }
                     else {
-                        context.commit('setSignature',result);
+                        context.commit('setSignature',result.result);
                     }
                 });
   },

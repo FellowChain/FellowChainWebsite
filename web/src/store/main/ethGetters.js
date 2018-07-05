@@ -8,7 +8,8 @@ var ethGetters = {
       explorerUrl : state.explorerUrl,
       userAccount : state.currentAddress,
       signedMessage :state.signedMessage,
-      isAuthorised:((state.isAuthorised===undefined)?false:state.isAuthorised)
+      isAuthorised:((state.isAuthorised===undefined)?false:state.isAuthorised),
+      userData: state.userData
     }
   },
   tokenInfo: state =>{
