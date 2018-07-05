@@ -2,6 +2,7 @@
 node_modules/
 /dist/**/*
 npm-debug.log*
+secrets.json
 serviceAccountKey.json
 yarn-debug.log*
 yarn-error.log*
