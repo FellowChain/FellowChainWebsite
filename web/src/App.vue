@@ -27,7 +27,7 @@ export default {
         isLoading () {
           return this.$store.getters['loading/isLocked'];
         }
-      }
+      },
   components: {siteMenu,siteFooter,noMetamask,notAuthorised}
 }
 

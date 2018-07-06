@@ -98,12 +98,12 @@ export default {
     setAllowence:function(){
       var that = this;
     //  that.$emit('lock-ui');
-      this.$store.dispatch('loading/lock');
-      this.$store.dispatch('setVoteAllowence').then(function(){
-          this.$store.dispatch('loading/unlock');
+      that.$store.dispatch('loading/lock');
+      that.$store.dispatch('setVoteAllowence').then(function(){
+          that.$store.dispatch('loading/unlock');
         //  that.$emit('unlock-ui');
       }).catch(function(err){
-          this.$store.dispatch('loading/unlock');
+          that.$store.dispatch('loading/unlock');
           //that.$emit('unlock-ui');
           console.error(err);
       });
@@ -111,26 +111,26 @@ export default {
     lockForVoting:function(){
       var that = this;
 
-      this.$store.dispatch('loading/lock');
+      that.$store.dispatch('loading/lock');
       //that.$emit('lock-ui');
-      this.$store.dispatch('lockAllForVoting',0).then(function(){
-          this.$store.dispatch('loading/unlock');
+      that.$store.dispatch('lockAllForVoting',0).then(function(){
+          that.$store.dispatch('loading/unlock');
         //  that.$emit('unlock-ui');
       }).catch(function(err){
-          this.$store.dispatch('loading/unlock');
+          that.$store.dispatch('loading/unlock');
       //    that.$emit('unlock-ui');
           console.error(err);
       });
     },
     unlockFromVoting:function(){
       var that = this;
-      this.$store.dispatch('loading/lock');
+      that.$store.dispatch('loading/lock');
   //    that.$emit('lock-ui');
-      this.$store.dispatch('withdraw').then(function(){
-          this.$store.dispatch('loading/unlock');
+      that.$store.dispatch('withdraw').then(function(){
+          that.$store.dispatch('loading/unlock');
         //  that.$emit('unlock-ui');
       }).catch(function(err){
-          this.$store.dispatch('loading/unlock');
+          that.$store.dispatch('loading/unlock');
         //  that.$emit('unlock-ui');
           console.error(err);
       });

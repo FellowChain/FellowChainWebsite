@@ -17,15 +17,17 @@ var loadingMod = {
         state.loadingLvl = state.loadingLvl+1;
       },
       decLock:function(state){
-         state.loadingLvl = state.loadingLvl+1;
+         state.loadingLvl = state.loadingLvl-1;
       },
     },
     actions: {
       lock:function(context){
         context.commit('incLock');
+        console.log('lock ui');
       },
       unlock:function(context,obj){
         context.commit('decLock');
+        console.log('unlock ui');
       }
     }
 }

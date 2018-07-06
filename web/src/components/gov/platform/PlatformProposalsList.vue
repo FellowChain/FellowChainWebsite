@@ -99,11 +99,11 @@ export default {
   methods: {
     processCall(clbk){
       var that = this;
-      this.$store.dispatch('loading/lock');
+      that.$store.dispatch('loading/lock');
       //that.$emit('lock-ui');
 
       clbk(function(){
-        this.$store.dispatch('loading/unlock');
+        that.$store.dispatch('loading/unlock');
         //that.$emit('unlock-ui');
       });
     },

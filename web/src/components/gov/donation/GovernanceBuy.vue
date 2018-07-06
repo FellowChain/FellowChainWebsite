@@ -113,12 +113,11 @@ export default {
             var sum = new web3.BigNumber(that.$data.form.sum);
             var mul = (new web3.BigNumber(10)).pow(18);
             sum = sum*mul;
-            that.$data.loading = true;
+            that.$store.dispatch('loading/lock');
             that.$store.dispatch('buyTokens',sum).then(function(){
-
-              that.$data.loading = false;
+              that.$store.dispatch('loading/unlock');
             }).catch(function(){
-              that.$data.loading = false;
+              that.$store.dispatch('loading/unlock');
             });
           } else {
             return false;
