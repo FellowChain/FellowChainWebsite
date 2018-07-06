@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance"  v-loading.fullscreen.lock="loading">
+  <div class="Governance">
 
 <newProposal  v-on:lock-ui="lockUI"  v-on:unlock-ui="unlockUI"></newProposal>
   </div>

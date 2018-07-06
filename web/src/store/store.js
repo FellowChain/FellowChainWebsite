@@ -7,6 +7,7 @@ import ethActions from './main/ethActions'
 import voteWorker from './voting/web3vote'
 import votingGetters from './voting/votingGetters'
 import firebase from './firebase/firebase'
+import loadingMod from './loading/loading'
 
 
     Vue.use(Vuex);
@@ -49,6 +50,7 @@ export const store = new Vuex.Store({
         actions: ethActions
       },
     firebase:firebase,
+    loading:loadingMod,
     voting:{
       namespaced: true,
       state:votingStore,

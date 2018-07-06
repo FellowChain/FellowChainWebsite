@@ -196,18 +196,21 @@ export default {
                 args:argsToAdd
               };
 
-              that.$emit('lock-ui');
+                this.$store.dispatch('loading/lock');
+              //that.$emit('lock-ui');
               Promise.all([that.$store.dispatch('firebase/saveContent',{
                 key:hash,
                 value: that.$data.form,
                 httpLib: this.$http
               }),
               that.$store.dispatch('runProxyMethod',payload)]).then(function(){
-                  that.$emit('unlock-ui');
+                  this.$store.dispatch('loading/unlock');
+              //    that.$emit('unlock-ui');
                   that.$router.push('/Vote');
               }).catch(function(err){
-                console.error(err);
-                  that.$emit('unlock-ui');
+                  console.error(err);
+                  this.$store.dispatch('loading/unlock');
+                  //that.$emit('unlock-ui');
               });
 
 

@@ -97,31 +97,41 @@ export default {
   methods: {
     setAllowence:function(){
       var that = this;
-      that.$emit('lock-ui');
-      this.$store.dispatch('setVoteAllowence').then(function(){
-          that.$emit('unlock-ui');
+    //  that.$emit('lock-ui');
+      that.$store.dispatch('loading/lock');
+      that.$store.dispatch('setVoteAllowence').then(function(){
+          that.$store.dispatch('loading/unlock');
+        //  that.$emit('unlock-ui');
       }).catch(function(err){
-          that.$emit('unlock-ui');
+          that.$store.dispatch('loading/unlock');
+          //that.$emit('unlock-ui');
           console.error(err);
       });
     },
     lockForVoting:function(){
       var that = this;
-      that.$emit('lock-ui');
-      this.$store.dispatch('lockAllForVoting',0).then(function(){
-          that.$emit('unlock-ui');
+
+      that.$store.dispatch('loading/lock');
+      //that.$emit('lock-ui');
+      that.$store.dispatch('lockAllForVoting',0).then(function(){
+          that.$store.dispatch('loading/unlock');
+        //  that.$emit('unlock-ui');
       }).catch(function(err){
-          that.$emit('unlock-ui');
+          that.$store.dispatch('loading/unlock');
+      //    that.$emit('unlock-ui');
           console.error(err);
       });
     },
     unlockFromVoting:function(){
       var that = this;
-      that.$emit('lock-ui');
-      this.$store.dispatch('withdraw').then(function(){
-          that.$emit('unlock-ui');
+      that.$store.dispatch('loading/lock');
+  //    that.$emit('lock-ui');
+      that.$store.dispatch('withdraw').then(function(){
+          that.$store.dispatch('loading/unlock');
+        //  that.$emit('unlock-ui');
       }).catch(function(err){
-          that.$emit('unlock-ui');
+          that.$store.dispatch('loading/unlock');
+        //  that.$emit('unlock-ui');
           console.error(err);
       });
     }
