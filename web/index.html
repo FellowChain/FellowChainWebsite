@@ -6,6 +6,16 @@
     <title>fellowchainwebsite</title>
   </head>
   <body>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121630563-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121630563-1');
+</script>
+
         <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -15,6 +25,7 @@
         databaseURL: "https://fellowchain-network.firebaseio.com",
         projectId: "fellowchain-network",
         storageBucket: "fellowchain-network.appspot.com",
+        timestampsInSnapshots:true,
         messagingSenderId: "419288336072"
       };
       firebase.initializeApp(config);

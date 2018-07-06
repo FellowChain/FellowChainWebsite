@@ -2,8 +2,17 @@ var ethMutations = {
   setAccount:function(state,acc){
     state.currentAddress = acc;
   },
+  setAuthValue:function(state,data){
+      state.isAuthorised = true;
+      if(data!=undefined){
+        state.userData = data;
+      }
+    },
   setBlockNumber:function(state,num){
     state.latestBlock = num;
+  },
+  setSignature:function(state,signature){
+    state.signedMessage = signature;
   },
   setNetwork:function(state,netId){
     state.networkId = parseInt(netId) ;
@@ -41,7 +50,10 @@ var ethMutations = {
     state.canWithdraw=val;
   },
   addPendingTransaction:function(state,trans){
-    state.pendingTx.push(trans);
+    state.pendingTx[trans] = true;
+  },
+  remPendingTransaction:function(state,trans){
+    delete state.pendingTx[trans];
   },
   setContractsInfo:function(state,data){
     state.contracts = Object.assign({},state.contracts);

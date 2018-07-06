@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance"  v-loading.fullscreen.lock="loading">
+  <div class="Governance">
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
       <el-form-item label="Beneficiary address" prop="address">
         <el-input v-model="form.address"  auto-complete="off"  :disabled="true"></el-input>
@@ -57,6 +57,7 @@ export default {
       }
     }
     return {
+      loading:false,
       form :
       {
         address:addr,
@@ -153,18 +154,21 @@ export default {
               methodFullName:that.devFundMethodFullName,
               args:[that.usrAddr,that.sumToPay]
             };
-
-            that.$emit('lock-ui');
+              this.$store.dispatch('loading/lock');
+          //  that.$emit('lock-ui');
             Promise.all([this.$store.dispatch('firebase/saveContent',{
               key:hash,
-              value: this.$data.form
+              value: this.$data.form,
+              httpLib: this.$http
             }),
             this.$store.dispatch('runProxyMethod',payload)]).then(function(){
-                that.$emit('unlock-ui');
+                this.$store.dispatch('loading/unlock');
+              //  that.$emit('unlock-ui');
                 that.$router.push('/Vote');
             }).catch(function(err){
               console.error(err);
-                that.$emit('unlock-ui');
+              this.$store.dispatch('loading/unlock');
+              //  that.$emit('unlock-ui');
             });
           } else {
             return false;
