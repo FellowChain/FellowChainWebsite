@@ -36,4 +36,8 @@ export default {
 .el-main{
   min-height: 25rem;
 }
+
+  .test {
+
+  }
 </style>
