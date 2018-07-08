@@ -14,7 +14,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "bootstrap": "^4.1.1",
     "element-ui": "^2.4.0",
+    "font-awesome": "^4.7.0",
+    "metamask-logo": "^2.2.0",
+    "node-sass": "^4.9.1",
+    "sass-loader": "^7.0.3",
     "vue": "^2.5.2",
     "vue-resource": "^1.5.1",
     "vue-router": "^3.0.1",
