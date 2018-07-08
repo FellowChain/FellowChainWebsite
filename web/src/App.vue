@@ -339,7 +339,6 @@
                     Faqs list
                   </div>
                   <div class="col-lg-4">
-                    <!-- box musi byc kolorowy zeby sie wyroznial! i to ma byc forma do wysylania meili do nas -->
                     <div class="window">
                       <div class="row">
                         <div class="col-lg-3">
