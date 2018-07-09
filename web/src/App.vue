@@ -389,12 +389,18 @@
 import siteMenu from '@/components/Menu'
 import siteFooter from '@/components/Footer'
 import noMetamask from '@/components/NoMetamask'
+import notAuthorised from '@/components/NotAuthorised'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "font-awesome/css/font-awesome.css";
 
 export default {
   name: 'App',
-  components: {siteMenu,siteFooter,noMetamask},
+  components: {siteMenu,siteFooter,noMetamask, notAuthorised},
+  computed: {
+    isLoading () {
+      return this.$store.getters['loading/isLocked'];
+    }
+  },
   mounted () {
     var ModelViewer = require('metamask-logo')
     var viewer = ModelViewer({
@@ -417,6 +423,7 @@ export default {
     viewer.stopAnimation()
   }
 }
+
 </script>
 
 <style lang="sass">
