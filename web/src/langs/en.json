@@ -1,0 +1,126 @@
+{
+  "menu": {
+    "society": "Society",
+    "industry": "Insurance industry",
+    "prices": "Prices",
+    "about": "About fellows",
+    "open": "Open platform"
+  },
+  "introduction": {
+    "title": "Build transparency mutual insurance society on blockchain with",
+    "description": "Start with blockchain!",
+    "links": {
+      "create": "Create society",
+      "buy": "Buy token",
+      "more": "Learn more"
+    }
+  },
+  "metamask": {
+      "status": {
+        "off": "Your metamask is not detected. Many important functions might not work",
+        "on": "Your metamask is detected!"
+      }
+  },
+  "tips": {
+    "mission": {
+      "text": "a blockchain to build your insurance society.",
+      "href": "More about Problem & Solution "
+    },
+    "finance": {
+      "text": "how we want finance this initiative?",
+      "href": "More here"
+    }
+  },
+  "description": {
+    "paragraph1": [
+      "FellowChain Project is open source (available on github) community based project which aims tobuild",
+      "DAO (Decentralized Autonomus Organisation), allowing person without technical knowledge to create own",
+      "community based insurance cooperative. It aims to implement all necessary logic on blockchain to minimalise bureaucratic",
+      "overhead needed to run such organisation. Use of blockchain will also minimalise trust needed to run such",
+      "organisation and maximise",
+      "its transparency and fraud resistance"
+    ],
+    "paragraph2": [
+      "FellowChain Project aims to be as blockchain agnostic as possible." ,
+      "Starting its support from Ethereum Ropsten and Rinkeby Network during development and POA Core or LOOM in early adoption stage. ",
+      "When project will achieve betatests maturity we will introduce 2nd layer solution based on Ethereum technology."
+    ],
+    "paragraph3": [
+      "If You like the idea, You can partiicipate on github, or join us on facebook or telegram (see footer below).",
+      "See <strong>Join us</strong>, to find out, how You can participate."
+    ],
+    "tip": "Requires Metamask and Rinkeby network to run"
+  },
+  "mission": {
+    "title": "Mission",
+    "problem": {
+      "title": "Problem",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        "Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti." ,
+        "Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum.",
+        "Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi.",
+        "Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat.",
+        "Aliquam ultrices nisl ac vestibulum pellentesque."
+      ]
+    },
+    "solution": {
+      "title": "Solution!",
+      "description": [
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+        "Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti." ,
+        "Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum.",
+        "Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi.",
+        "Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat.",
+        "Aliquam ultrices nisl ac vestibulum pellentesque."
+      ]
+    }
+  },
+  "tokenDetails": {
+    "title": "Token details",
+    "description": ""
+  },
+  "finances": {
+    "title": "Finances",
+    "description": ""
+  },
+  "productReady": {
+    "title": "Product ready",
+    "label": "Platform prototype",
+    "description": ""
+  },
+  "community": {
+    "title": "Our community",
+    "github": {
+      "title": "Source code",
+      "description": "Check fellows.network source code on Github!",
+      "href": "Open repository"
+    },
+    "telegram": {
+      "title": "Telegram group",
+      "description": "Join to telegram fellows.network chat",
+      "href": "Join now"
+    },
+    "facebook": {
+      "title": "Facebook group",
+      "description": "Join to fellows.network group on facebook",
+      "href": "Join now"
+    },
+    "youtube": {
+      "title": "Youtube channel",
+      "description": "View video material about project on Youtube channel",
+      "href": "Open channel"
+    },
+    "wiki": {
+      "title": "Wiki",
+      "description": "Public wiki for project documentation",
+      "href": "Open wiki"
+    }
+  },
+  "help": {
+    "title": "HOW CAN WE HELP YOU? 🤲",
+    "faqs": {},
+    "email": {}
+  },
+  "footer": {}
+}

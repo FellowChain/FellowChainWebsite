@@ -15,21 +15,24 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Society</a>
+                    <a class="nav-link" href="#">{{ $t('menu.society')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Insurance industry</a>
+                    <a class="nav-link" href="#">{{ $t('menu.industry')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Prices</a>
+                    <a class="nav-link" href="#">{{ $t('menu.prices')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">About Fellows</a>
+                    <a class="nav-link" href="#">{{ $t('menu.about')}}</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav mr-auto pull-right navbar-right">
                   <li>
-                    <a href="platform.fellows.network"><i class="fa fa-external-link"></i> Open platform</a>
+                    <a href="platform.fellows.network">
+                      <i class="fa fa-external-link"></i>
+                      {{ $t('menu.open')}}
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -41,14 +44,14 @@
         <div class="row">
           <div class="col-lg-12">
               <div class="introduce">
-                <h1>Build transparency mutual insurance society on blockchain with</h1>
+                <h1>{{ $t('introduction.title')}}</h1>
                 <h2>Fellows <span>.network</span></h2>
               </div>
               <div class="actions">
-                <p>Start with blockchain!</p>
-                <a href="/" class="filled">Create society</a>
-                <a href="/" class="filled">Buy tokens</a>
-                <a href="/">Learn more</a>
+                <p>{{ $t('introduction.description')}}</p>
+                <a href="/" class="filled">{{ $t('introduction.links.create')}}</a>
+                <a href="/" class="filled">{{ $t('introduction.links.buy')}}</a>
+                <a href="/">{{ $t('introduction.links.more')}}</a>
               </div>
           </div>
         </div>
@@ -56,16 +59,14 @@
     </div>
     <div class="metamask">
       <div id="circle">
-        <div id="mask">
-
-        </div>
+        <div id="mask"></div>
         <p v-if="!this.$store.getters.basicData.isEnabled">
           <i class="fa fa-times"></i>
-          Your metamask is not detected. Many important functions might not work
+          {{ $t('metamask.status.off')}}
         </p>
         <p v-else-if="this.$store.getters.basicData.isEnabled" class="success">
           <i class="fa fa-check"></i>
-          Your metamask is detected!
+          {{ $t('metamask.status.on')}}
         </p>
         <div>
           <label class="switch">
@@ -81,41 +82,34 @@
           <div class="col-lg-4">
             <div class="title">
               <h1>
-                a blockchain to build your insurance society.
+                {{ $t('tips.mission.text')}}
               </h1>
               <span>
-                  More about Problem & Solution
+                  {{ $t('tips.mission.href')}}
                   <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
               </span>
             </div>
             <div class="title">
               <h1>
-                how we want finance this initiative?
+                {{ $t('tips.finance.text')}}
               </h1>
               <span>
-                  More here
+                  {{ $t('tips.finance.href')}}
                   <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
               </span>
             </div>
           </div>
           <div class="col-lg-6 offset-lg-2">
             <div class="desc">
-              <p>FellowChain Project is open source (available on github) community based project which aims to build
-                 DAO (Decentralized Autonomus Organisation), allowing person without technical knowledge to create own
-                 community based insurance cooperative. It aims to implement all necessary logic on blockchain to minimalise bureaucratic
-                 overhead needed to run such organisation. Use of blockchain will also minimalise trust needed to run such organisation and maximise
-                 it's transparency and fraud resistance</p>
+              <p>{{ $t('description.paragraph1').join('\n')}}</p>
               <p>
-                FellowChain Project aims to be as blockchain agnostic as possible. Starting its support from Ethereum Ropsten and Rinkeby Network
-                during development and POA Core or LOOM in early adoption stage.
-                When project will achieve betatests maturity we will introduce 2nd layer solution based on Ethereum technology.
+                {{ $t('description.paragraph2').join('\n')}}
               </p>
               <p>
-                If You like the idea, You can partiicipate on github, or join us on facebook or telegram (see footer below).
-                See "Join Us", to find out, how You can participate.
+                {{ $t('description.paragraph3').join('\n')}}
               </p>
 
-              <b>Requires Metamask and Rinkeby network to run</b>
+              <b>{{ $t('description.tip')}}</b>
 
             </div>
           </div>
@@ -126,7 +120,7 @@
           <div class="col-lg-12">
             <div class="centered-title">
               <h1>
-                Mission
+                {{ $t('mission.title') }}
               </h1>
             </div>
           </div>
@@ -136,15 +130,15 @@
             <div class="mission">
               <div class="row">
                 <div class="col-lg-6 problem">
-                  <h2>Problem</h2>
+                  <h2>{{ $t('mission.problem.title') }}</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
+                    {{ $t('mission.problem.description').join('\n')}}
                   </p>
                 </div>
                 <div class="col-lg-6 solution">
-                  <h2>Solution!</h2>
+                  <h2>{{ $t('mission.solution.title') }}</h2>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
+                    {{ $t('mission.solution.description').join('\n')}}
                   </p>
                 </div>
               </div>
@@ -157,7 +151,7 @@
           <div class="col-lg-12">
             <div class="centered-title">
               <h1>
-                Token details
+                {{ $t('tokenDetails.title') }}
               </h1>
             </div>
           </div>
@@ -177,7 +171,7 @@
           <div class="col-lg-12">
             <div class="centered-title">
               <h1>
-                Finances
+                {{ $t('finances.title') }}
               </h1>
             </div>
           </div>
@@ -197,10 +191,10 @@
             <div class="col-lg-12">
               <div class="centered-title">
                 <h1>
-                  Product ready
+                  {{ $t('productReady.title') }}
                   <span>
-                  Platform prototype
-                </span>
+                    {{ $t('productReady.label') }}
+                  </span>
                 </h1>
               </div>
             </div>
@@ -228,7 +222,7 @@
           <div class="col-lg-12">
             <div class="centered-title">
               <h1>
-                Our community
+                {{ $t('community.title') }}
               </h1>
             </div>
           </div>
@@ -244,10 +238,10 @@
                         <i class="fa fa-github fa-4x"></i>
                       </div>
                       <div class="col-lg-9">
-                        <h4>Source code</h4>
-                        <p>Check fellows.network source code on Github!</p>
+                        <h4>{{ $t('community.github.title') }}</h4>
+                        <p>{{ $t('community.github.description') }}</p>
                         <div>
-                          <a href="/">Open repository</a>
+                          <a href="/">{{ $t('community.github.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -260,10 +254,10 @@
                         <i class="fa fa-telegram fa-4x"></i>
                       </div>
                       <div class="col-lg-9">
-                        <h4>Telegram group</h4>
-                        <p>Join to telegram fellows.network chat</p>
+                        <h4>{{ $t('community.telegram.title') }}</h4>
+                        <p>{{ $t('community.telegram.description') }}</p>
                         <div>
-                          <a href="/">Join now</a>
+                          <a href="/">{{ $t('community.telegram.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -276,10 +270,10 @@
                         <i class="fa fa-facebook fa-4x"></i>
                       </div>
                       <div class="col-lg-9">
-                        <h4>Facebook group</h4>
-                        <p>Join to fellows.network group on facebook</p>
+                        <h4>{{ $t('community.facebook.title') }}</h4>
+                        <p>{{ $t('community.facebook.description') }}</p>
                         <div>
-                          <a href="/">Join now</a>
+                          <a href="/">{{ $t('community.facebook.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -292,10 +286,10 @@
                         <i class="fa fa-youtube fa-4x"></i>
                       </div>
                       <div class="col-lg-9">
-                        <h4>Youtube channel</h4>
-                        <p>View video material about project on Youtube channel</p>
+                        <h4>{{ $t('community.youtube.title') }}</h4>
+                        <p>{{ $t('community.youtube.description') }}</p>
                         <div>
-                          <a href="/">Open channel</a>
+                          <a href="/">{{ $t('community.youtube.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -308,10 +302,10 @@
                         <i class="fa fa-support fa-4x"></i>
                       </div>
                       <div class="col-lg-9">
-                        <h4>Wiki</h4>
-                        <p>Public wiki for project documentation</p>
+                        <h4>{{ $t('community.wiki.title') }}</h4>
+                        <p>{{ $t('community.wiki.description') }}</p>
                         <div>
-                          <a href="/">Open wiki</a>
+                          <a href="/">{{ $t('community.wiki.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -326,7 +320,7 @@
             <div class="col-lg-12">
               <div class="centered-title">
                 <h1>
-                  How can we help you? 🤲
+                  {{ $t('help.title') }}
                 </h1>
               </div>
             </div>
@@ -389,11 +383,25 @@
 import siteMenu from '@/components/Menu'
 import siteFooter from '@/components/Footer'
 import noMetamask from '@/components/NoMetamask'
+import i18next from 'i18next'
+import VueI18n from 'vue-i18n'
+import Vue from 'vue'
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "font-awesome/css/font-awesome.css";
 
+Vue.use(VueI18n);
+
+const i18n = new VueI18n({
+  locale: 'en',
+  messages: {
+    en: require('@/langs/en.json')
+  }
+});
+
 export default {
   name: 'App',
+  i18n: i18n,
   components: {siteMenu,siteFooter,noMetamask},
   mounted () {
     var ModelViewer = require('metamask-logo')
