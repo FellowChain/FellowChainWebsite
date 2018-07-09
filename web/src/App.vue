@@ -41,13 +41,13 @@
         <div class="row">
           <div class="col-lg-12">
               <div class="introduce">
-                <h1>Build transparency mutual insurance society on blockchain with</h1>
+                <h1>Build transparent mutual insurance community on blockchain with</h1>
                 <h2>Fellows <span>.network</span></h2>
               </div>
               <div class="actions">
                 <p>Start with blockchain!</p>
-                <a href="/" class="filled">Create society</a>
-                <a href="/" class="filled">Buy tokens</a>
+                <a href="/" class="filled">Create community</a>
+                <a href="/Buy" class="filled">Buy tokens</a>
                 <a href="/">Learn more</a>
               </div>
           </div>
