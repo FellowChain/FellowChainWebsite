@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-loading.fullscreen.lock="isLoading">
     <div class="global-wrapper">
       <div class="container">
         <div class="row">
