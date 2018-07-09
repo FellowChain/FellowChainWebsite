@@ -1,12 +1,17 @@
 <template>
 
   <span>
-    web3 client not detected, use <a href="https://metamask.io/">Metamask</a> in Your browser <BR/>
-    Many important functions might not work
+
+<div>
+  Sign in to Metamask.
+  <a href="https://metamask.io/"><img src="../assets/metamask.png"  width="auto" height="54em" target="_blank" ></a>
+
+</div>
   </span>
 </template>
 <script>
 export default {
+  name : 'NoMetamask',
     data () {
       return {
       }

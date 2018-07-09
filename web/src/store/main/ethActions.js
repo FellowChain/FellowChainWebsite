@@ -2,6 +2,44 @@
 import abi from './../abi'
 import voteWorker from './../voting/web3vote'
 var ethActions = {
+
+  setAuth:function(context){
+        context.commit('setAuthValue');
+      },
+  setAuthDetails:function(context,data){
+            context.commit('setAuthValue',data);
+          },
+  getSignature:function(context,obj){
+
+    var pad = function(num, size) {
+        var s = num + "";
+        while (s.length < size) s = "0" + s;
+        return s;
+    }
+    var toHex = function(str) {
+        var hex = '';
+        for (var i = 0; i < str.length; i++) {
+            hex += pad(str.charCodeAt(i).toString(16), 2);
+        }
+        return hex.toLowerCase();
+    }
+    var msg = obj.msg;
+    web3.currentProvider.sendAsync({
+                    method: 'personal_sign',
+                    params: ["0x" + toHex(msg), web3.eth.accounts[0]],
+                    from:  web3.eth.accounts[0],
+                }, function (err, result) {
+                    if (err) {
+                      console.log(err);
+                      /*
+                        TODO: Log Error
+                      */
+                    }
+                    else {
+                        context.commit('setSignature',result.result);
+                    }
+                });
+  },
   updateBlockNumber:function(context){
     var blockNumber = 0;
     context.state.inProcess = true;
@@ -69,6 +107,8 @@ var ethActions = {
         var allowenceLvl = (new web3.BigNumber("2")).pow(255);
         instance.approve(context.state.contracts.Locker,allowenceLvl,function(e,v){
           if(e==null || e==undefined){
+             console.log("In call "+v);
+             context.dispatch('waitPendingTx',v);
              res(v);
           }
           else {
@@ -87,7 +127,8 @@ var ethActions = {
           if(err!=null && err!=undefined){
             rej(err);
           }else{
-            context.commit('addPendingTransaction',val);
+            console.log("In call "+val);
+            context.dispatch('waitPendingTx',val);
             res(true);
           }
         });
@@ -101,6 +142,8 @@ var ethActions = {
       return new Promise ((res,rej)=>{
         instance.lockAllForVoting(function(e,v){
           if(e==null || e==undefined){
+             console.log("In call "+v);
+             context.dispatch('waitPendingTx',v);
              res(v);
           }
           else {
@@ -118,6 +161,8 @@ var ethActions = {
       return new Promise ((res,rej)=>{
         instance.withdraw(function(e,v){
           if(e==null || e==undefined){
+             console.log("In call "+v);
+             context.dispatch('waitPendingTx',v);
              res(v);
           }
           else {
@@ -127,30 +172,43 @@ var ethActions = {
       });
 
   },
-  runProxyMethod:function(context,data){
+  waitPendingTx:function(context,tx){
+    context.commit('addPendingTransaction',tx);
     var waitForTransactionEnd = function(hash){
-      return new Promise((res,rej)=>{
-        var checkTrans = function(){
-        console.log("checking "+hash);
-        web3.eth.getTransactionReceipt(hash,function(err,val){
-          if(val!=undefined){
-            console.log("found "+hash);
-            res(val);
-          }
-          else {
-            if(err!=undefined){
-              console.log("error "+hash);
-              rej(err);
-            }else{
-              console.log("wait longer for "+hash);
-              setTimeout(checkTrans,1000);
+        return new Promise((res,rej)=>{
+          var checkTrans = function(){
+          console.log("checking "+hash);
+          web3.eth.getTransactionReceipt(hash,function(err,val){
+            if(val!=undefined){
+              console.log("found "+hash);
+              res(val);
             }
-          }
-        });
-      }
-      checkTrans();
-    })
+            else {
+              if(err!=undefined){
+                console.log("error "+hash);
+                rej(err);
+              }else{
+                console.log("wait longer for "+hash);
+                setTimeout(checkTrans,1000);
+              }
+            }
+          });
+        }
+        checkTrans();
+      })
     }
+    context.dispatch('loading/lock');
+    waitForTransactionEnd(tx).then(function(){
+      context.dispatch('loading/unlock');
+      context.commit('remPendingTransaction',tx);
+    }).
+    catch(function(err){
+      context.dispatch('loading/unlock');
+      context.commit('remPendingTransaction',tx);
+      console.error(err);
+    });
+  },
+  runProxyMethod:function(context,data){
     var addMnemonic = function(votingInstance,fullName,hash,idx){
 
       return new  Promise((res,rej)=>{
@@ -160,20 +218,12 @@ var ethActions = {
           }
           else {
             res(val);
+            console.log("In call "+val);
+            context.dispatch('waitPendingTx',val);
           }
         });
     });
   }
-    /*
-{
-  "address":"DevFund",  //name of property from state.contracts containing address to call
-  "abiName":"DevFund",  //name of property from abi module containing abi of called address
-  "methodName":"payForWorkInToken", //method we want to call
-  "args":["0xe2915bb06ca06a97df3dbb8289b319912192609b",
-    "120000000",
-    "0x0ddcfb354c1d1a102d7419527e79f33f93412d0d03a48e6c6b877ef7e47a73f3"] //all parameters excluding callback
- }
-    */
     return new Promise((res,rej)=>{
 
 
@@ -183,7 +233,7 @@ var ethActions = {
           addMnemonic(votingInstance,data.methodFullName,
             data.hash,
             event.callIdx.toNumber()).then(function(tx){
-              console.log(tx);
+              console.log("In call "+tx);
               waitForTransactionEnd(tx).then(function(){
                 res(true);
               });

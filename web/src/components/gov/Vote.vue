@@ -1,6 +1,6 @@
 
 <template>
-  <div class="Governance"   v-loading.fullscreen.lock="loading">
+  <div class="Governance">
 
         <p>
          This page is responsible for voting on organisation decisions

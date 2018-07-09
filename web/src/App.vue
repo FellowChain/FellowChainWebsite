@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" v-loading.fullscreen.lock="isLoading">
     <div class="global-wrapper">
       <div class="container">
         <div class="row">
@@ -383,6 +383,7 @@
 import siteMenu from '@/components/Menu'
 import siteFooter from '@/components/Footer'
 import noMetamask from '@/components/NoMetamask'
+import notAuthorised from '@/components/NotAuthorised'
 import i18next from 'i18next'
 import VueI18n from 'vue-i18n'
 import Vue from 'vue'
@@ -401,8 +402,13 @@ const i18n = new VueI18n({
 
 export default {
   name: 'App',
+  components: {siteMenu,siteFooter,noMetamask, notAuthorised},
+  computed: {
+    isLoading () {
+      return this.$store.getters['loading/isLocked'];
+    }
+  },
   i18n: i18n,
-  components: {siteMenu,siteFooter,noMetamask},
   mounted () {
     var ModelViewer = require('metamask-logo')
     var viewer = ModelViewer({
@@ -425,6 +431,7 @@ export default {
     viewer.stopAnimation()
   }
 }
+
 </script>
 
 <style lang="sass">
