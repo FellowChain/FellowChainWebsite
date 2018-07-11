@@ -21,7 +21,7 @@
                     <a class="nav-link" href="#">{{ $t('menu.industry')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ $t('menu.prices')}}</a>
+                    <a class="nav-link" href="#">{{ $t('menu.joinus')}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">{{ $t('menu.about')}}</a>
@@ -183,10 +183,10 @@
                     <strong>Supply</strong> 10 000 000 FEL
                   </span>
                       <span>
-                    <strong>Price</strong> ≈ 0.2$ (1 POE)
+                    <strong>Price</strong> ≈ 0.2$ (1 POA)
                   </span>
                       <span>
-                    <strong>Platform</strong> Ethereum
+                    <strong>Platform</strong> POA Network (Ethereum)
                   </span>
                     </div>
                   </div>
@@ -226,7 +226,41 @@
           <div class="col-lg-12">
             <div class="">
               <div class="row">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
+                {{ $t('finances.description').join('\n') }}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="">
+              <div class="row">
+                <div class="centered-title">
+                {{ $t('finances.voting.title') }}
+                </div>
+              </div>
+              <div class="row">
+                {{ $t('finances.voting.content').join('\n') }}
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="">
+              <div class="row">
+                <div class="centered-title">
+                {{ $t('finances.use.title') }}
+                </div>
+              </div>
+              <div class="row">
+                {{ $t('finances.use.content').join('\n') }}
+                <ul>
+                  <li>
+                {{ $t('finances.use.list').join("\n") }}
+                  </li>
+                </ul>
+
+                  {{ $t('finances.use.content2').join('\n') }}
               </div>
             </div>
           </div>
@@ -285,7 +319,7 @@
                         <h4>{{ $t('community.github.title') }}</h4>
                         <p>{{ $t('community.github.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.github.href') }}</a>
+                          <a href="https://github.com/fellowchain">{{ $t('community.github.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -301,7 +335,7 @@
                         <h4>{{ $t('community.telegram.title') }}</h4>
                         <p>{{ $t('community.telegram.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.telegram.href') }}</a>
+                          <a href="https://t.me/FellowChain">{{ $t('community.telegram.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -317,7 +351,7 @@
                         <h4>{{ $t('community.facebook.title') }}</h4>
                         <p>{{ $t('community.facebook.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.facebook.href') }}</a>
+                          <a href="https://www.facebook.com/groups/felllowchain/">{{ $t('community.facebook.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -333,7 +367,7 @@
                         <h4>{{ $t('community.youtube.title') }}</h4>
                         <p>{{ $t('community.youtube.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.youtube.href') }}</a>
+                          <a href="https://www.youtube.com/watch?v=VBNKPqlkkoY&list=PLcqxiC8OYZSUhgtk3CdIg3YyUkyN6SUSp">{{ $t('community.youtube.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -349,7 +383,7 @@
                         <h4>{{ $t('community.wiki.title') }}</h4>
                         <p>{{ $t('community.wiki.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.wiki.href') }}</a>
+                          <a href="http://fellowchain.wikidot.com/">{{ $t('community.wiki.href') }}</a>
                         </div>
                       </div>
                     </div>
