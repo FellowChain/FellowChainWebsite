@@ -22,6 +22,7 @@
     "metamask-logo": "^2.2.0",
     "node-sass": "^4.9.1",
     "sass-loader": "^7.0.3",
+    "vee-validate": "^2.1.0-beta.6",
     "vue": "^2.5.2",
     "vue-directive-tooltip": "^1.4.5",
     "vue-i18n": "^8.0.0",

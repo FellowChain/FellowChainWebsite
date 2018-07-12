@@ -110,8 +110,8 @@ export default {
         var that = this;
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            var sum = new web3.BigNumber(that.$data.form.sum);
-            var mul = (new web3.BigNumber(10)).pow(18);
+            let sum = new web3.BigNumber(that.$data.form.sum);
+            let mul = (new web3.BigNumber(10)).pow(18);
             sum = sum*mul;
             that.$store.dispatch('loading/lock');
             that.$store.dispatch('buyTokens',sum).then(function(){
