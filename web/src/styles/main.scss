@@ -32,21 +32,35 @@
 }
 
 .metamask {
-  position: absolute;
   width: 100%;
   margin-top: -170px;
   #circle {
+    position:relative;
     display: table;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 10px;
-    padding: 20px 50px;
+    padding: 20px 20px 30px 20px;
     -webkit-box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.2);
     box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.2);
     text-align: center;
     width: 350px;
+    .right {
+      position:absolute;
+      width:100%;
+      right: 15px;
+      top: 15px
+    }
     .success {
       color: #e294cc;
+    }
+    .actions {
+      margin-top: 30px;
+    }
+    .download {
+      color: #ccc;
+      margin-right: 10px;
+      cursor: pointer;
     }
   }
   p {
@@ -54,6 +68,25 @@
     text-align: center;
     letter-spacing: 1px;
     color: #ccc;
+  }
+  .summary {
+    border-top: 1px solid #ddd;
+    margin-top: 30px;
+    padding-top: 10px;
+    color: #ccc;
+    .tip {
+      text-align: left;
+      line-height: 15px;
+      padding-bottom: 10px;
+    }
+    h1 {
+      margin-top: 10px;
+      font-size: 25px;
+      margin-bottom: 0;
+    }
+    span {
+      font-size: 12px;
+    }
   }
 }
 
@@ -88,7 +121,7 @@
     font-weight: normal;
     letter-spacing: 2px;
   }
-  a {
+  a, span {
     letter-spacing: 2px;
     margin-right: 20px;
     border-radius: 10px;
@@ -96,6 +129,7 @@
     padding: 15px 25px;
     font-size: 12px;
     color: #fff;
+    cursor: pointer;
     &.filled {
       background-color: #e294cc;
       border: none;
@@ -104,6 +138,9 @@
       -moz-box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.2);
       box-shadow: 2px 2px 12px 0px rgba(0,0,0,0.2);
     }
+  }
+  a:last-child, span:last-child {
+    margin-right: 0;
   }
 }
 
@@ -165,7 +202,7 @@
     position: relative;
     text-transform: uppercase;
     text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-    > span {
+    > span.label {
       font-size: 12px;
       top: 0;
       position: absolute;
@@ -516,6 +553,24 @@ input, textarea {
     }
     &.full {
       width: 100%;
+    }
+  }
+}
+
+.vue-tooltip {
+  font-size: 12px;
+  .tooltip-arrow {
+    display: none;
+  }
+}
+
+.buy {
+  .input {
+    margin-bottom: 20px;
+    text-align: left;
+    label {
+      font-size: 12px;
+      color: #ccc;
     }
   }
 }

@@ -90,12 +90,12 @@ export default {
     },
     availableToBuy(){
 
-        var stats = this.$store.getters.tokenInfo;
-          if(stats!=undefined)
-            return stats.totalToBuy;
-          else{
-            return '';
-          }
+      var stats = this.$store.getters.tokenInfo;
+      if(stats!=undefined)
+        return stats.totalToBuy;
+      else{
+        return '';
+      }
     }
   },
   watch: {

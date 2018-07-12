@@ -1,0 +1,369 @@
+<template>
+  <span>
+    <metamask-widget-on v-if="this.$store.getters.basicData.isEnabled"></metamask-widget-on>
+    <metamask-widget-off v-else-if="!this.$store.getters.basicData.isEnabled"></metamask-widget-off>
+    <div class="body">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="title">
+              <h1>
+                {{ $t('tips.mission.text')}}
+              </h1>
+              <span>
+                  {{ $t('tips.mission.href')}}
+                  <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+              </span>
+            </div>
+            <div class="title">
+              <h1>
+                {{ $t('tips.finance.text')}}
+              </h1>
+              <span>
+                  {{ $t('tips.finance.href')}}
+                  <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+              </span>
+            </div>
+          </div>
+          <div class="col-lg-6 offset-lg-2">
+            <div class="desc">
+              <p>{{ $t('description.paragraph1').join('\n')}}</p>
+              <p>
+                {{ $t('description.paragraph2').join('\n')}}
+              </p>
+              <p>
+                {{ $t('description.paragraph3').join('\n')}}
+              </p>
+
+              <b>{{ $t('description.tip')}}</b>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="centered-title">
+              <h1>
+                {{ $t('mission.title') }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="mission">
+              <div class="row">
+                <div class="col-lg-6 problem">
+                  <h2>{{ $t('mission.problem.title') }}</h2>
+                  <p>
+                    {{ $t('mission.problem.description').join('\n')}}
+                  </p>
+                </div>
+                <div class="col-lg-6 solution">
+                  <h2>{{ $t('mission.solution.title') }}</h2>
+                  <p>
+                    {{ $t('mission.solution.description').join('\n')}}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="centered-title">
+              <h1>
+                {{ $t('tokenDetails.title') }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="details">
+              <div class="row">
+                <div class="col-lg-4 offset-lg-2">
+                  <div class="row row-eq-height">
+                    <div class="col-lg-2">
+                      <div class="icon">
+                        <img src="/static/icon-small.jpg" class="logo" width="50">
+                      </div>
+                    </div>
+                    <div class="col-lg-3">
+                      <div class="wrapper">
+                        <img src="/static/all.png" width="100%">
+                      </div>
+                    </div>
+                    <div class="col-lg-7 token">
+                  <span>
+                    <strong>Name</strong> Fellows
+                  </span>
+                      <span>
+                    <strong>Symbol</strong> FEL
+                  </span>
+                      <span>
+                    <strong>Supply</strong> 10 000 000 FEL
+                  </span>
+                      <span>
+                    <strong>Price</strong> ≈ 0.2$ (1 POE)
+                  </span>
+                      <span>
+                    <strong>Platform</strong> Ethereum
+                  </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="window">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <i class="fa fa-book fa-4x"></i>
+                      </div>
+                      <div class="col-lg-9">
+                        <h4>Whitepaper</h4>
+                        <p>Read our whitepaper!</p>
+                        <div>
+                          <a href="/">Read whitepaper</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="centered-title">
+              <h1>
+                {{ $t('finances.title') }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="">
+              <div class="row">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="centered-title">
+              <h1>
+                {{ $t('productReady.title') }}
+                <span>
+                    {{ $t('productReady.label') }}
+                  </span>
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="platform-introduce">
+              <div class="row height100">
+                <div class="col-lg-12 height100">
+                  <div class="about height100">
+                    <h1>
+                      Coming soon!
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="centered-title">
+              <h1>
+                {{ $t('community.title') }}
+              </h1>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="">
+              <div class="row">
+                <div class="col-lg-4">
+                  <div class="window">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <i class="fa fa-github fa-4x"></i>
+                      </div>
+                      <div class="col-lg-9">
+                        <h4>{{ $t('community.github.title') }}</h4>
+                        <p>{{ $t('community.github.description') }}</p>
+                        <div>
+                          <a href="/">{{ $t('community.github.href') }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="window">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <i class="fa fa-telegram fa-4x"></i>
+                      </div>
+                      <div class="col-lg-9">
+                        <h4>{{ $t('community.telegram.title') }}</h4>
+                        <p>{{ $t('community.telegram.description') }}</p>
+                        <div>
+                          <a href="/">{{ $t('community.telegram.href') }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="window">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <i class="fa fa-facebook fa-4x"></i>
+                      </div>
+                      <div class="col-lg-9">
+                        <h4>{{ $t('community.facebook.title') }}</h4>
+                        <p>{{ $t('community.facebook.description') }}</p>
+                        <div>
+                          <a href="/">{{ $t('community.facebook.href') }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4 offset-lg-2">
+                  <div class="window">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <i class="fa fa-youtube fa-4x"></i>
+                      </div>
+                      <div class="col-lg-9">
+                        <h4>{{ $t('community.youtube.title') }}</h4>
+                        <p>{{ $t('community.youtube.description') }}</p>
+                        <div>
+                          <a href="/">{{ $t('community.youtube.href') }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="window">
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <i class="fa fa-support fa-4x"></i>
+                      </div>
+                      <div class="col-lg-9">
+                        <h4>{{ $t('community.wiki.title') }}</h4>
+                        <p>{{ $t('community.wiki.description') }}</p>
+                        <div>
+                          <a href="/">{{ $t('community.wiki.href') }}</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="centered-title">
+                <h1>
+                  {{ $t('help.title') }}
+                </h1>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <div class="faqs">
+                      <ul>
+                        <li
+                          v-for="item in faqs"
+                          :class="[(item.open ? 'open': '')]"
+                          @click="(item.open ? item.open = false : item.open = true)">
+                          <span>
+                            {{item.label}}
+                          </span>
+                          <div>
+                            {{item.description}}
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="window filled email-to-team">
+                      <div class="row">
+                        <div class="col-lg-3">
+                          <i class="fa fa-envelope-o fa-4x"></i>
+                        </div>
+                        <div class="col-lg-9">
+                          <h4>More questions?</h4>
+                          <p>Write to us!</p>
+                          <div class="input">
+                            <input class="control on-bg full" placeholder="Your e-mail">
+                          </div>
+                          <div class="input">
+                            <textarea class="control on-bg full" placeholder="Your message">
+
+                            </textarea>
+                          </div>
+                          <div>
+                            <a href="/">Send</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </span>
+</template>
+
+<script>
+  import MetamaskWidgetOn from "../../global/metamaskWidgetOn";
+  import MetamaskWidgetOff from "../../global/metamaskWidgetOff";
+
+  export default {
+    components: {
+      MetamaskWidgetOn,
+      MetamaskWidgetOff
+    },
+    name: 'indexMain',
+    data() {
+      return {
+        faqs: require('@/langs/en.json').faqs
+      }
+    },
+  }
+</script>

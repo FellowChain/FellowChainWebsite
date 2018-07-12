@@ -14,6 +14,24 @@ Vue.use(Router);
 
 export default new Router({
   routes: [
+    {
+      path: '/',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/index/header'),
+        main: () => import('@/components/pages/index/main')
+      }
+    },
+    {
+      path: '/buy',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/buy/header'),
+        main: () => import('@/components/pages/buy/main')
+      }
+    },
+    /*OLD*/
+
       {
         path: '/About',
         name: 'About',
@@ -54,11 +72,8 @@ export default new Router({
           name: 'Gov',
           component: Gov
         },
-          {
-            path: '/',
-            name: '',
-            component: About
-          }
+
+
 
   ]
 })

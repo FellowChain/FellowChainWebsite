@@ -118,9 +118,41 @@
     }
   },
   "help": {
-    "title": "HOW CAN WE HELP YOU? 🤲",
+    "title": "How can we help you? 🤲",
     "faqs": {},
     "email": {}
   },
-  "footer": {}
+  "footer": {},
+  "faqs": [
+    {
+      "label": "Lorem ipsum?",
+      "description": "Lorem!",
+      "open": false
+    },
+    {
+      "label": "Lorem?",
+      "description": "Ipsum!",
+      "open": false
+    },
+    {
+      "label": "Lorem?",
+      "description": "Ipsum!",
+      "open": false
+    },
+    {
+      "label": "Lorem?",
+      "description": "Ipsum!",
+      "open": false
+    },
+    {
+      "label": "Lorem?",
+      "description": "Ipsum!",
+      "open": false
+    },
+    {
+      "label": "Lorem?",
+      "description": "Ipsum!",
+      "open": false
+    }
+  ]
 }
