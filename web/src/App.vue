@@ -21,7 +21,7 @@
                     <a class="nav-link" href="#">{{ $t('menu.industry')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ $t('menu.prices')}}</a>
+                    <a class="nav-link" href="#">{{ $t('menu.joinus')}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#">{{ $t('menu.about')}}</a>

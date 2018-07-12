@@ -1,9 +1,9 @@
 {
   "menu": {
-    "society": "Society",
-    "industry": "Insurance industry",
-    "prices": "Prices",
-    "about": "About fellows",
+    "society": "Community",
+    "industry": "Learn More",
+    "joinus": "Join Us",
+    "about": "About Fellows",
     "open": "Open platform"
   },
   "introduction": {
@@ -23,7 +23,7 @@
   },
   "tips": {
     "mission": {
-      "text": "a blockchain to build your insurance society.",
+      "text": "a blockchain to build your insurance cooperative.",
       "href": "More about Problem & Solution "
     },
     "finance": {
@@ -33,7 +33,7 @@
   },
   "description": {
     "paragraph1": [
-      "FellowChain Project is open source (available on github) community based project which aims tobuild",
+      "Fellows Project is open source (available on github) community based project which aims to build",
       "DAO (Decentralized Autonomus Organisation), allowing person without technical knowledge to create own",
       "community based insurance cooperative. It aims to implement all necessary logic on blockchain to minimalise bureaucratic",
       "overhead needed to run such organisation. Use of blockchain will also minimalise trust needed to run such",
@@ -47,7 +47,7 @@
     ],
     "paragraph3": [
       "If You like the idea, You can partiicipate on github, or join us on facebook or telegram (see footer below).",
-      "See <strong>Join us</strong>, to find out, how You can participate."
+      "See Join us, to find out, how You can participate."
     ],
     "tip": "Requires Metamask and Rinkeby network to run"
   },
@@ -55,24 +55,25 @@
     "title": "Mission",
     "problem": {
       "title": "Problem",
-      "description": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-        "Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti." ,
-        "Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum.",
-        "Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi.",
-        "Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat.",
-        "Aliquam ultrices nisl ac vestibulum pellentesque."
-      ]
+      "description": ["Insurance industry is an example of business that, despite enormous ",
+        "technological shift does not have changed much recently."," Problem of trusted execution of insurance ",
+      "is still being solved by creating centralized big corporations controlled by even bigger governments.",
+      "This leads to information assymetry and conflict of interest. One of answers to this problem is rise of Mutual Insurance models.",
+      "Cooperatives where customers are at the same time stakeholders and insure each other in case of insurance event ",
+      "Unfortunatelly they face their own problems, namely risk management and transparency of operation"]
+
     },
     "solution": {
       "title": "Solution!",
       "description": [
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-        "Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti." ,
-        "Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum.",
-        "Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi.",
-        "Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat.",
-        "Aliquam ultrices nisl ac vestibulum pellentesque."
+        "Fellows Network aims to empower already existing mutual insurance models ",
+        " by providing a blockchain based platform that will allow uninterupted,",
+        " transparent, semi-automated, rules-based executions of insurance agreements." ,
+        " Our platform will also allow to properly assess effectivness of any mutual,",
+        "so they can self evolve in more professionally managed entities.",
+        "Fellows Network will erase information assymetry by providing infrastructure",
+        "for transparent organisations, so mutuals participants can ensure organisation",
+        "works for their benefit"
       ]
     }
   },
@@ -82,7 +83,27 @@
   },
   "finances": {
     "title": "Funding",
-    "description": ""
+    "description": ["Every project need to take economical incentives under consideration in order to succeed.",
+                    "Despite the fact that creating decentralized autonomous insurance company is great,",
+                    "exciting idea by itself it is very hard to expect that idea alone will encourage people in participation.",
+                    "Therefore Fellow Chain project will be backed up with Fellows Token in order to fund development.",
+                  "Fellows Token will serve two main functions:"],
+    "voting":{
+      "title":"Voting",
+      "content":["Token can be used to vote on every platform related decision.",
+        "Every existing contract is owned by VotingContract and because of that,",
+        " any function with modifier ‘onlyOwner’ can be invoked only as a result of",
+        "Voting of Current owners of FCT, who temporarily locked their tokens in TokenLocker contract."]
+    },
+    "use":{
+      "title":"Platform Use",
+      "content":["Once created use of Fellows platform will require payments in Fellow Chain Tokens.",
+                 "Example operations that will be payed in FLS:"],
+      "list":["1. Payment for creation of new insurance cooperative",
+              "2. Recurring payment for use of platform by cooperative (proportional to number of participants)"],
+      "content2":[
+                 "To create ever increasing value of FCT all tokens earned from use of platform should be ",
+                 "burned (but this decision will be voted during later platform development)."]  }
   },
   "productReady": {
     "title": "Product ready",
