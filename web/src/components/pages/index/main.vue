@@ -88,36 +88,36 @@
               <div class="row">
                 <div class="col-lg-4 offset-lg-2">
                   <div class="row row-eq-height">
-                    <div class="col-lg-2">
+                    <div class="col-lg-2 col-md-2 col-sm-2 offset-md-2 offset-sm-2 d-none d-sm-block">
                       <div class="icon">
                         <img src="/static/icon-small.jpg" class="logo" width="50">
                       </div>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 col-md-2 col-sm-2 d-none d-sm-block">
                       <div class="wrapper">
                         <img src="/static/all.png" width="100%">
                       </div>
                     </div>
-                    <div class="col-lg-7 token">
-                  <span>
-                    <strong>Name</strong> Fellows
-                  </span>
+                    <div class="col-lg-7 col-md-4 col-sm-4 token">
                       <span>
-                    <strong>Symbol</strong> FEL
-                  </span>
-                      <span>
-                    <strong>Supply</strong> 10 000 000 FEL
-                  </span>
-                      <span>
-                    <strong>Price</strong> ≈ 0.2$ (1 POE)
-                  </span>
-                      <span>
-                    <strong>Platform</strong> Ethereum
-                  </span>
+                        <strong>Name</strong> Fellows
+                      </span>
+                          <span>
+                        <strong>Symbol</strong> FEL
+                      </span>
+                          <span>
+                        <strong>Supply</strong> 10 000 000 FEL
+                      </span>
+                          <span>
+                        <strong>Price</strong> ≈ 0.2$ (1 POE)
+                      </span>
+                          <span>
+                        <strong>Platform</strong> Ethereum
+                      </span>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4">
+                <div class="col-lg-4 col-md-6 offset-md-3">
                   <div class="window">
                     <div class="row">
                       <div class="col-lg-3">
@@ -150,11 +150,7 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            <div class="">
-              <div class="row">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
-              </div>
-            </div>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
           </div>
         </div>
       </div>
@@ -211,7 +207,8 @@
                         <h4>{{ $t('community.github.title') }}</h4>
                         <p>{{ $t('community.github.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.github.href') }}</a>
+                          <a href="https://github.com/fellowchain" target="_blank"
+                             :title="$t('community.github.href')">{{ $t('community.github.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -227,7 +224,9 @@
                         <h4>{{ $t('community.telegram.title') }}</h4>
                         <p>{{ $t('community.telegram.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.telegram.href') }}</a>
+                          <a href="https://t.me/FellowChain" target="_blank"
+                             :title="$t('community.telegram.href')">
+                            {{ $t('community.telegram.href') }}</a>
                         </div>
                       </div>
                     </div>
@@ -243,7 +242,10 @@
                         <h4>{{ $t('community.facebook.title') }}</h4>
                         <p>{{ $t('community.facebook.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.facebook.href') }}</a>
+                          <a href="https://www.facebook.com/groups/felllowchain/" target="_blank"
+                             :title="$t('community.facebook.href')">
+                            {{ $t('community.facebook.href')}}
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -259,7 +261,10 @@
                         <h4>{{ $t('community.youtube.title') }}</h4>
                         <p>{{ $t('community.youtube.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.youtube.href') }}</a>
+                          <a href="https://www.youtube.com/channel/UCVtF8JUnH_y63FXglGhpyLQ" target="_blank"
+                             :title="$t('community.youtube.href')">
+                            {{ $t('community.youtube.href') }}
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -275,7 +280,10 @@
                         <h4>{{ $t('community.wiki.title') }}</h4>
                         <p>{{ $t('community.wiki.description') }}</p>
                         <div>
-                          <a href="/">{{ $t('community.wiki.href') }}</a>
+                          <a href="http://fellowchain.wikidot.com/" target="_blank"
+                             :title="$t('community.wiki.href')">
+                            {{ $t('community.wiki.href') }}
+                          </a>
                         </div>
                       </div>
                     </div>

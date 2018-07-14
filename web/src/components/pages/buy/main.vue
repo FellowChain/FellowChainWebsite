@@ -39,8 +39,9 @@
               v-validate="{ required: true, length: 42 }"
               placeholder="Your ETH address"
               name="address"
+              disabled="disabled"
               class="control on-bg full">
-            <span v-show="errors.has('address')">{{ errors.first('address') }}</span>
+            <span v-show="errors.has('address')" class="error">{{ errors.first('address') }}</span>
           </div>
           <div class="input">
             <label>Amount</label>
@@ -50,7 +51,7 @@
               placeholder="How many tokens do you want buy?"
               name="amount"
               class="control on-bg full">
-            <span v-show="errors.has('amount')">{{ errors.first('amount') }}</span>
+            <span v-show="errors.has('amount')" class="error">{{ errors.first('amount') }}</span>
           </div>
           <div class="actions">
             <button type="submit" class="filled">Submit</button>
@@ -171,19 +172,19 @@
     },
     methods: {
       submitForm: function() {
-        let that = this;
         this.$validator.validateAll()
-          .then(function(response) {
+          .then((response) => {
             if(response) {
-              let sum = new web3.BigNumber(that.$data.form.amount);
+              let sum = new web3.BigNumber(this.$data.form.amount);
               let mul = (new web3.BigNumber(10)).pow(18);
-              that.$store.dispatch('loading/lock');
-              that.$store.dispatch('buyTokens',sum*mul).then(function(){
-                that.$store.dispatch('loading/unlock').then(function(){
-                  that.$data.afterSubmit = true;
+              this.$store.dispatch('loading/lock');
+              this.$store.dispatch('buyTokens',sum*mul).then(() => {
+                this.$store.dispatch('loading/unlock').then(() => {
+                  this.$data.afterSubmit = true;
+                }).catch(() => {
                 });
               }).catch(function(){
-                that.$store.dispatch('loading/unlock');
+                this.$store.dispatch('loading/unlock');
               });
             }
           })

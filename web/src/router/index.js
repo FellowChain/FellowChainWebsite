@@ -30,6 +30,42 @@ export default new Router({
         main: () => import('@/components/pages/buy/main')
       }
     },
+    {
+      path: '/gov',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/buy/header'),
+        main: () => import('@/components/pages/buy/main')
+      },
+      children: [
+        {
+          path: "vote",
+          name: "Vote",
+          components: {
+            header: () => import('@/components/pages/buy/header'),
+            main: () => import('@/components/pages/buy/main')
+          },
+        },
+        {
+          path: "votePlatform",
+          name: "VotePlatform",
+          components: {
+            header: () => import('@/components/pages/buy/header'),
+            main: () => import('@/components/pages/buy/main')
+          },
+        },
+        {
+          path: "funding",
+          name: "Funding",
+          components: {
+            header: () => import('@/components/pages/buy/header'),
+            main: () => import('@/components/pages/buy/main')
+          },
+        }
+      ]
+    },
+
+
     /*OLD*/
 
       {

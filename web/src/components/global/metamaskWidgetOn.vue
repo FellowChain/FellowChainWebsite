@@ -1,6 +1,6 @@
 <template>
   <div class="metamask">
-    <div id="circle">
+    <div class="circle">
       <div class="right">
         <div class="pull-right">
           <label class="switch pull-right">

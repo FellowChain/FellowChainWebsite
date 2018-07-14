@@ -1,6 +1,6 @@
 <template>
   <div class="metamask">
-    <div id="circle">
+    <div class="circle">
       <div class="right">
         <div class="pull-right">
           <i class="fa fa-download download" v-tooltip="'Download metamask'"></i>

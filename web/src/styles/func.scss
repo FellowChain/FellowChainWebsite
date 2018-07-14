@@ -1,0 +1,50 @@
+$max-extra-small: 768px;
+$max-small: 768px;
+$max-medium: 992px;
+$max-large: 1200px;
+
+@mixin mobile {
+  @media screen and (max-width: $max-extra-small) {
+    @content
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $max-small) and (max-width: $max-medium) {
+    @content
+  }
+}
+
+@mixin screen1740px {
+  @media screen and (max-width: 1740px) {
+    @content
+  }
+}
+
+@mixin mobileAndTablet {
+  @media screen and (min-width: $max-small) and (max-width: $max-medium) {
+    @content
+  }
+  @media screen and (max-width: $max-extra-small) {
+    @content
+  }
+}
+
+@mixin background-opacity($color, $opacity: 0.3) {
+  background: $color;
+  background: rgba($color, $opacity);
+}
+
+@mixin center-vertical {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin center-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
