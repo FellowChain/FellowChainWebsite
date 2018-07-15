@@ -3,11 +3,11 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <div class="introduce" v-if="this.$store.getters.basicData.isEnabled">
+        <div class="introduce margin" v-if="this.$store.getters.basicData.isEnabled">
           <h1>Available to buy:</h1>
-          <h2>{{availableToBuy}} <span class="label">tokens</span></h2>
+          <h2>{{availableToBuy}}</h2>
         </div>
-        <div class="introduce" v-else-if="!this.$store.getters.basicData.isEnabled">
+        <div class="introduce margin" v-else-if="!this.$store.getters.basicData.isEnabled">
           <h1>Buy your first</h1>
           <h2>Fellows <span class="label">tokens</span></h2>
         </div>

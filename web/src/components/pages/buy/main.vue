@@ -129,16 +129,6 @@
             address:addr,
             amount:''
           },
-        rules:{
-          address:[
-            { required: true, message: 'You need to have Metamask provider enabled and be on POA network', trigger: 'blur' },
-            { min: 42, max: 42, message: 'valid ethereum address is 42 characters starting 0x', trigger: 'blur' }
-          ],
-          sum:[
-            { required: true, message: 'specify amount', trigger: 'blur' },
-            { validator: validateNumber(1,1000000000), trigger:'blur'}
-          ]
-        }
       }
     },
     watch: {

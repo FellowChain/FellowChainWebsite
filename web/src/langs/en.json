@@ -19,6 +19,9 @@
       "status": {
         "off": "Your metamask is not detected. Many important functions might not work",
         "on": "Your metamask is detected!"
+      },
+      "links": {
+        "gov": "Governance Panel"
       }
   },
   "tips": {

@@ -49,13 +49,13 @@
           <div class="col-lg-12">
             <div class="footer">
               <div class="row">
-                <div class="col-lg-1 logo">
+                <div class="col-lg-1 col-md-1 col-sm-12 offset-lg-0 offset-md-0 logo">
                   <img src="/static/icon-small.jpg" width="50">
                 </div>
-                <div class="col-lg-2 desc">
+                <div class="col-lg-2 col-md-2 col-sm-12 desc">
                   All rights reserved by <a href="#">Fellows.network</a>
                 </div>
-                <div class="col-lg-9 menu">
+                <div class="col-lg-9 col-md-9 col-sm-12 menu">
                   <ul>
                     <li><a href="#">{{ $t('menu.society')}}</a></li>
                     <li><a href="#">{{ $t('menu.industry')}}</a></li>
