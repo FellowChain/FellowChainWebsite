@@ -86,9 +86,9 @@
           <div class="col-lg-12">
             <div class="details">
               <div class="row">
-                <div class="col-lg-4 offset-lg-2">
+                <div class="col-lg-4 offset-lg-2 data">
                   <div class="row row-eq-height">
-                    <div class="col-lg-2 col-md-2 col-sm-2 offset-md-2 offset-sm-2 d-none d-sm-block">
+                    <div class="col-lg-2 col-md-2 col-sm-2 offset-lg-0 offset-md-2 offset-sm-2 d-none d-sm-block">
                       <div class="icon">
                         <img src="/static/icon-small.jpg" class="logo" width="50">
                       </div>
@@ -117,7 +117,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-6 offset-md-3">
+                <div class="col-lg-4 col-md-8 offset-lg-0 offset-md-2">
                   <div class="window">
                     <div class="row">
                       <div class="col-lg-3">

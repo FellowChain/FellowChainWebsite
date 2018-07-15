@@ -391,7 +391,21 @@ footer {
         border-radius: 50%;
       }
     }
-
+    @include mobile {
+      .menu {
+        padding-top: 20px;
+        ul {
+          display: inline;
+          float: none;
+          li {
+            margin-right: 0;
+          }
+        }
+      }
+      .desc, .logo, .menu {
+        text-align: center;
+      }
+    }
     .desc {
       letter-spacing: 1px;
       font-size: 14px;
@@ -511,6 +525,12 @@ footer {
     box-orient: horizontal;
     box-pack: center;
     box-align: center;
+  }
+  .data {
+    margin-bottom: 30px;
+    @include mobile {
+      text-align: center;
+    }
   }
   .token {
     margin: auto 0;
