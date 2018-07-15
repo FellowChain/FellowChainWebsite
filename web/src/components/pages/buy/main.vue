@@ -18,12 +18,17 @@
                   <circle class="spin" fill="none" stroke="#e294cc" stroke-width="4" stroke-miterlimit="10"
                           stroke-dasharray="12.2175,12.2175" cx="80.6" cy="80.6" r="73.9"/>
               </svg>
+               <form @submit.prevent="goBack()">
                <h5 class="success-text">
                  Success!
                </h5>
                <p class="success-text">
                  Your tokens appears on your metamask wallet in a moment
                </p>
+               <div class="actions">
+                 <button type="submit" class="filled">Back</button>
+               </div>
+              </form>
             </div>
 
             </div>
@@ -171,20 +176,27 @@
       },
     },
     methods: {
+      goBack:function(){
+        this.$data.afterSubmit = false;
+        this.$data.form.amount = '';
+      },
       submitForm: function() {
-        this.$validator.validateAll()
+        var that = this;
+        that.$validator.validateAll()
           .then((response) => {
             if(response) {
-              let sum = new web3.BigNumber(this.$data.form.amount);
+              let sum = new web3.BigNumber(that.$data.form.amount);
               let mul = (new web3.BigNumber(10)).pow(18);
-              this.$store.dispatch('loading/lock');
-              this.$store.dispatch('buyTokens',sum*mul).then(() => {
-                this.$store.dispatch('loading/unlock').then(() => {
-                  this.$data.afterSubmit = true;
-                }).catch(() => {
+              that.$store.dispatch('loading/lock');
+              that.$store.dispatch('buyTokens',sum*mul).then(() => {
+                that.$store.dispatch('loading/unlock').then(() => {
+                  that.$data.afterSubmit = true;
+                }).catch(function(){
+                  
                 });
               }).catch(function(){
-                this.$store.dispatch('loading/unlock');
+
+                that.$store.dispatch('loading/unlock');
               });
             }
           })

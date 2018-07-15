@@ -108,8 +108,9 @@ var ethActions = {
         instance.approve(context.state.contracts.Locker,allowenceLvl,function(e,v){
           if(e==null || e==undefined){
              console.log("In call "+v);
-             context.dispatch('waitPendingTx',v);
-             res(v);
+             context.dispatch('waitPendingTx',v).then(function(){
+               res(v);
+             });
           }
           else {
             rej(e);
@@ -128,8 +129,9 @@ var ethActions = {
             rej(err);
           }else{
             console.log("In call "+val);
-            context.dispatch('waitPendingTx',val);
-            res(true);
+            context.dispatch('waitPendingTx',val).then(function(){
+              res(true);
+            });
           }
         });
     })
@@ -197,15 +199,20 @@ var ethActions = {
         checkTrans();
       })
     }
-    context.dispatch('loading/lock');
-    waitForTransactionEnd(tx).then(function(){
-      context.dispatch('loading/unlock');
-      context.commit('remPendingTransaction',tx);
-    }).
-    catch(function(err){
-      context.dispatch('loading/unlock');
-      context.commit('remPendingTransaction',tx);
-      console.error(err);
+    return new Promise((res,rej)=>{
+
+      context.dispatch('loading/lock');
+      waitForTransactionEnd(tx).then(function(){
+        context.dispatch('loading/unlock');
+        context.commit('remPendingTransaction',tx);
+        res(true);
+      }).
+      catch(function(err){
+        context.dispatch('loading/unlock');
+        context.commit('remPendingTransaction',tx);
+        console.error(err);
+        rej(false);
+      });
     });
   },
   runProxyMethod:function(context,data){
