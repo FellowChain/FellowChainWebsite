@@ -10,19 +10,19 @@
               <h1>
                 {{ $t('tips.mission.text')}}
               </h1>
-              <span>
+              <a href="#mission">
                   {{ $t('tips.mission.href')}}
                   <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-              </span>
+              </a>
             </div>
             <div class="title">
               <h1>
                 {{ $t('tips.finance.text')}}
               </h1>
-              <span>
+              <a href="#finance">
                   {{ $t('tips.finance.href')}}
                   <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
-              </span>
+              </a>
             </div>
           </div>
           <div class="col-lg-6 offset-lg-2">
@@ -43,7 +43,7 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12" id="mission">
             <div class="centered-title">
               <h1>
                 {{ $t('mission.title') }}
@@ -140,7 +140,7 @@
       </div>
       <div class="container">
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-12" id="finance">
             <div class="centered-title">
               <h1>
                 {{ $t('finances.title') }}
@@ -150,7 +150,12 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum placerat nunc metus, in dignissim risus venenatis non. Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum. Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi. Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat. Aliquam ultrices nisl ac vestibulum pellentesque.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Vestibulum placerat nunc metus, in dignissim risus venenatis non.
+            Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum.
+            Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi.
+            Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat.
+            Aliquam ultrices nisl ac vestibulum pellentesque.
           </div>
         </div>
       </div>

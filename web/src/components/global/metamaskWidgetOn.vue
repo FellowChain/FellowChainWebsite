@@ -15,7 +15,9 @@
         {{ $t('metamask.status.on')}}
       </p>
       <div class="actions">
-        <a href="#" class="filled">Governance panel</a>
+        <router-link to="/gov" class="filled" :title="$t('metamask.links.gov')">
+          {{ $t('metamask.links.gov')}}
+        </router-link>
       </div>
     </div>
   </div>

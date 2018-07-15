@@ -7,7 +7,7 @@
           <h1>{{ $t('introduction.title')}}</h1>
           <h2>Fellows <span class="label">.network</span></h2>
         </div>
-        <div class="actions">
+        <div class="actions margin">
           <p>{{ $t('introduction.description')}}</p>
           <a href="/" class="filled">
             {{ $t('introduction.links.create')}}
