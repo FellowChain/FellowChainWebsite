@@ -64,7 +64,7 @@
 </template>
 <script>
   export default {
-    name: 'govWelcome',
+    name: 'govVote',
     data () {
 
       return {

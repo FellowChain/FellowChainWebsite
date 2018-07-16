@@ -32,7 +32,12 @@
         <el-input v-model="form.attVal[att.id]"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('fundRequestForm')">Submit</el-button>
+
+        <el-form-item>
+          <div class="actions">
+            <el-button type="primary"  class="filled" @click="submitForm('fundRequestForm')">Submit</el-button>
+          </div>
+        </el-form-item>
       </el-form-item>
     </el-form>
   </div>

@@ -59,5 +59,67 @@ export default new Router({
         }
       ]
     },
+    {
+      path: '/join',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/join/header'),
+        main: () => import('@/components/pages/join/main'),
+      },
+      children: [
+        {
+          path: "",
+          name: "Join",
+          components: {
+            panel: () => import('@/components/pages/join/sub/welcome')
+          },
+        },
+        {
+          path: "diagram",
+          name: "Diagram",
+          components: {
+            panel: () => import('@/components/pages/join/sub/diagram')
+          },
+        }
+      ]
+    },
+    {
+      path: '/learn',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/learn/header'),
+        main: () => import('@/components/pages/learn/main'),
+      },
+      children: [
+        {
+          path: "",
+          name: "Learn",
+          components: {
+            panel: () => import('@/components/pages/learn/sub/welcome')
+          },
+        },
+        {
+          path: "governance",
+          name: "Governance",
+          components: {
+            panel: () => import('@/components/pages/learn/sub/governance')
+          },
+        },
+        {
+          path: "tokenModel",
+          name: "TokenModel",
+          components: {
+            panel: () => import('@/components/pages/learn/sub/tokenModel')
+          },
+        },
+        {
+          path: "industryNeeds",
+          name: "industryNeeds",
+          components: {
+            panel: () => import('@/components/pages/learn/sub/industryNeeds')
+          },
+        }
+      ]
+    }
   ]
 })

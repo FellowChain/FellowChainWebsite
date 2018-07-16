@@ -14,7 +14,7 @@
 
       </ul>
       <p>
-        To request money (POA or FCT) from Development Fund Smart Contract go to "Governance>Request Funding".It is highly adviced to start discussion about your reward <a href="https://github.com/FellowChain/Administration" >here</a> first
+        To request money (POA or FCT) from Development Fund Smart Contract go to "<a href="#/gov/funding">Governance>Funding</a>".It is highly adviced to start discussion about your reward <a href="https://github.com/FellowChain/Administration" >here</a> first
       </p>
     </div>
   </div>

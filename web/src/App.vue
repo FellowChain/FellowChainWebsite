@@ -18,18 +18,18 @@
                     <a class="nav-link" href="#">{{ $t('menu.society')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ $t('menu.industry')}}</a>
+                    <a class="nav-link" href="#/learn">{{ $t('menu.industry')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ $t('menu.joinus')}}</a>
+                    <a class="nav-link" href="#/join">{{ $t('menu.joinus')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ $t('menu.about')}}</a>
+                    <a class="nav-link" href="#/gov">{{ $t('menu.governance')}}</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav mr-auto pull-right navbar-right">
                   <li>
-                    <a href="platform.fellows.network">
+                    <a href="https://prototype.fellowchain.network">
                       <i class="fa fa-external-link"></i>
                       {{ $t('menu.open')}}
                     </a>
@@ -58,9 +58,9 @@
                 <div class="col-lg-9 col-md-9 col-sm-12 menu">
                   <ul>
                     <li><a href="#">{{ $t('menu.society')}}</a></li>
-                    <li><a href="#">{{ $t('menu.industry')}}</a></li>
-                    <li><a href="#">{{ $t('menu.prices')}}</a></li>
-                    <li><a href="#">{{ $t('menu.about')}}</a></li>
+                    <li><a href="#/learn">{{ $t('menu.industry')}}</a></li>
+                    <li><a href="#/join">{{ $t('menu.joinus')}}</a></li>
+                    <li><a href="#/gov">{{ $t('menu.governance')}}</a></li>
                   </ul>
                 </div>
               </div>

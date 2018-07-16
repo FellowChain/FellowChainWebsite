@@ -3,7 +3,7 @@
     "society": "Community",
     "industry": "Learn More",
     "joinus": "Join Us",
-    "about": "About Fellows",
+    "governance": "Governance",
     "open": "Open platform"
   },
   "introduction": {
@@ -102,10 +102,10 @@
       "title":"Platform Use",
       "content":["Once created use of Fellows platform will require payments in Fellow Chain Tokens.",
                  "Example operations that will be payed in FLS:"],
-      "list":["1. Payment for creation of new insurance cooperative",
-              "2. Recurring payment for use of platform by cooperative (proportional to number of participants)"],
+      "list":["Payment for creation of new insurance cooperative",
+              "Recurring payment for use of platform by cooperative (proportional to number of participants)"],
       "content2":[
-                 "To create ever increasing value of FCT all tokens earned from use of platform should be ",
+                 "To create ever increasing value of FCT part of tokens earned from use of platform should be ",
                  "burned (but this decision will be voted during later platform development)."]  }
   },
   "productReady": {
@@ -142,7 +142,7 @@
     }
   },
   "help": {
-    "title": "How can we help you? 🤲",
+    "title": "How can we help you?",
     "faqs": {},
     "email": {}
   },

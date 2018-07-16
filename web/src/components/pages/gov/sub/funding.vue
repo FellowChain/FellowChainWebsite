@@ -30,7 +30,9 @@
         <el-input type="textarea" v-model="form.desc"></el-input>
       </el-form-item>
       <el-form-item>
-        <el-button type="primary" @click="submitForm('fundRequestForm')">Submit</el-button>
+        <div class="actions">
+          <el-button type="primary"  class="filled" @click="submitForm('fundRequestForm')">Submit</el-button>
+        </div>
       </el-form-item>
     </el-form>
   </div>

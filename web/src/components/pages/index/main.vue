@@ -150,13 +150,34 @@
         </div>
         <div class="row">
           <div class="col-lg-12">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Vestibulum placerat nunc metus, in dignissim risus venenatis non.
-            Suspendisse potenti. Sed ornare massa ac nulla ultricies, nec scelerisque massa elementum.
-            Curabitur metus diam, hendrerit ac orci vitae, dignissim facilisis nisi.
-            Nam facilisis eget nibh ullamcorper volutpat. Nunc quis risus ut neque placerat feugiat.
-            Aliquam ultrices nisl ac vestibulum pellentesque.
+              {{ $t('finances.description').join('\n') }}
           </div>
+
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="row">
+
+                <b>{{ $t('finances.voting.title') }}</b>
+            </div>
+            <div class="row">
+
+                {{ $t('finances.voting.content').join('\n') }}
+            </div>
+          </div>
+            <div class="col-lg-6">
+              <div class="row">
+
+                <b>{{ $t('finances.use.title') }}</b>
+              </div>
+              <div class="row">
+
+                  {{ $t('finances.use.content').join('\n') }}
+                  <ol><li>{{ $t('finances.use.list').join("</li><li>") }}</li></ol>
+                  {{ $t('finances.use.content2').join('\n') }}
+              </div>
+            </div>
+
         </div>
       </div>
       <div class="container">
