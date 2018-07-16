@@ -1,6 +1,6 @@
 {
   "menu": {
-    "society": "Community",
+    "society": "Future Products",
     "industry": "Learn More",
     "joinus": "Join Us",
     "governance": "Governance",
@@ -85,7 +85,7 @@
     "description": ""
   },
   "finances": {
-    "title": "Funding",
+    "title": "Token Economy",
     "description": ["Every project need to take economical incentives under consideration in order to succeed.",
                     "Despite the fact that creating decentralized autonomous insurance company is great,",
                     "exciting idea by itself it is very hard to expect that idea alone will encourage people in participation.",
