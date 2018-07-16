@@ -1,7 +1,7 @@
 <template>
   <div class="content-box">
     <div class="desc">
-      <h3>All You need to know about Token Model!</h3>
+      <h3>Why Mutuals need blockchain</h3>
       <h4>Conflict of interests</h4>
       <p>
         Conflict of interests is very important concept in insurance companies. While in most industries companies stockholders interest is
@@ -16,7 +16,8 @@
         Thats <b>perfect case for blockchain</b> with natural <b>transparency</b> and <b>immutability</b>
         of blockchain Fellows Network can build tools helping mutuals owners to supervisor managers. With <b>automated execution</b> can easily
         build <b>votings</b> and <b>veto</b> functionality.</p>
-
+    <h4>Insufficent capital</h4>
+     <p>While......(c.d.n.)</p>
     </div>
   </div>
 </template>
