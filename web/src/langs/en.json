@@ -103,7 +103,7 @@
       "content":["Once created use of Fellows platform will require payments in Fellow Chain Tokens.",
                  "Example operations that will be payed in FLS:"],
       "list":["Payment for creation of new insurance cooperative",
-              "Recurring payment for use of platform by cooperative (proportional to number of participants)"],
+              "Recurring payment for use of platform by cooperative"],
       "content2":[
                  "To create ever increasing value of FCT part of tokens earned from use of platform should be ",
                  "burned (but this decision will be voted during later platform development)."]  }

@@ -173,7 +173,9 @@
               <div class="row">
 
                   {{ $t('finances.use.content').join('\n') }}
-                  <ol><li>{{ $t('finances.use.list').join("</li><li>") }}</li></ol>
+                  <ol>
+                    <li v-for="item in $t('finances.use.list')">{{item}}</li>
+                  </ol>
                   {{ $t('finances.use.content2').join('\n') }}
               </div>
             </div>
