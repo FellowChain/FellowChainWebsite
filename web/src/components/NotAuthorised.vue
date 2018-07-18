@@ -2,9 +2,9 @@
 
   <span>
 
-  <el-form ref="fundRequestForm"  label-position="left" :model="form" label-width="25rem">
+  <el-form ref="fundRequestForm"  label-position="left" :model="form">
     <el-form-item>
-      <el-button type="primary" @click="logIn()">Sign In</el-button>
+        <el-button @click="logIn()">Sign In</el-button>
     </el-form-item>
   </el-form>
   </span>

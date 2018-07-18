@@ -4,6 +4,10 @@ const Web3 = require('web3');
 const EthCrypto = require('eth-crypto');
 //const HDWalletProvider = require("truffle-hdwallet-provider");
 var serviceAccount = require("./serviceAccountKey.json");
+if(process.env.GCLOUD_PROJECT==="fellowchain-network-test"){
+  serviceAccount = require("./serviceAccountKeyTest.json");
+}
+console.log('Proj '+process.env.GCLOUD_PROJECT);
 var web3secrets = require("./secrets.json");
 
 admin.initializeApp({

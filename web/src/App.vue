@@ -34,7 +34,13 @@
                       {{ $t('menu.open')}}
                     </a>
                   </li>
+                  <li>
+                    <div>
+                      <notAuthorised></notAuthorised>
+                    </div>
+                  </li>
                 </ul>
+
               </div>
             </nav>
           </div>
@@ -99,7 +105,7 @@ const i18n = new VueI18n({
 
 export default {
   name: 'App',
-  components: {},
+  components: {notAuthorised},
   computed: {
     isLoading () {
       return this.$store.getters['loading/isLocked'];

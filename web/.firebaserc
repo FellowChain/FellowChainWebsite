@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "fellowchain-network"
+    "default": "fellowchain-network",
+    "test": "fellowchain-network-test"
   }
 }
