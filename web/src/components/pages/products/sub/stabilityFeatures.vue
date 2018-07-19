@@ -1,7 +1,7 @@
 <template>
   <div class="content-box">
     <div class="desc">
-      <h3>Why Mutuals need blockchain</h3>
+      <h3>Stability Features</h3>
       <h4>Conflict of interests</h4>
       <p>
         Conflict of interests is very important concept in insurance companies. While in most industries companies stockholders interest is

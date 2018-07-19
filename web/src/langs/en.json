@@ -1,6 +1,6 @@
 {
   "menu": {
-    "society": "Future Products",
+    "products": "Future Products",
     "industry": "Learn More",
     "joinus": "Join Us",
     "governance": "Governance",
@@ -44,7 +44,7 @@
       "its transparency and fraud resistance"
     ],
     "paragraph2": [
-      "FellowChain Project aims to be as blockchain agnostic as possible." ,
+      "Fellows Project aims to be as blockchain agnostic as possible." ,
       "Starting its support from Ethereum Ropsten and Rinkeby Network during development and POA Core or LOOM in early adoption stage. ",
       "When project will achieve betatests maturity we will introduce 2nd layer solution based on Ethereum technology."
     ],
@@ -89,23 +89,23 @@
     "description": ["Every project need to take economical incentives under consideration in order to succeed.",
                     "Despite the fact that creating decentralized autonomous insurance company is great,",
                     "exciting idea by itself it is very hard to expect that idea alone will encourage people in participation.",
-                    "Therefore Fellow Chain project will be backed up with Fellows Token in order to fund development.",
+                    "Therefore Fellows Project will be backed up with Fellows Token in order to fund development.",
                   "Fellows Token will serve two main functions:"],
     "voting":{
       "title":"Voting",
       "content":["Token can be used to vote on every platform related decision.",
         "Every existing contract is owned by VotingContract and because of that,",
         " any function with modifier ‘onlyOwner’ can be invoked only as a result of",
-        "Voting of Current owners of FCT, who temporarily locked their tokens in TokenLocker contract."]
+        "Voting of Current owners of FLS, who temporarily locked their tokens in TokenLocker contract."]
     },
     "use":{
       "title":"Platform Use",
-      "content":["Once created use of Fellows platform will require payments in Fellow Chain Tokens.",
+      "content":["Once created use of Fellows platform will require payments in Fellows Tokens.",
                  "Example operations that will be payed in FLS:"],
       "list":["Payment for creation of new insurance cooperative",
               "Recurring payment for use of platform by cooperative"],
       "content2":[
-                 "To create ever increasing value of FCT part of tokens earned from use of platform should be ",
+                 "To create ever increasing value of FLS part of tokens earned from use of platform should be ",
                  "burned (but this decision will be voted during later platform development)."]  }
   },
   "productReady": {

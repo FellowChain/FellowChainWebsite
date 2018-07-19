@@ -120,6 +120,44 @@ export default new Router({
           },
         }
       ]
+    },
+    {
+      path: '/prod',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/products/header'),
+        main: () => import('@/components/pages/products/main'),
+      },
+      children: [
+        {
+          path: "",
+          name: "Learn",
+          components: {
+            panel: () => import('@/components/pages/products/sub/welcome')
+          },
+        },
+        {
+          path: "organization",
+          name: "Organization",
+          components: {
+            panel: () => import('@/components/pages/products/sub/organization')
+          },
+        },
+        {
+          path: "riskManagement",
+          name: "RiskManagement",
+          components: {
+            panel: () => import('@/components/pages/products/sub/riskManagement')
+          },
+        },
+        {
+          path: "stabilityFeatures",
+          name: "Stability Features",
+          components: {
+            panel: () => import('@/components/pages/products/sub/stabilityFeatures')
+          },
+        }
+      ]
     }
   ]
 })

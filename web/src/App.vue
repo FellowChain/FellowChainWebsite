@@ -15,7 +15,7 @@
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                   <li class="nav-item">
-                    <a class="nav-link" href="#">{{ $t('menu.society')}}</a>
+                    <a class="nav-link" href="#/prod">{{ $t('menu.products')}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#/learn">{{ $t('menu.industry')}}</a>
@@ -96,7 +96,7 @@ import "vue-directive-tooltip/css/index.css";
 Vue.use(Tooltip);
 Vue.use(VueI18n);
 
-const i18n = new VueI18n({
+  const i18n = new VueI18n({
   locale: 'en',
   messages: {
     en: require('@/langs/en.json')
