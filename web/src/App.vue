@@ -29,15 +29,13 @@
                 </ul>
                 <ul class="navbar-nav mr-auto pull-right navbar-right">
                   <li>
+                    <notAuthorised></notAuthorised>
+                  </li>
+                  <li>
                     <a href="https://prototype.fellowchain.network">
                       <i class="fa fa-external-link"></i>
                       {{ $t('menu.open')}}
                     </a>
-                  </li>
-                  <li>
-                    <div>
-                      <notAuthorised></notAuthorised>
-                    </div>
                   </li>
                 </ul>
 
@@ -63,7 +61,7 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-12 menu">
                   <ul>
-                    <li><a href="#">{{ $t('menu.society')}}</a></li>
+                    <li><a href="#/prod">{{ $t('menu.products')}}</a></li>
                     <li><a href="#/learn">{{ $t('menu.industry')}}</a></li>
                     <li><a href="#/join">{{ $t('menu.joinus')}}</a></li>
                     <li><a href="#/gov">{{ $t('menu.governance')}}</a></li>

@@ -106,7 +106,7 @@
                         <strong>Symbol</strong> FEL
                       </span>
                           <span>
-                        <strong>Supply</strong> 10 000 000 FEL
+                        <strong>Supply</strong> 20 000 000 FLS
                       </span>
                           <span>
                         <strong>Price</strong> ≈ 0.2$ (1 POE)
@@ -148,38 +148,43 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-12">
-              {{ $t('finances.description').join('\n') }}
-          </div>
-
-        </div>
-        <div class="row">
-          <div class="col-lg-6">
-            <div class="row">
-
-                <b>{{ $t('finances.voting.title') }}</b>
+        <div class="finance">
+          <div class="row">
+            <div class="col-lg-4 offset-lg-1">
+                {{ $t('finances.description').join('\n') }}
             </div>
-            <div class="row">
-
+            <div class="col-lg-5 offset-lg-1">
+                <img src="/static/images.png" width="100%">
+            </div>
+          </div>
+          <div class="row paragraphs">
+            <div class="col-lg-5 offset-lg-1">
+              <h2>
+                <span>
+                  \\1
+                </span> {{ $t('finances.use.title') }}
+              </h2>
+              <p>
+                {{ $t('finances.use.content').join('\n') }}
+              </p>
+              <ol>
+                <li v-for="item in $t('finances.use.list')">{{item}}</li>
+              </ol>
+              <p>
+                {{ $t('finances.use.content2').join('\n') }}
+              </p>
+            </div>
+            <div class="col-lg-5">
+              <h2>
+                <span>
+                  \\2
+                </span> {{ $t('finances.voting.title') }}
+              </h2>
+              <p>
                 {{ $t('finances.voting.content').join('\n') }}
+              </p>
             </div>
           </div>
-            <div class="col-lg-6">
-              <div class="row">
-
-                <b>{{ $t('finances.use.title') }}</b>
-              </div>
-              <div class="row">
-
-                  {{ $t('finances.use.content').join('\n') }}
-                  <ol>
-                    <li v-for="item in $t('finances.use.list')">{{item}}</li>
-                  </ol>
-                  {{ $t('finances.use.content2').join('\n') }}
-              </div>
-            </div>
-
         </div>
       </div>
       <div class="container">
