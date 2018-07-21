@@ -15,9 +15,9 @@
           <router-link to="/buy" class="filled" title="Buy Fellows Token">
             {{ $t('introduction.links.buy')}}
           </router-link>
-          <a href="/">
+          <router-link to="/learn" title="Learn more about Fellows.network">
             {{ $t('introduction.links.more')}}
-          </a>
+          </router-link>
         </div>
       </div>
     </div>

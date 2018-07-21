@@ -1,13 +1,8 @@
 <template>
-
-  <span>
-
-  <el-form ref="fundRequestForm"  label-position="left" :model="form">
-    <el-form-item>
-        <el-button @click="logIn()">Sign In</el-button>
-    </el-form-item>
-  </el-form>
-  </span>
+  <a href="#" class="clear" @click="logIn()">
+    <i class="fa fa-plus"></i>
+    Sign In
+  </a>
 </template>
 <script>
 export default {
@@ -22,39 +17,33 @@ export default {
         return this.$store.getters.basicData.signedMessage;
       },
       firebaseToken(){
-        var uAuthData = this.$store.getters["firebase/userAuthData"];
+        let uAuthData = this.$store.getters["firebase/userAuthData"];
         return ((uAuthData===undefined)?"":uAuthData.token);
       },
       firebaseAuth(){
         return this.$store.getters["firebase/isAnonymous"];
-        return hasAuth;
       }
     },
     watch:{
       firebaseToken(newV,oldV){
-        var that = this;
-        if(newV!==undefined && newV!==null && newV.toString().length>0){
-          firebase.auth().signInWithCustomToken(newV).then(function(usrCredentials){
-              var claimData = JSON.parse(atob(newV.split('.')[1])).claims;
-              that.$store.dispatch('firebase/setAuthData',claimData);
+        if(newV!==undefined && newV!==null && newV.toString().length>0)
+        {
+          firebase.auth().signInWithCustomToken(newV).then((usrCredentials) => {
+              let claimData = JSON.parse(atob(newV.split('.')[1])).claims;
+              this.$store.dispatch('firebase/setAuthData',claimData);
           }).catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-
-              /*
-              TODO: Error handling
-              */
+            // error.code && error.message
           });
         }
       },
-      signedMessage(newV,oldV){
-        var that = this;
-        var myAddress = this.$store.getters.basicData.userAccount;
-        if(newV!==undefined && newV!==null && newV.toString().length>0){
-          this.$http.get("/api/verifySignature?address="+myAddress+"&signature="+newV.toString()).then(function(resp){
+      signedMessage(newV){
+        if(newV!==undefined && newV!==null && newV.toString().length>0)
+        {
+          let myAddress = this.$store.getters.basicData.userAccount;
+          this.$http.get("/api/verifySignature?address="+myAddress+"&signature="+newV.toString())
+            .then((resp) => {
             if(resp.body.status===true){
-              that.$store.dispatch('firebase/setToken',{
+              this.$store.dispatch('firebase/setToken',{
                 token:resp.body.value
               });
             }else{
@@ -68,30 +57,29 @@ export default {
     },
     methods: {
       logIn(){
-        var that = this;
-        var myAddress = this.$store.getters.basicData.userAccount;
-        this.$http.get("/api/getVerificationKey?address="+myAddress).then(function(apiKey){
-          var textToSign = "Sign me in, SessionID:";
-          if(apiKey.body.status===true){
-            textToSign=textToSign + apiKey.body.value;
-            that.$store.dispatch('getSignature',{
-              msg:textToSign
-            })
-          }
-          else{
-            /*
-            TODO: Error handling
-            */
-          }
+        let myAddress = this.$store.getters.basicData.userAccount;
+        this.$http.get("/api/getVerificationKey?address="+myAddress)
+          .then((apiKey) => {
+            let textToSign = "Sign me in, SessionID:";
+            if(apiKey.body.status===true){
+              textToSign=textToSign + apiKey.body.value;
+              this.$store.dispatch('getSignature',{
+                msg:textToSign
+              })
+            }
+            else{
+              /*
+              TODO: Error handling
+              */
+            }
         });
       }
     },
     created(){
-      var that = this;
-      firebase.auth().onAuthStateChanged(function(user) {
+      firebase.auth().onAuthStateChanged((user) => {
           if (user) {
-            if(that.$store.getters['firebase/isAnonymous']===false){
-                that.$store.dispatch('setAuth');
+            if(this.$store.getters['firebase/isAnonymous']===false){
+              this.$store.dispatch('setAuth');
             }
           } else {
           }
@@ -99,7 +87,3 @@ export default {
     }
   }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-
-</style>

@@ -41,6 +41,26 @@
         transition: all .2s;
       }
     }
+    a.clear {
+      letter-spacing: 2px;
+      margin-right: 20px;
+      border-radius: 30px;
+      padding: 15px 25px;
+      font-size: 12px;
+      border:1px solid #fff;
+      color: #fff;
+      font-weight: normal;
+      transition: all .2s;
+      text-decoration: none;
+      background-color: transparent;
+      box-shadow: none;
+      -webkit-box-shadow: none;
+      &:hover, &:focus {
+        transition: all .2s;
+        border-color: #ddd;
+        color: #ddd;
+      }
+    }
   }
 }
 
@@ -814,5 +834,24 @@ p.success-text {
   box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.2);
   &.reset-padding {
     padding: 0;
+  }
+}
+
+.finance {
+  letter-spacing: 1px;
+  font-size: 14px;
+  color: #333;
+  .paragraphs {
+    margin-top:30px;
+    h2 {
+      span {
+        background-image: -webkit-gradient(linear, left bottom, right top, from(#e6a1c4), color-stop(#e294cc), color-stop(#d78ad9), color-stop(#c483e9), to(#a480fa));
+        background-image: linear-gradient(to right top, #e6a1c4, #e294cc, #d78ad9, #c483e9, #a480fa);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: bold;
+        margin-right: 5px;
+      }
+    }
   }
 }
