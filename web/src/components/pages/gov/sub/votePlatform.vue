@@ -203,7 +203,7 @@
             Promise.all([that.$store.dispatch('firebase/saveContent',{
               key:hash,
               value: that.$data.form,
-              httpLib: this.$http
+              httpLib: that.$http
             }),
               that.$store.dispatch('runProxyMethod',payload)]).then(function(){
               that.$store.dispatch('loading/unlock');
