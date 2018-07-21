@@ -216,10 +216,10 @@ var ethActions = {
     });
   },
   runProxyMethod:function(context,data){
-    var addMnemonic = function(votingInstance,fullName,hash,idx){
+    var addMnemonic = function(votingInstance,fullName,idx){
 
       return new  Promise((res,rej)=>{
-        votingInstance.addMnemonic(fullName,hash,idx,function(err,val){
+        votingInstance.addMnemonic(fullName,idx,function(err,val){
           if(err!=null && err!=undefined){
             rej(err);
           }
@@ -238,7 +238,6 @@ var ethActions = {
         /*callback of method*/
         context.rootState.voting.assignWatcher(v,function(event){
           addMnemonic(votingInstance,data.methodFullName,
-            data.hash,
             event.callIdx.toNumber()).then(function(tx){
               console.log("In call "+tx);
               waitForTransactionEnd(tx).then(function(){

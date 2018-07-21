@@ -43,6 +43,7 @@
   </div>
 </template>
 <script>
+  import abi from './../../../../store/abi'
   export default {
     name: 'govVotePlatform',
     data () {
@@ -197,20 +198,20 @@
               args:argsToAdd
             };
 
-            this.$store.dispatch('loading/lock');
+            that.$store.dispatch('loading/lock');
             //that.$emit('lock-ui');
             Promise.all([that.$store.dispatch('firebase/saveContent',{
               key:hash,
               value: that.$data.form,
-              httpLib: this.$http
+              httpLib: that.$http
             }),
               that.$store.dispatch('runProxyMethod',payload)]).then(function(){
-              this.$store.dispatch('loading/unlock');
+              that.$store.dispatch('loading/unlock');
               //    that.$emit('unlock-ui');
               that.$router.push('/Vote');
             }).catch(function(err){
               console.error(err);
-              this.$store.dispatch('loading/unlock');
+              that.$store.dispatch('loading/unlock');
               //that.$emit('unlock-ui');
             });
 
