@@ -6,7 +6,7 @@
           <div class="col-lg-12">
             <nav class="navbar navbar-expand-lg">
               <router-link to="/" class="navbar-brand" title="Main page">
-                <img src="/static/symbol.png" width="70">
+                <img src="/static/logo-white.svg" width="70">
               </router-link>
               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
