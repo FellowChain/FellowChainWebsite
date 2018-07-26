@@ -222,5 +222,78 @@
   "email": {
     "title": "More questions?",
     "description": "Write to us!"
+  },
+  "buy": {
+    "logon": {
+      "title": "Available to buy:"
+    },
+    "logoff": {
+      "title": "Buy your first",
+      "description": "Fellows",
+      "label": "tokens"
+    }
+  },
+  "gov": {
+    "title": "welcome at governance panel!",
+    "menu": {
+      "welcome": "Welcome",
+      "vote": "Vote",
+      "governPlatform": "Govern platform",
+      "funding": "Funding"
+    },
+    "sub": {
+      "funding": {
+        "form": {
+          "address": {
+            "title": "Beneficiary address"
+          },
+          "url": {
+            "title": "Link to github issue discussing the work"
+          },
+          "sum": {
+            "title": "Sum You want to claim for your contribution"
+          },
+          "currency": {
+            "title": "Currency"
+          },
+          "activityType": {
+            "title": "Activity type",
+            "list": {
+              "marketing": "Marketing",
+              "documentation": "Documentation",
+              "implementation": "Implementation",
+              "analysis": "Analysis",
+              "community": "Community Management",
+              "costs": "Costs Return"
+            }
+          },
+          "activityDesc": {
+            "title": "Beneficiary address"
+          },
+          "submit": "Submit"
+        }
+      },
+      "vote": {
+        "table": {
+          "votingEnd": "Voting End",
+          "fullName": "Full Name",
+          "executed": "Executed",
+          "yesNo": "Yes/No",
+          "operations": "Operations",
+          "voteYes": "Vote Yes",
+          "voteNo": "Vote No",
+          "execute": "Execute",
+          "discussionLink": "Discussion Link",
+          "description": "Description",
+          "sum": "Sum"
+        }
+      },
+      "votePlatform": {
+
+      },
+      "welcome": {
+
+      }
+    }
   }
 }

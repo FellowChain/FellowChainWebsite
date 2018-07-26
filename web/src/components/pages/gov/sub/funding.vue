@@ -1,29 +1,47 @@
 <template>
   <div class="content-box">
     <el-form ref="fundRequestForm" :rules="rules" label-position="left" :model="form" label-width="25rem">
-      <el-form-item label="Beneficiary address" prop="address">
+      <el-form-item :label="$t('gov.sub.funding.form.address.title')" prop="address">
         <el-input v-model="form.address"  auto-complete="off"  :disabled="true"></el-input>
       </el-form-item>
-      <el-form-item label="Link to github issue discussing the work" prop="link">
+      <el-form-item :label="$t('gov.sub.funding.form.url.title')" prop="link">
         <el-input v-model="form.link" placeholder="https://github.com/FellowChain/Administration/issues/......"  auto-complete="off"></el-input>
       </el-form-item>
-      <el-form-item label="Sum You want to claim for your contribution"  prop="sum"  auto-complete="off">
+      <el-form-item :label="$t('gov.sub.funding.form.sum.title')"  prop="sum"  auto-complete="off">
         <el-input type="sum" v-model="form.sum"></el-input>
       </el-form-item>
-      <el-form-item label="Currency"  auto-complete="off"  prop="currency" >
+      <el-form-item :label="$t('gov.sub.funding.form.currency.title')"  auto-complete="off"  prop="currency" >
         <el-radio-group v-model="form.currency">
           <el-radio label="POA" value="POA"></el-radio>
           <el-radio label="FCT" value="FCT"></el-radio>
         </el-radio-group>
       </el-form-item>
-      <el-form-item label="Activity type"  auto-complete="off"   prop="type">
+      <el-form-item :label="$t('gov.sub.funding.form.activityType.title')"  auto-complete="off"   prop="type">
         <el-select v-model="form.type" placeholder="please select type of activity">
-          <el-option label="Marketing" value="Marketing"></el-option>
-          <el-option label="Documentation" value="Documentation"></el-option>
-          <el-option label="Implementation" value="Implementation"></el-option>
-          <el-option label="Analysis" value="Analysis"></el-option>
-          <el-option label="Community Management" value="Community Management"></el-option>
-          <el-option label="Costs Return" value="Costs Return"></el-option>
+          <el-option
+            :label="$t('gov.sub.funding.form.activityType.list.marketing')"
+            :value="$t('gov.sub.funding.form.activityType.list.marketing')">
+          </el-option>
+          <el-option
+            :label="$t('gov.sub.funding.form.activityType.list.documentation')"
+            :value="$t('gov.sub.funding.form.activityType.list.documentation')">
+          </el-option>
+          <el-option
+            :label="$t('gov.sub.funding.form.activityType.list.implementation')"
+            :value="$t('gov.sub.funding.form.activityType.list.implementation')">
+          </el-option>
+          <el-option
+            :label="$t('gov.sub.funding.form.activityType.list.analysis')"
+            :value="$t('gov.sub.funding.form.activityType.list.analysis')">
+          </el-option>
+          <el-option
+            :label="$t('gov.sub.funding.form.activityType.list.community')"
+            :value="$t('gov.sub.funding.form.activityType.list.community')">
+          </el-option>
+          <el-option
+            :label="$t('gov.sub.funding.form.activityType.list.costs')"
+            :value="$t('gov.sub.funding.form.activityType.list.costs')">
+          </el-option>
         </el-select>
       </el-form-item>
       <el-form-item label="Activity description" auto-complete="off"  prop="desc">
@@ -31,7 +49,9 @@
       </el-form-item>
       <el-form-item>
         <div class="actions">
-          <el-button type="primary"  class="filled" @click="submitForm('fundRequestForm')">Submit</el-button>
+          <el-button type="primary"  class="filled" @click="submitForm('fundRequestForm')">
+            {{$t('gov.sub.funding.form.submit')}}
+          </el-button>
         </div>
       </el-form-item>
     </el-form>

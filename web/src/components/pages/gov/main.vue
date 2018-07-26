@@ -5,29 +5,29 @@
         <div class="col-lg-4">
           <div class="title menu">
             <h1>
-              welcome at governance panel!
+              {{$t('gov.title')}}
             </h1>
             <div>
               <router-link to="/gov">
-                Welcome
+                {{$t('gov.menu.welcome')}}
                 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
               </router-link>
             </div>
             <div>
               <router-link to="/gov/vote">
-                Vote
+                {{$t('gov.menu.vote')}}
                 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
               </router-link>
             </div>
             <div>
               <router-link to="/gov/votePlatform">
-                Govern platform
+                {{$t('gov.menu.governPlatform')}}
                 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
               </router-link>
             </div>
             <div>
               <router-link to="/gov/funding">
-                Funding
+                {{$t('gov.menu.funding')}}
                 <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
               </router-link>
             </div>

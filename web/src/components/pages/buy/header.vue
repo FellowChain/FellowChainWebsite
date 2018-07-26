@@ -4,12 +4,23 @@
     <div class="row">
       <div class="col-lg-12">
         <div class="introduce margin" v-if="this.$store.getters.basicData.isEnabled">
-          <h1>Available to buy:</h1>
-          <h2>{{availableToBuy}}</h2>
+          <h1>
+            {{$t('buy.logon.title')}}
+          </h1>
+          <h2>
+            {{availableToBuy}}
+          </h2>
         </div>
         <div class="introduce margin" v-else-if="!this.$store.getters.basicData.isEnabled">
-          <h1>Buy your first</h1>
-          <h2>Fellows <span class="label">tokens</span></h2>
+          <h1>
+            {{$t('buy.logoff.title')}}
+          </h1>
+          <h2>
+            {{$t('buy.logoff.description')}}
+            <span class="label">
+              {{$t('buy.logoff.label')}}
+            </span>
+          </h2>
         </div>
       </div>
     </div>
