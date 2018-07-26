@@ -4,7 +4,8 @@
     "industry": "Learn More",
     "joinus": "Join Us",
     "governance": "Governance",
-    "open": "Open platform"
+    "open": "Open platform",
+    "team": "Team"
   },
   "introduction": {
     "title": "Build transparent mutual insurance community on blockchain with",
@@ -82,7 +83,34 @@
   },
   "tokenDetails": {
     "title": "Token details",
-    "description": ""
+    "description": "",
+    "info": {
+      "name": {
+        "title": "Name",
+        "desc": "Fellows"
+      },
+      "symbol": {
+        "title": "Symbol",
+        "desc": "FLS"
+      },
+      "supply": {
+        "title": "Supply",
+        "desc": "20 000 000 FLS"
+      },
+      "price": {
+        "title": "Price",
+        "desc": "≈ 0.2$ (1 POE)"
+      },
+      "platform": {
+        "title": "Platform",
+        "desc": "Ethereum"
+      }
+    },
+    "whitepaper": {
+      "title": "Whitepaper",
+      "description": "Read our whitepaper!",
+      "href": "Read whitepaper"
+    }
   },
   "finances": {
     "title": "Token Economy",
@@ -111,7 +139,8 @@
   "productReady": {
     "title": "Product ready",
     "label": "Platform prototype",
-    "description": ""
+    "description": "",
+    "soon": "Coming soon!"
   },
   "community": {
     "title": "Our community",
@@ -178,5 +207,20 @@
       "description": "Ipsum!",
       "open": false
     }
-  ]
+  ],
+  "team": {
+    "title": "meet our awesome team!",
+    "github": "Github",
+    "persons": {
+      "adamS": "Adam Skrodzki",
+      "davidM": "David Mierzwiński"
+    },
+    "roles": {
+      "some": "Role"
+    }
+  },
+  "email": {
+    "title": "More questions?",
+    "description": "Write to us!"
+  }
 }

@@ -1,5 +1,6 @@
 <template>
   <div id="app" v-loading.fullscreen.lock="isLoading">
+    <vue-progress-bar></vue-progress-bar>
     <div class="global-wrapper">
       <div class="container">
         <div class="row">
@@ -18,13 +19,13 @@
                     <a class="nav-link" href="#/prod">{{ $t('menu.products')}}</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#/learn">{{ $t('menu.industry')}}</a>
-                  </li>
-                  <li class="nav-item">
                     <a class="nav-link" href="#/join">{{ $t('menu.joinus')}}</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="#/gov">{{ $t('menu.governance')}}</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#/team">{{ $t('menu.team')}}</a>
                   </li>
                 </ul>
                 <ul class="navbar-nav mr-auto pull-right navbar-right">
@@ -65,6 +66,7 @@
                     <li><a href="#/learn">{{ $t('menu.industry')}}</a></li>
                     <li><a href="#/join">{{ $t('menu.joinus')}}</a></li>
                     <li><a href="#/gov">{{ $t('menu.governance')}}</a></li>
+                    <li><a href="#/team">{{ $t('menu.team')}}</a></li>
                   </ul>
                 </div>
               </div>
@@ -77,14 +79,13 @@
 </template>
 
 <script>
-import siteFooter from '@/components/Footer'
-import noMetamask from '@/components/NoMetamask'
 import notAuthorised from '@/components/NotAuthorised'
 
 import i18next from 'i18next'
 import VueI18n from 'vue-i18n'
 import Vue from 'vue'
 import Tooltip from 'vue-directive-tooltip';
+import VueProgressBar from 'vue-progressbar'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "font-awesome/css/font-awesome.css";
@@ -93,8 +94,13 @@ import "vue-directive-tooltip/css/index.css";
 
 Vue.use(Tooltip);
 Vue.use(VueI18n);
+Vue.use(VueProgressBar, {
+  color: 'rgb(255, 255, 255)',
+  failedColor: 'red',
+  height: '2px'
+});
 
-  const i18n = new VueI18n({
+const i18n = new VueI18n({
   locale: 'en',
   messages: {
     en: require('@/langs/en.json')
@@ -109,7 +115,21 @@ export default {
       return this.$store.getters['loading/isLocked'];
     }
   },
-  i18n: i18n
+  i18n: i18n,
+  mounted() {
+    this.$Progress.start();
+    this.$router.beforeEach((to, from, next) => {
+      if (to.meta.progress !== undefined) {
+        this.$Progress.parseMeta(to.meta.progress)
+      }
+      this.$Progress.start();
+      next()
+    });
+
+    this.$router.afterEach(() => {
+      this.$Progress.finish()
+    })
+  }
 }
 
 </script>

@@ -100,19 +100,34 @@
                     </div>
                     <div class="col-lg-7 col-md-4 col-sm-4 token">
                       <span>
-                        <strong>Name</strong> Fellows
+                        <strong>
+                          {{$t('tokenDetails.info.name.title')}}
+                        </strong>
+                        {{$t('tokenDetails.info.name.desc')}}
                       </span>
-                          <span>
-                        <strong>Symbol</strong> FEL
+                      <span>
+                        <strong>
+                          {{$t('tokenDetails.info.symbol.title')}}
+                        </strong>
+                        {{$t('tokenDetails.info.symbol.desc')}}
                       </span>
-                          <span>
-                        <strong>Supply</strong> 20 000 000 FLS
+                      <span>
+                        <strong>
+                          {{$t('tokenDetails.info.supply.title')}}
+                        </strong>
+                        {{$t('tokenDetails.info.supply.desc')}}
                       </span>
-                          <span>
-                        <strong>Price</strong> ≈ 0.2$ (1 POE)
+                      <span>
+                        <strong>
+                          {{$t('tokenDetails.info.price.title')}}
+                        </strong>
+                        {{$t('tokenDetails.info.price.desc')}}
                       </span>
-                          <span>
-                        <strong>Platform</strong> Ethereum
+                      <span>
+                        <strong>
+                          {{$t('tokenDetails.info.platform.title')}}
+                        </strong>
+                        {{$t('tokenDetails.info.platform.desc')}}
                       </span>
                     </div>
                   </div>
@@ -124,10 +139,16 @@
                         <i class="fa fa-book fa-4x"></i>
                       </div>
                       <div class="col-lg-9">
-                        <h4>Whitepaper</h4>
-                        <p>Read our whitepaper!</p>
+                        <h4>
+                          {{$t('tokenDetails.whitepaper.title')}}
+                        </h4>
+                        <p>
+                          {{$t('tokenDetails.whitepaper.description')}}
+                        </p>
                         <div>
-                          <a href="/">Read whitepaper</a>
+                          <a href="/">
+                            {{$t('tokenDetails.whitepaper.href')}}
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -207,7 +228,7 @@
                 <div class="col-lg-12 height100">
                   <div class="about height100">
                     <h1>
-                      Coming soon!
+                      {{ $t('productReady.soon') }}
                     </h1>
                   </div>
                 </div>
@@ -364,19 +385,15 @@
                           <i class="fa fa-envelope-o fa-4x"></i>
                         </div>
                         <div class="col-lg-9">
-                          <h4>More questions?</h4>
-                          <p>Write to us!</p>
-                          <div class="input">
-                            <input class="control on-bg full" placeholder="Your e-mail">
-                          </div>
-                          <div class="input">
-                            <textarea class="control on-bg full" placeholder="Your message">
-
-                            </textarea>
-                          </div>
-                          <div>
-                            <a href="/">Send</a>
-                          </div>
+                          <h4>
+                            {{$t('email.title')}}
+                          </h4>
+                          <p>
+                            {{$t('email.description')}}
+                          </p>
+                        </div>
+                        <div class="col-lg-12">
+                          <a href="mailto:contact@fellows.network" style="width:100%;">contact@fellows.network</a>
                         </div>
                       </div>
                     </div>

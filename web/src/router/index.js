@@ -3,7 +3,7 @@ import Router from 'vue-router'
 
 Vue.use(Router);
 
-export default new Router({
+let router = new Router({
   routes: [
     {
       path: '/',
@@ -19,6 +19,14 @@ export default new Router({
       components: {
         header: () => import('@/components/pages/buy/header'),
         main: () => import('@/components/pages/buy/main')
+      }
+    },
+    {
+      path: '/team',
+      name: '',
+      components: {
+        header: () => import('@/components/pages/team/header'),
+        main: () => import('@/components/pages/team/main')
       }
     },
     {
@@ -160,4 +168,6 @@ export default new Router({
       ]
     }
   ]
-})
+});
+
+export default router;
