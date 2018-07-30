@@ -55,7 +55,7 @@
             <div class="footer">
               <div class="row">
                 <div class="col-lg-1 col-md-1 col-sm-12 offset-lg-0 offset-md-0 logo">
-                  <img src="/static/icon-small.jpg" width="50">
+                  <img src="/static/fav/apple-icon-114x114.png" width="50">
                 </div>
                 <div class="col-lg-2 col-md-2 col-sm-12 desc">
                   All rights reserved by <a href="#">Fellows.network</a>
