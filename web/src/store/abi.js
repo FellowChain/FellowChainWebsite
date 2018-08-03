@@ -1,200 +1,54 @@
 
 const abi={
-  NameRegistry:[{
-    "constant": true,
-    "inputs": [
-      {
-        "name": "_adr",
-        "type": "string"
-      }
-    ],
-    "name": "getAddress",
-    "outputs": [
-      {
-        "name": "",
-        "type": "address"
-      }
-    ],
-    "payable": false,
-    "stateMutability": "view",
-    "type": "function"
-  }],
-  Token:[
+  NameRegistry:[
     {
-      "constant": true,
-      "inputs": [],
-      "name": "mintingFinished",
-      "outputs": [
+      "constant": false,
+      "inputs": [
         {
-          "name": "",
-          "type": "bool"
+          "name": "_adr",
+          "type": "string"
+        },
+        {
+          "name": "_cntrct",
+          "type": "address"
         }
       ],
+      "name": "setAddress",
+      "outputs": [],
       "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
       "constant": true,
-      "inputs": [],
-      "name": "name",
-      "outputs": [
+      "inputs": [
         {
-          "name": "",
+          "name": "_adr",
           "type": "string"
         }
       ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
+      "name": "getAddress",
+      "outputs": [
         {
-          "name": "_spender",
+          "name": "",
           "type": "address"
-        },
-        {
-          "name": "_value",
-          "type": "uint256"
-        }
-      ],
-      "name": "approve",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "totalSupply",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
         }
       ],
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_from",
-          "type": "address"
-        },
-        {
-          "name": "_to",
-          "type": "address"
-        },
-        {
-          "name": "_value",
-          "type": "uint256"
-        }
-      ],
-      "name": "transferFrom",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "DECIMALS",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "decimals",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_to",
-          "type": "address"
-        },
-        {
-          "name": "_amount",
-          "type": "uint256"
-        }
-      ],
-      "name": "mint",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_spender",
-          "type": "address"
-        },
-        {
-          "name": "_subtractedValue",
-          "type": "uint256"
-        }
-      ],
-      "name": "decreaseApproval",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
+    }
+  ],
+  Token:[
     {
       "constant": true,
       "inputs": [
         {
-          "name": "_owner",
+          "name": "",
           "type": "address"
         }
       ],
-      "name": "balanceOf",
+      "name": "endTime",
       "outputs": [
         {
           "name": "",
@@ -215,20 +69,6 @@ const abi={
       "type": "function"
     },
     {
-      "constant": false,
-      "inputs": [],
-      "name": "finishMinting",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
       "inputs": [],
       "name": "owner",
@@ -244,12 +84,17 @@ const abi={
     },
     {
       "constant": true,
-      "inputs": [],
-      "name": "symbol",
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "amount",
       "outputs": [
         {
           "name": "",
-          "type": "string"
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -257,64 +102,9 @@ const abi={
       "type": "function"
     },
     {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_to",
-          "type": "address"
-        },
-        {
-          "name": "_value",
-          "type": "uint256"
-        }
-      ],
-      "name": "transfer",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_spender",
-          "type": "address"
-        },
-        {
-          "name": "_addedValue",
-          "type": "uint256"
-        }
-      ],
-      "name": "increaseApproval",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
-      "inputs": [
-        {
-          "name": "_owner",
-          "type": "address"
-        },
-        {
-          "name": "_spender",
-          "type": "address"
-        }
-      ],
-      "name": "allowance",
+      "inputs": [],
+      "name": "_totalLocked",
       "outputs": [
         {
           "name": "",
@@ -340,7 +130,12 @@ const abi={
       "type": "function"
     },
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "_t",
+          "type": "address"
+        }
+      ],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "constructor"
@@ -350,22 +145,33 @@ const abi={
       "inputs": [
         {
           "indexed": true,
-          "name": "to",
+          "name": "_benef",
           "type": "address"
         },
         {
           "indexed": false,
-          "name": "amount",
+          "name": "value",
           "type": "uint256"
         }
       ],
-      "name": "Mint",
+      "name": "DonationPayed",
       "type": "event"
     },
     {
       "anonymous": false,
-      "inputs": [],
-      "name": "MintFinished",
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_benef",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "DonationPayedEth",
       "type": "event"
     },
     {
@@ -398,62 +204,79 @@ const abi={
       "type": "event"
     },
     {
-      "anonymous": false,
-      "inputs": [
+      "constant": true,
+      "inputs": [],
+      "name": "getTotalLocked",
+      "outputs": [
         {
-          "indexed": true,
-          "name": "owner",
-          "type": "address"
-        },
-        {
-          "indexed": true,
-          "name": "spender",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "name": "value",
-          "type": "uint256"
+          "name": "",
+          "type": "uint64"
         }
       ],
-      "name": "Approval",
-      "type": "event"
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     },
     {
-      "anonymous": false,
+      "constant": true,
       "inputs": [
         {
-          "indexed": true,
-          "name": "from",
+          "name": "_adr",
           "type": "address"
-        },
-        {
-          "indexed": true,
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "indexed": false,
-          "name": "value",
-          "type": "uint256"
         }
       ],
-      "name": "Transfer",
-      "type": "event"
+      "name": "getLockedAmount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint64"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     },
     {
       "constant": false,
       "inputs": [
         {
-          "name": "_a",
+          "name": "_for",
           "type": "address"
         },
         {
-          "name": "amount",
+          "name": "_untilTime",
           "type": "uint256"
         }
       ],
-      "name": "burn",
+      "name": "postponeLock",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "person",
+          "type": "address"
+        }
+      ],
+      "name": "isWithdrawPossible",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "withdraw",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -462,7 +285,21 @@ const abi={
     {
       "constant": false,
       "inputs": [],
-      "name": "init",
+      "name": "lockAllForVoting",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "lockForVoting",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -1021,8 +858,16 @@ const abi={
       "name": "votingResults",
       "outputs": [
         {
-          "name": "",
-          "type": "address"
+          "name": "votesForSum",
+          "type": "uint64"
+        },
+        {
+          "name": "votesAgainstSum",
+          "type": "uint64"
+        },
+        {
+          "name": "endTime",
+          "type": "uint256"
         }
       ],
       "payable": false,
@@ -1059,12 +904,16 @@ const abi={
       "name": "calls",
       "outputs": [
         {
-          "name": "data",
-          "type": "bytes"
-        },
-        {
           "name": "adr",
           "type": "address"
+        },
+        {
+          "name": "isExecuted",
+          "type": "bool"
+        },
+        {
+          "name": "data",
+          "type": "bytes"
         },
         {
           "name": "val",
@@ -1073,14 +922,6 @@ const abi={
         {
           "name": "method",
           "type": "string"
-        },
-        {
-          "name": "hash",
-          "type": "bytes32"
-        },
-        {
-          "name": "isExecuted",
-          "type": "bool"
         }
       ],
       "payable": false,
@@ -1167,11 +1008,6 @@ const abi={
           "indexed": false,
           "name": "time",
           "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "name": "votingContract",
-          "type": "address"
         }
       ],
       "name": "VotingRegistered",
@@ -1181,17 +1017,24 @@ const abi={
       "anonymous": false,
       "inputs": [
         {
-          "indexed": false,
+          "indexed": true,
           "name": "idx",
           "type": "uint256"
-        },
-        {
-          "indexed": false,
-          "name": "voting",
-          "type": "address"
         }
       ],
       "name": "DecisionExecuted",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "idx",
+          "type": "uint256"
+        }
+      ],
+      "name": "DecisionDeclined",
       "type": "event"
     },
     {
@@ -1252,7 +1095,26 @@ const abi={
     },
     {
       "constant": false,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "_votesLocker",
+          "type": "address"
+        }
+      ],
+      "name": "updateLocker",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_span",
+          "type": "uint32"
+        }
+      ],
       "name": "init",
       "outputs": [],
       "payable": false,
@@ -1339,6 +1201,39 @@ const abi={
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "idx",
+          "type": "uint256"
+        }
+      ],
+      "name": "isAccepted",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "idx",
+          "type": "uint256"
+        }
+      ],
+      "name": "cancel",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
@@ -1358,10 +1253,6 @@ const abi={
         {
           "name": "_method",
           "type": "string"
-        },
-        {
-          "name": "hash",
-          "type": "bytes32"
         },
         {
           "name": "idx",
@@ -1425,7 +1316,7 @@ const abi={
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
       "inputs": [
         {
           "name": "_adr",
@@ -1440,11 +1331,11 @@ const abi={
       "outputs": [
         {
           "name": "",
-          "type": "uint64"
+          "type": "uint256"
         }
       ],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
@@ -1457,10 +1348,6 @@ const abi={
         {
           "name": "_adr",
           "type": "address"
-        },
-        {
-          "name": "_val",
-          "type": "uint256"
         }
       ],
       "name": "registerNewCall",

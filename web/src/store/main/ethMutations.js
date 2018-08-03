@@ -24,7 +24,7 @@ var ethMutations = {
     }
     if(state.networkId  === 99){
       state.explorerUrl = "https://poaexplorer.com/address/";
-      state.contracts.NameRegistry = "0x822b1a8323d1cdecd898f109bddb6b5452b45814";
+      state.contracts.NameRegistry = "0xacb56003317149a5985326409e74c99ee3b46ac4";
       state.isEnabled = true ;
     }
     if(state.networkId  === 3){//ropsten
@@ -34,7 +34,7 @@ var ethMutations = {
     }
     if(state.networkId  === 4){//rinkeby
       state.explorerUrl = "https://rinkeby.etherscan.io/address/";
-      state.contracts.NameRegistry = "0x93b5255ecd6422a2d15da111aee997cca9beebee";
+      state.contracts.NameRegistry = "0x8d5a3ff77490cb6e07cca66233c0688035925000";
       state.isEnabled = true ;
     }
   },

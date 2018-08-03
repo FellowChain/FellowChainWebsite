@@ -26,7 +26,7 @@ import loadingMod from './loading/loading'
           }
           else{
             if(vWrkr===undefined){
-              vWrkr = voteWorker(votingStore,web3i.contracts.Voting,0);
+              vWrkr = voteWorker(votingStore,web3i.contracts.Voting,abi,undefined);
             }
             if(web3i.latestBlock !== web3i.prevBlock){
 
