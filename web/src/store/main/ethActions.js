@@ -1,6 +1,5 @@
 
-import abi from './../abi'
-import voteWorker from './../voting/web3vote'
+var ethActionsFactory = function(abi){
 var ethActions = {
 
   setAuth:function(context){
@@ -120,6 +119,7 @@ var ethActions = {
   },
   buyTokens:function(context,amountOfEth){
     return new Promise((res,rej)=>{
+      console.log('Token Address ='+context.state.contracts.Token);
 
       web3.eth.sendTransaction({
           to:context.state.contracts.DevFund,
@@ -269,4 +269,6 @@ var ethActions = {
     //exchange your
   }
 };
-export default ethActions;
+return ethActions;
+}
+export default ethActionsFactory;

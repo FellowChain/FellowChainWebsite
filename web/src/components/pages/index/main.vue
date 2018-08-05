@@ -146,8 +146,8 @@
                           {{$t('tokenDetails.whitepaper.description')}}
                         </p>
                         <div>
-                          <a href="/">
-                            {{$t('tokenDetails.whitepaper.href')}}
+                          <a :href="$t('tokenDetails.whitepaper.href')">
+                            {{$t('tokenDetails.whitepaper.hrefTitle')}}
                           </a>
                         </div>
                       </div>
@@ -423,5 +423,9 @@
         faqs: require('@/langs/en.json').faqs
       }
     },
+    computed:{
+      wpHref () {
+      }
+    }
   }
 </script>

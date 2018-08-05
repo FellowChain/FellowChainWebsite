@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import web3i from './main/web3i'
+import abi from './abi'
+import web3iFactory from './main/web3i'
 import ethGetters from './main/ethGetters'
 import ethMutations from './main/ethMutations'
-import ethActions from './main/ethActions'
+import ethActionsFactory from './main/ethActions'
 import voteWorker from './voting/web3vote'
 import votingGetters from './voting/votingGetters'
 import firebase from './firebase/firebase'
 import loadingMod from './loading/loading'
-
 
     Vue.use(Vuex);
     var vWrkr = undefined;
@@ -26,7 +26,7 @@ import loadingMod from './loading/loading'
           }
           else{
             if(vWrkr===undefined){
-              vWrkr = voteWorker(votingStore,web3i.contracts.Voting,abi,undefined);
+              vWrkr = voteWorker(votingStore,web3i.contracts.Voting,0,abi,undefined);
             }
             if(web3i.latestBlock !== web3i.prevBlock){
 
@@ -40,6 +40,8 @@ import loadingMod from './loading/loading'
       }
     }
   },1000);
+
+  var web3i = web3iFactory(abi);
 export const store = new Vuex.Store({
   modules:{
     web3:
@@ -47,7 +49,7 @@ export const store = new Vuex.Store({
         state:web3i,
         getters:ethGetters,
         mutations:ethMutations,
-        actions: ethActions
+        actions: ethActionsFactory(abi)
       },
     firebase:firebase,
     loading:loadingMod,

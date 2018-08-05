@@ -62,29 +62,7 @@
             <button type="submit" class="filled">Submit</button>
           </div>
         </form>
-        <div class="summary">
-          <div class="row">
-            <div class="col-lg-12 tip">
-              <span>
-                <i class="fa fa-question-circle" aria-hidden="true"></i>
-                Your FLS tokens summary.
-                This summary is from your metamask which is currently active.
-              </span>
-            </div>
-            <div class="col-lg-6">
-              <h1>{{userTotalBalance}}</h1>
-              <span>
-                Tokens balance
-              </span>
-            </div>
-            <div class="col-lg-6">
-              <h1>{{userLockedBalance}}</h1>
-              <span>
-                Tokens locked for voting
-              </span>
-            </div>
-          </div>
-        </div>
+        <TokensAmounts isAllowVisible="false"></TokensAmounts>
       </div>
     </div>
     <metamask-widget-off v-else-if="!this.$store.getters.basicData.isEnabled"></metamask-widget-off>
@@ -95,6 +73,7 @@
   import Vue from 'vue';
   import MetamaskWidgetOn from "../../global/metamaskWidgetOn";
   import MetamaskWidgetOff from "../../global/metamaskWidgetOff";
+  import TokensAmounts from "../../global/tokensAmounts";
   import VeeValidate from 'vee-validate';
 
   Vue.use(VeeValidate);
@@ -102,7 +81,8 @@
   export default {
     components: {
       MetamaskWidgetOn,
-      MetamaskWidgetOff
+      MetamaskWidgetOff,
+      TokensAmounts
     },
     name: 'buyMain',
     data () {

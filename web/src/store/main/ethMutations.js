@@ -17,6 +17,11 @@ var ethMutations = {
   setNetwork:function(state,netId){
     state.networkId = parseInt(netId) ;
     state.isEnabled = false ;
+    if(state.networkId === 1533484773416){
+        state.explorerUrl = "https://poaexplorer.com/address/";
+        state.contracts.NameRegistry = "0xd649c72656fa919135a1915281c40b24961e47bc";
+        state.isEnabled = true ;
+    }
     if(state.networkId  === 77){
       state.explorerUrl = "https://sokol-explorer.poa.network/account/";
       state.contracts.NameRegistry = "";

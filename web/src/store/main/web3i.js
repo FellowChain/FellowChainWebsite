@@ -1,7 +1,6 @@
 
-import abi from './../abi'
   var canWithdraw = function(lockerAddr,userAddr){
-      var token = web3.eth.contract(abi.Locker);
+      var token = web3.eth.contract(this.abi.Locker);
       var instance  = token.at(lockerAddr);
       return new Promise ((res,rej)=>{
         instance.isWithdrawPossible(userAddr,function(e,v){
@@ -15,7 +14,7 @@ import abi from './../abi'
       });
   }
   var getAddress = function(key,regAdr){
-    var nameReg = web3.eth.contract(abi.NameRegistry);
+    var nameReg = web3.eth.contract(this.abi.NameRegistry);
     var instance  = nameReg.at(regAdr);
     return new Promise ((res,rej)=>{
 
@@ -30,7 +29,7 @@ import abi from './../abi'
     });
   }
   var balanceOf = function(queriedAddress,tokAddr){
-    var token = web3.eth.contract(abi.Token);
+    var token = web3.eth.contract(this.abi.Token);
     var instance  = token.at(tokAddr);
     return new Promise ((res,rej)=>{
       instance.decimals(function(e,dec){
@@ -50,7 +49,7 @@ import abi from './../abi'
   }
 
   var allowenceOf = function(queriedAddress,allowedAddress,tokAddr){
-    var token = web3.eth.contract(abi.Token);
+    var token = web3.eth.contract(this.abi.Token);
     var instance  = token.at(tokAddr);
     return new Promise ((res,rej)=>{
       instance.decimals(function(e,dec){
@@ -70,7 +69,7 @@ import abi from './../abi'
   }
 
   var totalSupply = function(tokAddr){
-    var token = web3.eth.contract(abi.Token);
+    var token = web3.eth.contract(this.abi.Token);
     var instance  = token.at(tokAddr);
     return new Promise ((res,rej)=>{
 
@@ -88,7 +87,7 @@ import abi from './../abi'
   }
 
   var lockEndTime = function(queriedAddress,lockerAdr){
-    var lockerCntrct = web3.eth.contract(abi.Locker);
+    var lockerCntrct = web3.eth.contract(this.abi.Locker);
     var instance  = lockerCntrct.at(lockerAdr);
 
     return new Promise ((res,rej)=>{
@@ -104,9 +103,9 @@ import abi from './../abi'
       });
   }
   var amountLocked = function(queriedAddress,lockerAdr,tokenAdr){
-    var lockerCntrct = web3.eth.contract(abi.Locker);
+    var lockerCntrct = web3.eth.contract(this.abi.Locker);
     var instance  = lockerCntrct.at(lockerAdr);
-      var tokenCntrct = web3.eth.contract(abi.Token);
+      var tokenCntrct = web3.eth.contract(this.abi.Token);
       var instanceT  = tokenCntrct.at(tokenAdr);
     return new Promise ((res,rej)=>{
       instanceT.decimals(function(e,dec){
@@ -123,7 +122,7 @@ import abi from './../abi'
     });
   }
   var getPrice = function(devAddr){
-    var nameReg = web3.eth.contract(abi.DevFund);
+    var nameReg = web3.eth.contract(this.abi.DevFund);
     var instance  = nameReg.at(devAddr);
     return new Promise ((res,rej)=>{
 
@@ -138,31 +137,33 @@ import abi from './../abi'
     });
   }
 
-  var web3i = {
-    isEnabled:false,
-    pendingTx:[],
-    contracts:{
-      getRegistryAddress:getAddress,
-      tokenBalanceOf:balanceOf,
-      tokenTotalSupply:totalSupply,
-      amountLocked:amountLocked,
-      lockEndTime:lockEndTime,
-      allowenceOf:allowenceOf,
-      getPrice:getPrice,
-      canWithdraw:canWithdraw
-    },
-    inProcess:false,
-    prevBlock:2,
-    latestBlock:2,
-    explorerUrl:"https://sokol-explorer.poa.network/account/",
-    currentAddress:"0x94da43c587c515ad30ea86a208603a7586d2c25f",
-    tokensBalance:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
-    exitPrice:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
-    votingPower:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
-    totalToBuy:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
-    price:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
-    devAllowence:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
-    lockEndTime:((typeof web3 ==="undefined")?0:new web3.BigNumber("0"))
+  var web3iFactory = function(abi){
+    var web3i = {
+      isEnabled:false,
+      pendingTx:[],
+      contracts:{
+        getRegistryAddress:getAddress.bind({abi:abi}),
+        tokenBalanceOf:balanceOf.bind({abi:abi}),
+        tokenTotalSupply:totalSupply.bind({abi:abi}),
+        amountLocked:amountLocked.bind({abi:abi}),
+        lockEndTime:lockEndTime.bind({abi:abi}),
+        allowenceOf:allowenceOf.bind({abi:abi}),
+        getPrice:getPrice.bind({abi:abi}),
+        canWithdraw:canWithdraw.bind({abi:abi})
+      },
+      inProcess:false,
+      prevBlock:2,
+      latestBlock:2,
+      explorerUrl:"https://sokol-explorer.poa.network/account/",
+      currentAddress:"0x94da43c587c515ad30ea86a208603a7586d2c25f",
+      tokensBalance:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+      exitPrice:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+      votingPower:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+      totalToBuy:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+      price:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+      devAllowence:((typeof web3 ==="undefined")?0:new web3.BigNumber("0")),
+      lockEndTime:((typeof web3 ==="undefined")?0:new web3.BigNumber("0"))
+    }
+    return web3i;
   }
-
-  export default web3i;
+  export default web3iFactory;

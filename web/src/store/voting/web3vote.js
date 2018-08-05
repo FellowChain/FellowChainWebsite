@@ -6,7 +6,14 @@ if(decimals===undefined){
 }
 
 var contract = web3.eth.contract(abi.Voting).at(voteAdr);
+    var events = contract.allEvents();
 
+    // watch for changes
+    events.watch(function(error, event){
+      if (!error)
+        console.log("New Event");
+        console.log(event);
+    });
     var watchers = {
 
     }
@@ -27,10 +34,11 @@ var contract = web3.eth.contract(abi.Voting).at(voteAdr);
       var votesAgainst = 0;
       var mainVotingC = web3.eth.contract(abi.Voting).at(voteAdr);
       var proposalVotingC = web3.eth.contract(abi.Voting).at(proposalVotingCntAddr);
+
       mainVotingC.calls(idx,function(e,val){
-        el.fullName = val[3];
-        el.hash = val[4];
-        el.isExecuted = val[5];
+        el.fullName = val[4];
+        el.val = val[3].toString();
+        el.isExecuted = val[1];
         el.isExecuted = el.isExecuted.toString();
       });
       mainVotingC.votingResults(idx,function(e,val){
@@ -52,7 +60,7 @@ var contract = web3.eth.contract(abi.Voting).at(voteAdr);
         console.log("Vote for "+this.callIdx.toNumber());
           console.log("Vote for addr "+mainVotingC.address);
         mainVotingC.vote(this.callIdx.toNumber(),true,function(e,v){
-
+          console.log(JSON.stringify(arguments));
           if(callback!=undefined){
             callback(e,v);
           }

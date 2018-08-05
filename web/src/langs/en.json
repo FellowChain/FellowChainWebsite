@@ -108,6 +108,7 @@
     },
     "whitepaper": {
       "title": "Whitepaper",
+      "hrefTitle":"Read Here",
       "description": "Read our whitepaper!",
       "href": "https://docs.google.com/document/d/1RywQRj85IaAaASN0334AgIIqeRTcpZvrfdlHMV6YO_8/edit?usp=sharing"
     }
@@ -238,6 +239,11 @@
       "vote": "Vote",
       "governPlatform": "Govern platform",
       "funding": "Funding"
+    },
+    "manageTokens":{
+      "lock":"Lock Tokens",
+      "unlock":"Unlock Tokens",
+      "approve":"Approve Locker"
     },
     "sub": {
       "funding": {

@@ -21,11 +21,18 @@
       <p>
         To request money (POA or FLS) from Development Fund Smart Contract go to "<a href="#/gov/funding">Governance>Funding</a>".It is highly adviced to start discussion about your reward <a href="https://github.com/FellowChain/Administration" >here</a> first
       </p>
+      <p>
+      <TokensAmounts isAllowVisible="true"></TokensAmounts>
+      </p>
     </div>
   </div>
 </template>
 <script>
+  import TokensAmounts from "../../../global/tokensAmounts";
   export default {
+    components:{
+      TokensAmounts
+    },
     name: 'govWelcome',
   }
 </script>
