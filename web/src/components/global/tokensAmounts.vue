@@ -93,7 +93,9 @@
     },
     computed: {
       isVisible(){
-        return this.isAllowVisible;
+        console.log('isAllowVisible='+this.isAllowVisible);
+        console.log('isAllowVisible Type='+typeof(this.isAllowVisible)+' '+(this.isAllowVisible==="true").toString());
+        return this.isAllowVisible==="true";
       },
 
       userLockedBalance() {

@@ -29,9 +29,9 @@ var ethMutations = {
     }
     if(state.networkId  === 99){
       state.explorerUrl = "https://poaexplorer.com/address/";
-      state.contracts.NameRegistry = "0xacb56003317149a5985326409e74c99ee3b46ac4";
+      state.contracts.NameRegistry = "0x29db16e486f2dd58261c1a82057d672aa7593a1b";
       state.isEnabled = true ;
-    }
+    } 
     if(state.networkId  === 3){//ropsten
       state.explorerUrl = "https://ropsten.etherscan.io/address/";
       state.contracts.NameRegistry = "0xe74b435173995927d2086f9763831d227a03ac10";
@@ -39,7 +39,7 @@ var ethMutations = {
     }
     if(state.networkId  === 4){//rinkeby
       state.explorerUrl = "https://rinkeby.etherscan.io/address/";
-      state.contracts.NameRegistry = "0x8d5a3ff77490cb6e07cca66233c0688035925000";
+      state.contracts.NameRegistry = "0x863167949fd5b6217610cd54e1ca87d1df2afcbd";
       state.isEnabled = true ;
     }
   },

@@ -422,10 +422,6 @@
       return {
         faqs: require('@/langs/en.json').faqs
       }
-    },
-    computed:{
-      wpHref () {
-      }
     }
   }
 </script>
