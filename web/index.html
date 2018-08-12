@@ -25,15 +25,17 @@
   <body>
     <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
     <script>
-      firebase.initializeApp({
-        apiKey: "AIzaSyAeu8ZzDnxpfxX4Vk4NhqRMoJPAZvmEVLg",
-        authDomain: "fellowchain-network-test.firebaseapp.com",
-        databaseURL: "https://fellowchain-network-test.firebaseio.com",
-        projectId: "fellowchain-network-test",
-        storageBucket: "fellowchain-network-test.appspot.com",
-        messagingSenderId: "629261200660",
-        timestampsInSnapshots:true
-      });
+    var config = {
+      apiKey: "AIzaSyCOtrtY_HAUV5aqbfHK-1Op5bc3GbUyzHE",
+      authDomain: "fellowchain-network.firebaseapp.com",
+      databaseURL: "https://fellowchain-network.firebaseio.com",
+      projectId: "fellowchain-network",
+      storageBucket: "fellowchain-network.appspot.com",
+      messagingSenderId: "419288336072",
+      timestampsInSnapshots:true
+    };
+    firebase.initializeApp(config);
+
     </script>
     <div id="app"></div>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121630563-1"></script>
