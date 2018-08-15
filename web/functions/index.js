@@ -23,34 +23,36 @@ function init(){
         var address =  EthCrypto.recover(
                    sign,
                    EthCrypto.hash.keccak256(msgWithPrefix));
-  //      console.log("address = "+address);
+        console.log("address = "+address);
         if(address.toLowerCase()==expAddress.toLowerCase()){
+          console.log("isSignatureValid true");
           resp(true);
         }
         else{
+          console.log("isSignatureValid false");
           rej(address);
         }
       });
     }
     generateKey =  function(key){
-    //  console.log("Generating key..."+key);
+      console.log("Generating key inner..."+key);
       return new Promise((res,rej)=>{
       //  var w3 = new Web3(web3.currentProvider);
-    //    console.log("hash value ="+(key+((new Date()).getTime())));
+        console.log("hash value ="+(key+((new Date()).getTime())));
         var authKey = web3.sha3(key+((new Date()).getTime()));
-        admin.firestore()
-         .collection("loggedUsers")
-         .doc(key)
+        admin.database()
+         .ref("loggedUsers")
+         .child(key)
          .set({
            authKey:authKey,
            address:key,
            date:(new Date()).getTime()+60000
          })
          .then((snapshot) => {
-      //     console.log("Generating key...done "+authKey);
+           console.log("Generating key...done "+authKey);
            res(authKey);
          }).catch(function(err){
-        //   console.log("Generating key...error "+err);
+           console.log("Generating key...error "+err);
            rej(err);
          });
       });
@@ -83,6 +85,7 @@ init();
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 if (!process.env.FUNCTION_NAME || process.env.FUNCTION_NAME === 'getVerificationKey') {
    var mod = require('./implementation/getVerificationKeyFactory');
+   console.log("getVerificationKey start ",new Date());
    exports.getVerificationKey = mod.getVerificationKeyFactory(web3,functions,admin,generateKey);
 }
 
