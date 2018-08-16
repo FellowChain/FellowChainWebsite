@@ -1,5 +1,5 @@
 <template>
-  <a href="#" class="clear" @click="logIn()">
+  <a href="#" class="clear" @click="logIn()" v-if="isNotAuthorised">
     <i class="fa fa-plus"></i>
     Sign In
   </a>
@@ -11,7 +11,7 @@ export default {
       return {
         form:{}
       }
-    },
+    }, 
     computed: {
       signedMessage(){
         return this.$store.getters.basicData.signedMessage;
@@ -21,6 +21,9 @@ export default {
         return ((uAuthData===undefined)?"":uAuthData.token);
       },
       firebaseAuth(){
+        return this.$store.getters["firebase/isAnonymous"];
+      },
+      isNotAuthorised(){
         return this.$store.getters["firebase/isAnonymous"];
       }
     },
