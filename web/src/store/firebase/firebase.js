@@ -25,6 +25,11 @@ var firebaseMod = {
         return x;
       }
     },
+    computed:{
+      isAnon(){
+        return this.$store.getters.loadedData;
+      }
+    },
     mutations:{
 
       setTokenValue:function(state,val){

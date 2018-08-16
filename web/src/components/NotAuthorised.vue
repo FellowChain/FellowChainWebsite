@@ -11,7 +11,7 @@ export default {
       return {
         form:{}
       }
-    }, 
+    },
     computed: {
       signedMessage(){
         return this.$store.getters.basicData.signedMessage;
@@ -20,15 +20,15 @@ export default {
         let uAuthData = this.$store.getters["firebase/userAuthData"];
         return ((uAuthData===undefined)?"":uAuthData.token);
       },
-      firebaseAuth(){
-        return this.$store.getters["firebase/isAnonymous"];
-      },
       isNotAuthorised(){
         return this.$store.getters["firebase/isAnonymous"];
       }
     },
     watch:{
-      firebaseToken(newV,oldV){
+      isNotAuthorised(newV,oldV){
+        
+      }
+      ,firebaseToken(newV,oldV){
         if(newV!==undefined && newV!==null && newV.toString().length>0)
         {
           firebase.auth().signInWithCustomToken(newV).then((usrCredentials) => {
