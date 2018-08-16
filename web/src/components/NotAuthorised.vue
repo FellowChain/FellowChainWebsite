@@ -26,7 +26,7 @@ export default {
     },
     watch:{
       isNotAuthorised(newV,oldV){
-        
+
       }
       ,firebaseToken(newV,oldV){
         if(newV!==undefined && newV!==null && newV.toString().length>0)
@@ -42,14 +42,17 @@ export default {
       signedMessage(newV){
         if(newV!==undefined && newV!==null && newV.toString().length>0)
         {
+          var that = this;
           let myAddress = this.$store.getters.basicData.userAccount;
           this.$http.get("/api/verifySignature?address="+myAddress+"&signature="+newV.toString())
             .then((resp) => {
             if(resp.body.status===true){
-              this.$store.dispatch('firebase/setToken',{
+              that.$store.dispatch('firebase/setToken',{
                 token:resp.body.value
               });
+              that.$store.dispatch('loading/unlock');
             }else{
+              that.$store.dispatch('loading/unlock');
               /*
               TODO: Error handling
               */
@@ -61,6 +64,8 @@ export default {
     methods: {
       logIn(){
         let myAddress = this.$store.getters.basicData.userAccount;
+        var that=this;
+        that.$store.dispatch('loading/lock');
         this.$http.get("/api/getVerificationKey?address="+myAddress)
           .then((apiKey) => {
             let textToSign = "Sign me in, SessionID:";
@@ -71,10 +76,13 @@ export default {
               })
             }
             else{
+            that.$store.dispatch('loading/unlock');
               /*
               TODO: Error handling
               */
             }
+        }).catch(()=>{
+          that.$store.dispatch('loading/unlock');
         });
       }
     },
