@@ -19,7 +19,7 @@
               </div>
               <div class="col-lg-9">
                 <h4>{{$t('team.persons.adamS')}}</h4>
-                <p>{{$t('team.roles.some')}}</p>
+                <p>{{$t('team.roles.BlockChainDeveloper')}}</p>
                 <div>
                   <a href="https://github.com/adamskrodzki" target="_blank"
                      :title="$t('team.github')">
@@ -38,7 +38,7 @@
               </div>
               <div class="col-lg-9">
                 <h4>{{$t('team.persons.davidM')}}</h4>
-                <p>{{$t('team.roles.some')}}</p>
+                <p>{{$t('team.roles.FrontEndDeveloper')}}</p>
                 <div>
                   <a href="https://github.com/dawidmierzwa95" target="_blank"
                      :title="$t('team.github')">
@@ -49,6 +49,25 @@
             </div>
           </div>
         </div>
+          <div class="col-lg-4">
+            <div class="window padding-right-short">
+              <div class="row">
+                <div class="col-lg-3">
+                  <img src="https://avatars3.githubusercontent.com/u/40950183?s=400&v=4" width="100%" class="rounded-circle">
+                </div>
+                <div class="col-lg-9">
+                  <h4>{{$t('team.persons.lukaszG')}}</h4>
+                  <p>{{$t('team.roles.BlockChainDeveloper')}}</p>
+                  <div>
+                    <a href="https://github.com/lukaszGrynasz" target="_blank"
+                       :title="$t('team.github')">
+                      {{$t('team.github')}}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
       </div>
     </div>
   </div>

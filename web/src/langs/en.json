@@ -212,10 +212,12 @@
     "github": "Github",
     "persons": {
       "adamS": "Adam Skrodzki",
+      "lukaszG": "Łukasz Grynasz",
       "davidM": "David Mierzwiński"
     },
     "roles": {
-      "some": "Role"
+      "FrontEndDeveloper": "FrontEnd Developer",
+      "BlockChainDeveloper": "Blockchain Developer"
     }
   },
   "email": {
