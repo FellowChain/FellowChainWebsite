@@ -20,7 +20,7 @@
     "font-awesome": "^4.7.0",
     "i18next": "^11.3.6",
     "metamask-logo": "^2.2.0",
-    "node-sass": "^4.9.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^7.0.3",
     "vee-validate": "^2.1.0-beta.6",
     "vue": "^2.5.2",
